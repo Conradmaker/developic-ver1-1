@@ -94,9 +94,10 @@ hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse,java
 
-# Ãß°¡
+# ï¿½ß°ï¿½
 .classpath
 .project
 .settings/
 /classes/
 /test-classes/
+/build/

@@ -101,3 +101,7 @@ hs_err_pid*
 /classes/
 /test-classes/
 /build/
+driver/
+/driver
+.driver/
+.driver

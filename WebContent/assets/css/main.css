@@ -1,0 +1,15 @@
+.main--banner {
+  width: 1300px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0 50px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  transition: all 0.3s;
+}
+
+.main--banner img {
+  display: flex;
+  align-items: center;
+}

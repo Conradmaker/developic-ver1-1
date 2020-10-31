@@ -1,13 +1,13 @@
-package com.kh.member.model.service;
+package com.dia.user.model.service;
 
-import static com.kh.common.JDBCTemplate.*;
+import static com.dia.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
-import com.kh.member.model.dao.MemberDao;
-import com.kh.member.model.vo.Member;
+import com.dia.user.model.dao.UserDao;
+import com.dia.user.model.vo.Users;
 
-public class MemberService {
+public class UserService {
 	
 	/**
 	 * 1. 로그인용 서비스
@@ -15,11 +15,11 @@ public class MemberService {
 	 * @param userPwd	사용자가 입력한 비밀번호값
 	 * @return			해당 아이디와 비밀번호가 일치하는 조회된 회원객체 / null
 	 */
-	public Member loginMember(String userId, String userPwd) {
+	public Users loginUsers(String userId, String userPwd) {
 		
 		Connection conn = /*JDBCTemplate.*/getConnection();
 		
-		Member loginUser = new MemberDao().loginMember(conn, userId, userPwd);
+		Users loginUser = new UsersDao().loginUsers(conn, userId, userPwd);
 		
 		/*JDBCTemplate.*/close(conn);
 		
@@ -32,11 +32,11 @@ public class MemberService {
 	 * @param m		사용자가입력한 아이디,비밀번호,이름,전화번호,이메일,주소,취미가 담겨있는 객체
 	 * @return		처리된 행 수
 	 */
-	public int insertMember(Member m) {
+	public int insertUsers(Users m) {
 		
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().insertMember(conn, m);
+		int result = new UsersDao().insertUsers(conn, m);
 		
 		if(result > 0) {
 			/*JDBCTemplate.*/commit(conn);
@@ -56,17 +56,17 @@ public class MemberService {
 	 * @param m		변경할 내용들+변경요청한회원의아이디 가 담겨있는 객체
 	 * @return		갱신된 회원 객체/null
 	 */
-	public Member updateMember(Member m) {
+	public Users updateUsers(Users m) {
 		
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().updateMember(conn, m);
+		int result = new UsersDao().updateUsers(conn, m);
 		
-		Member updateMem = null;
+		Users updateMem = null;
 		if(result > 0) { // update 성공 했을 경우
 			commit(conn);
 			// 갱신된 회원 다시 조회해오기
-			updateMem = new MemberDao().selectMember(conn, m.getUserId());
+			updateMem = new UsersDao().selectUsers(conn, m.getUserId());
 			
 		}else { // update 실패 했을 경우
 			rollback(conn);
@@ -85,18 +85,18 @@ public class MemberService {
 	 * @param updatePwd		변경할 비밀번호
 	 * @return				갱신된 회원객체/null
 	 */
-	public Member updatePwdMember(String userId, String userPwd, String updatePwd) {
+	public Users updatePwdUsers(String userId, String userPwd, String updatePwd) {
 		
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().updatePwdMember(conn, userId, userPwd, updatePwd);
+		int result = new UsersDao().updatePwdUsers(conn, userId, userPwd, updatePwd);
 		
-		Member updateMem = null;
+		Users updateMem = null;
 		if(result > 0) { // 비밀번호변경 성공
 			commit(conn);
 			
 			// 갱신된 회원 재 조회
-			updateMem = new MemberDao().selectMember(conn, userId);
+			updateMem = new UsersDao().selectUsers(conn, userId);
 			
 		}else { // 실패
 			rollback(conn);
@@ -113,10 +113,10 @@ public class MemberService {
 	 * @param userPwd	탈퇴요청한 회원의 비밀번호
 	 * @return			처리된 행수 
 	 */
-	public int deleteMember(String userId, String userPwd) {
+	public int deleteUsers(String userId, String userPwd) {
 		Connection conn = getConnection();
 		
-		int result = new MemberDao().deleteMember(conn, userId, userPwd);
+		int result = new UsersDao().deleteUsers(conn, userId, userPwd);
 		
 		if(result > 0) {
 			commit(conn);
@@ -133,7 +133,7 @@ public class MemberService {
 		
 		Connection conn = getConnection();
 		
-		int count = new MemberDao().idCheck(conn, checkId);
+		int count = new UsersDao().idCheck(conn, checkId);
 		
 		close(conn);
 		

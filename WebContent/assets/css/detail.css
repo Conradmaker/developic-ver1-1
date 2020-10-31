@@ -1,0 +1,32 @@
+main div {
+  border: 1px solid salmon;
+}
+.detail--title {
+  display: flex;
+}
+.detail--logo,
+.detail--nextBtn {
+  flex-wrap: wrap;
+  width: 100%;
+  height: 50px;
+}
+.detail--container {
+  display: flex;
+}
+.detail--body,
+.detail--navi {
+  flex-wrap: wrap;
+}
+.detail--body {
+  width: 90%;
+}
+.detail--navi {
+  width: 10%;
+}
+.detail--1 {
+  display: flex;
+}
+.detail--picture,
+.detail--price {
+  flex-wrap: flex;
+}

@@ -1,6 +1,16 @@
 main div {
   border: 1px solid salmon;
 }
+main {
+  padding: 10px;
+}
+.detail--title,
+.detail--1,
+.detail--2,
+.detail--3,
+.detail--navi {
+  margin: 10px;
+}
 .detail--title {
   display: flex;
 }
@@ -29,4 +39,6 @@ main div {
 .detail--picture,
 .detail--price {
   flex-wrap: flex;
+  width: 50%;
+  margin: 20px;
 }

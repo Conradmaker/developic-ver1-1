@@ -81,3 +81,35 @@ header .header--right i {
   line-height: 1.5;
   cursor: pointer;
 }
+
+.btn {
+  width: 150px;
+  height: 45px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  color: white;
+}
+.btn-yellow {
+  background: #ffca3e;
+  color: black;
+}
+.btn-green {
+  background: #006064;
+}
+.btn-pink {
+  background: #ed8074;
+}
+.btn-small {
+  width: 100px;
+  height: 35px;
+}
+.btn-long {
+  width: 200px;
+}

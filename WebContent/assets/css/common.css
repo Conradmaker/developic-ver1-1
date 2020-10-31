@@ -172,6 +172,3 @@ header .header--right i {
   border-bottom: 2px solid black;
   flex: 4;
 }
-.input-long input:focus {
-  width: 350px;
-}

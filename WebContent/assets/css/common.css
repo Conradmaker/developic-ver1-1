@@ -113,3 +113,65 @@ header .header--right i {
 .btn-long {
   width: 200px;
 }
+
+/* 라벨 */
+.label {
+  height: 35px;
+  font-size: 20px;
+  line-height: 1.5;
+  font-size: 25px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.label em {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: #ffca3e;
+}
+/* 타이틀 */
+.title {
+  width: 60px;
+  height: 60px;
+  background: #ffca3e;
+  position: relative;
+  margin: 20px 0;
+}
+.title h5 {
+  height: 60px;
+  position: absolute;
+  font-size: 27px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  left: 30px;
+}
+.input--box {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  width: 400px;
+}
+.input--box label {
+  font-size: 19px;
+  font-weight: bold;
+  flex: 1;
+}
+.input--box input {
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  flex: 3;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.input--box input:focus {
+  border-bottom: 2px solid black;
+  flex: 4;
+}
+.input-long input:focus {
+  width: 350px;
+}

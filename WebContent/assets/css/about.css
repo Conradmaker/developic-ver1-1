@@ -1,0 +1,120 @@
+.about--container {
+  width: 1100px;
+  margin: 0 auto;
+}
+.about--horizental-box {
+  width: 100%;
+  display: flex;
+  gap: 70px;
+}
+.about--horizental-box .left-section {
+  flex: 5;
+}
+.about--horizental-box .right-section {
+  flex: 1;
+}
+.gapper {
+  height: 70px;
+}
+
+/* 작가신청 */
+.apply-container {
+  height: 250px;
+  background-size: cover;
+  background-image: url("../images/apply.jpg");
+  position: relative;
+}
+.apply-container .inner-box {
+  width: 70%;
+  height: 80px;
+  background: #fff;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e5e5;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inner-box .summary h5 {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.inner-box .summary span {
+  font-size: 15px;
+}
+.about-list-title {
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+  padding: 10px;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.about-list-title h1 {
+  font-size: 17px;
+}
+.about-list-detail {
+  width: 100%;
+  padding: 0 10px;
+  height: 0px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  line-height: 1.5;
+  background: #fff;
+}
+.about-list-title:hover {
+  border-bottom: 1px solid #e5e5e5;
+}
+.about-list-title:hover + .about-list-detail {
+  padding: 10px;
+  transition: all 0.3s ease;
+  height: 200px;
+}
+.faq-and-qna {
+  display: flex;
+  gap: 20px;
+}
+.faq-and-qna .faq-box {
+  flex: 2;
+}
+.faq-and-qna .qna-box {
+  width: 300px;
+  background: #e5e5e5;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+}
+.qna-box span {
+  line-height: 1.6;
+  font-size: 18px;
+}
+.qna-box p {
+  margin: 50px 0 10px 0;
+  text-align: end;
+  font-size: 14px;
+}
+.qna-box div {
+  display: flex;
+  gap: 10px;
+}
+.about-right-nav {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 100px;
+}
+.about-right-nav li {
+  color: #707070;
+  line-height: 2.5;
+}
+.about-right-nav li:hover {
+  text-decoration: underline;
+}

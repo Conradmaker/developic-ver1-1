@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../assets/css/index.css" />
     <link rel="stylesheet" href="../../assets/css/common.css" />
     <link rel="stylesheet" href="../../assets/css/detail.css" />
+    <script src="../../assets/js/detail.js"></script>
   </head>
   <body>
     <header class="header--container">
@@ -36,32 +37,63 @@
 
       <!-- 여기에 컨텐츠 작성 -->
 
-      <div class="detail--title">
-        <!-- detail 로고랑 오른쪽에 >next 들어가는 영역 -->
-        <div class="detail--logo">ㅁdetail</div>
-        <a class="detail--nextBtn">NEXT &gt;</a>
-      </div>
-
       <div class="detail--container" style="border: 0px">
-        <!-- 상세 (detail--body)                           |          네이게이션바(detail--navi) -->
         <div class="detail--body">
-          <div class="detail--1">
-            <!-- 사진꺼 (detail--picture) -->
-            <img
-              class="detail--picture"
-              src="../../assets/images/logo.png"
-              alt=""
-            />
-            <div class="detail--price">
-              <!-- 가격정보 (detail--price) -->
-              <h1>Last Article</h1>
-              <br />
-              <h2>Yoo Won Geun</h2>
-              <a href="#">More Picture &gt;</a>
-              <br /><br />
-              <h2>2020-09-26</h2>
-              <p>9,000,000\</p>
+          <div class="detail--title">
+            <!-- detail 로고랑 오른쪽에 >next 들어가는 영역 -->
+            <div class="title">
+              <h5>DETAIL</h5>
             </div>
+            <a href="#">NEXT &gt;</a>
+            <!-- <a href="#">&lt; BACK</a> -->
+          </div>
+
+          <!-- 상세 (detail--body)                           |          네이게이션바(detail--navi) -->
+          <div class="detail--1">
+            <div class="detail--1L">
+              <div class="detail--imageWrapper">
+                <!-- 사진꺼 (detail--picture) -->
+
+                <!-- ** 가로가 세로보다 긴 사진일때 ** -->
+                <!-- <img src="../../assets/images/logo.png" id="detailThumbnail" /> -->
+                <!-- width="600px"
+                height="300px"
+              /> -->
+
+                <!-- ** 세로가 가로보다 긴 사진일때 ** -->
+              </div>
+              <div class="detail--label">
+                <label>♡ 304</label>
+                <label>⚠ 신고</label>
+              </div>
+            </div>
+            <div class="detail--1R">
+              <!-- 가격정보 (detail--price) -->
+              <span>
+                <h2>Last Article</h2>
+                <br />
+                <br /><br />
+                <h3>Yoo Won Geun</h3>
+                <br />
+                <a href="#">More Picture &gt;</a>
+                <br /><br /><br />
+                <h3>2020-09-26</h3>
+                <br /><br /><br />
+                <p>9,000,000 ₩</p>
+                <br />
+              </span>
+              <div class="btn--wrapper">
+                <button class="btn btn-yellow">BUY NOW</button>
+                <button class="btn btn-yellowBo">ADD CART</button>
+              </div>
+            </div>
+          </div>
+          <div class="detail--2title">
+            <h2>ABOUT THIS PHOTO</h2>
+            <span>
+              <label>✐ 수정</label>
+              <label class="detail--delLabel">🚫 삭제</label>
+            </span>
           </div>
           <div class="detail--2">
             <!-- 사진 설명 (detail--detail) -->
@@ -74,6 +106,41 @@
           </div>
           <div class="detail--3">
             <!-- 댓글 (detail--comments) -->
+            <h2>COMMENTS</h2>
+            <br /><br />
+            <h3>댓글작성</h3>
+            <br />
+            <form action="">
+              <input
+                type="text"
+                placeholder="맑고 깨끗한 댓글문화를 만듭시다!"
+              />
+              <button type="submit" class="btn btn-small">등록</button>
+            </form>
+            <br /><br />
+            <table>
+              <tr class="coHead">
+                <td width="40">
+                  <img
+                    src="../../assets/images/logo.png"
+                    width="25"
+                    height="25"
+                  />
+                </td>
+                <td
+                  colspan="2"
+                  style="color: #006064; font-size: 18px; font-weight: bold"
+                >
+                  Conrad
+                </td>
+                <td colspan="2">remove 🚫</td>
+              </tr>
+              <tr class="coCont">
+                <td colspan="3">Soooooooooo Goooooood!!</td>
+                <td width="50">112 ⚠</td>
+                <td width="50">Fix ✐</td>
+              </tr>
+            </table>
           </div>
         </div>
         <div class="detail--navi">.detail--navi</div>

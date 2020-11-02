@@ -1,32 +1,206 @@
-main div {
+main div,
+main span {
   border: 1px solid salmon;
-}
-.detail--title {
-  display: flex;
-}
-.detail--logo,
-.detail--nextBtn {
-  flex-wrap: wrap;
-  width: 100%;
-  height: 50px;
+  box-sizing: border-box;
 }
 .detail--container {
   display: flex;
-}
-.detail--body,
-.detail--navi {
-  flex-wrap: wrap;
+  width: 1220px;
+  margin: 0 auto;
 }
 .detail--body {
-  width: 90%;
+  width: 85%;
 }
 .detail--navi {
-  width: 10%;
+  width: 15%;
 }
-.detail--1 {
+
+/*------ .detail--title ------*/
+
+.detail--title,
+.detail--2title {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.detail--picture,
-.detail--price {
-  flex-wrap: flex;
+.detail--title a {
+  margin-right: 30px;
+}
+
+/*------ .detail--1 ------*/
+
+.detail--1 {
+  height: 350px;
+  /* margin: 20px 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+.detail--1,
+.detail--2title,
+.detail--2,
+.detail--3 {
+  margin-top: 80px;
+}
+.detail--1 > div {
+  height: 100%;
+}
+.detail--1L {
+  width: 65%;
+}
+.detail--1R {
+  width: 35%;
+  position: relative;
+}
+
+/*------ .detail--image ------*/
+
+.detail--1L > .detail--imageWrapper {
+  height: 90%;
+}
+.detail--imageXy {
+  /* 가로가 더 긴 사진 */
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.detail--imagexY {
+  /* 세로가 더 긴 사진 */
+  width: auto;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/*------ .detail--label ------*/
+
+.detail--1L > .detail--label {
+  height: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+.detail--1L .detail--label label,
+.detail--2title label {
+  cursor: pointer;
+}
+.detail--2title > span {
+  display: flex;
+  gap: 20px;
+}
+.detail--2title .detail--delLabel {
+  color: rgb(182, 0, 0);
+}
+
+/*------ .detail--1R ------*/
+
+.detail--1R > span {
+  display: block;
+  height: 80%;
+}
+.detail--1R > .btn--wrapper {
+  height: 15%;
+  position: absolute;
+  bottom: 0;
+}
+
+/*--- 1, 2, 3 title ---*/
+.detail--1R > span > h2,
+.detail--2title h2,
+.detail--3 > h2 {
+  font-size: 27px;
+  font-weight: bold;
+  /* bold == 700 */
+}
+.detail--1R > span > h2:after,
+.detail--2title > h2:after,
+.detail--3 > h2:after {
+  content: "";
+  display: block;
+  width: 70px;
+  border-bottom: 5px solid #ffca3e;
+  margin-top: 10px;
+}
+
+.detail--1R > span > h3 {
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 50px;
+}
+.detail--1R > span > a {
+  display: block;
+  color: gray;
+  font-size: 16px;
+  padding-top: 20px;
+}
+.detail--1R > span > h4 {
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 40px;
+}
+.detail--1R > span > p {
+  color: rgb(196, 51, 51);
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 40px;
+}
+.detail--1R > .btn--wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.detail--1 .btn--wrapper button {
+  width: 45%;
+  height: 100%;
+}
+.btn-yellowBo {
+  border: 3px solid #ffca3e;
+  background: white;
+  color: black;
+}
+
+/*------ .detail--2 ------*/
+
+.detail--2 > p:after {
+  content: "";
+  display: block;
+  width: 100%;
+  border-bottom: 5px solid gray;
+  margin-top: 50px;
+}
+
+/*------ .detail--3 ------*/
+
+.detail--3 > form > input {
+  width: 50%;
+}
+.detail--3 > form > button {
+  display: inline;
+}
+.detail--3 > table * {
+  border: 3px solid black;
+}
+.detail--3 > table {
+  width: 100%;
+}
+.detail--3 > table > tr[class="coHead"] > td {
+  height: 40px;
+  /* align-content: center; */
+  margin: auto;
+  text-align: center;
+}
+.detail--3 > table > tr[class="coCont"] {
+  height: 100px;
+}
+
+/*------ .detail--navi ------*/
+
+.detail--navi > div > a {
+  display: block;
+  padding: 15px 0;
+}
+.detail--navi > div {
+  margin: 0 auto;
+  width: 60%;
 }

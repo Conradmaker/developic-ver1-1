@@ -1,6 +1,6 @@
 main div,
 main span {
-  border: 1px solid salmon;
+  /* border: 1px solid salmon; */
   box-sizing: border-box;
 }
 .detail--container {
@@ -14,7 +14,9 @@ main span {
 .detail--navi {
   width: 15%;
 }
-
+.detail-gap {
+  height: 30px;
+}
 /*------ .detail--title ------*/
 
 .detail--title,
@@ -58,6 +60,15 @@ main span {
 
 .detail--1L > .detail--imageWrapper {
   height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.detail--imageWrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  transition: all 0.3s;
 }
 .detail--imageXy {
   /* 가로가 더 긴 사진 */
@@ -172,35 +183,114 @@ main span {
 
 /*------ .detail--3 ------*/
 
-.detail--3 > form > input {
-  width: 50%;
+.detail--3 > form {
+  width: 700px;
+  display: flex;
+  align-items: flex-end;
 }
 .detail--3 > form > button {
   display: inline;
 }
-.detail--3 > table * {
-  border: 3px solid black;
+.detail--3 input {
+  width: 500px;
+  height: 29px;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  transition: all 0.3s;
 }
-.detail--3 > table {
-  width: 100%;
+.detail--3 input:focus {
+  width: 700px;
 }
-.detail--3 > table > tr[class="coHead"] > td {
-  height: 40px;
-  /* align-content: center; */
-  margin: auto;
-  text-align: center;
-}
-.detail--3 > table > tr[class="coCont"] {
-  height: 100px;
-}
-
 /*------ .detail--navi ------*/
 
+.detail--navi {
+  position: relative;
+}
+.detail--navi .detail--navi-bar {
+  position: sticky;
+  top: 100px;
+}
 .detail--navi > div > a {
   display: block;
-  padding: 15px 0;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+.detail--navi > div > a:hover {
+  border-bottom: 1px solid #000;
 }
 .detail--navi > div {
   margin: 0 auto;
   width: 60%;
+}
+
+/* 댓글 */
+.comment--container {
+  width: 100%;
+}
+.comment--container .comment--item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 20px 0 10px 0;
+  border-bottom: 1px solid #000;
+}
+.comment--item .comment-top {
+  display: flex;
+  justify-content: space-between;
+}
+.comment-top .comment-user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.comment-user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+.comment-user span {
+  font-size: 21px;
+}
+.comment-remove {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.comment-remove:hover {
+  color: red;
+}
+.comment-remove span {
+  font-size: 18px;
+}
+.comment-remove i {
+  font-size: 20px;
+}
+
+.comment--item .comment-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.comment-bottom p {
+  font-size: 20px;
+}
+.comment-bottom p::before {
+  content: " - ";
+}
+.comment-bottom .icon-box {
+  display: flex;
+}
+.icon-box .comment-icon {
+  cursor: pointer;
+  padding: 5px;
+}
+.comment-icon:hover {
+  color: red;
+}
+.comment-icon small {
+}
+.comment-icon i {
 }

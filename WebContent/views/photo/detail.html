@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../../assets/css/index.css" />
     <link rel="stylesheet" href="../../assets/css/common.css" />
     <link rel="stylesheet" href="../../assets/css/detail.css" />
-    <script src="../../assets/js/detail.js" defer></script>
   </head>
   <body>
     <header class="header--container">
@@ -38,8 +37,9 @@
       <!-- 여기에 컨텐츠 작성 -->
 
       <div class="detail--container" style="border: 0px">
+        <!-- 상세 (detail--body)    |   네이게이션바(detail--navi) -->
         <div class="detail--body">
-          <div  id='detail' class="detail--title">
+          <div id="detail" class="detail--title">
             <!-- detail 로고랑 오른쪽에 >next 들어가는 영역 -->
             <div class="title">
               <h5>DETAIL</h5>
@@ -48,20 +48,10 @@
             <!-- <a href="#">＜ BACK</a> -->
           </div>
 
-          <!-- 상세 (detail--body)                           |          네이게이션바(detail--navi) -->
           <div class="detail--1">
             <div class="detail--1L">
               <div class="detail--imageWrapper">
-                <img src="../../assets/images/adbanner.jpg" alt="">
-                <!-- 사진꺼 (detail--picture) -->
-
-                <!-- ** 가로가 세로보다 긴 사진일때 ** -->
-                <!-- <img src="../../assets/images/logo.png" id="detailThumbnail" /> -->
-                <!-- width="600px"
-                height="300px"
-              /> -->
-
-                <!-- ** 세로가 가로보다 긴 사진일때 ** -->
+                <img src="../../assets/images/adbanner.jpg" alt="" />
               </div>
               <div class="detail--label">
                 <label>♡ 304</label>
@@ -84,7 +74,7 @@
               </div>
             </div>
           </div>
-          <div id='about-photo' class="detail--2title">
+          <div id="about-photo" class="detail--2title">
             <h2>ABOUT THIS PHOTO</h2>
             <span>
               <label>✐ 수정</label>
@@ -100,7 +90,7 @@
               진짜입니다.
             </p>
           </div>
-          <div id='comment-list' class="detail--3">
+          <div id="comment-list" class="detail--3">
             <!-- 댓글 (detail--comments) -->
             <h2>COMMENTS</h2>
             <br /><br />
@@ -118,7 +108,7 @@
               <li class="comment--item">
                 <div class="comment-top">
                   <div class="comment-user">
-                    <img src="../../assets/images/오로라.jpg" alt="">
+                    <img src="../../assets/images/오로라.jpg" alt="" />
                     <span>닉네임</span>
                   </div>
                   <div class="comment-remove">
@@ -143,7 +133,7 @@
               <li class="comment--item">
                 <div class="comment-top">
                   <div class="comment-user">
-                    <img src="../../assets/images/오로라.jpg" alt="">
+                    <img src="../../assets/images/오로라.jpg" alt="" />
                     <span>닉네임</span>
                   </div>
                   <div class="comment-remove">
@@ -168,7 +158,7 @@
               <li class="comment--item">
                 <div class="comment-top">
                   <div class="comment-user">
-                    <img src="../../assets/images/오로라.jpg" alt="">
+                    <img src="../../assets/images/오로라.jpg" alt="" />
                     <span>닉네임</span>
                   </div>
                   <div class="comment-remove">
@@ -194,7 +184,7 @@
           </div>
         </div>
         <div class="detail--navi">
-          <div class="detail--navi-bar" onscroll="naviScroll();">
+          <div class="detail--navi-bar">
             <a href="#detail">＞ 작품 정보</a>
             <a href="#about-photo">＞ 작가의 설명</a>
             <a href="#comment-list">＞ COMMENT</a>

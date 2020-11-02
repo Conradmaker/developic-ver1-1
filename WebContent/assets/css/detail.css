@@ -70,18 +70,19 @@ main span {
   border-radius: 10px;
   transition: all 0.3s;
 }
-.detail--imageXy {
-  /* 가로가 더 긴 사진 */
+/* .detail--imageXy {
+  가로가 더 긴 사진
   width: 100%;
   height: auto;
   border-radius: 10px;
 }
 .detail--imagexY {
-  /* 세로가 더 긴 사진 */
+  세로가 더 긴 사진
   width: auto;
   height: 100%;
   border-radius: 10px;
 }
+*/
 
 /*------ .detail--label ------*/
 
@@ -124,9 +125,9 @@ main span {
   font-weight: bold;
   /* bold == 700 */
 }
-.detail--1R > span > h2:after,
-.detail--2title > h2:after,
-.detail--3 > h2:after {
+.detail--1R > span > h2::after,
+.detail--2title > h2::after,
+.detail--3 > h2::after {
   content: "";
   display: block;
   width: 70px;
@@ -173,7 +174,7 @@ main span {
 
 /*------ .detail--2 ------*/
 
-.detail--2 > p:after {
+.detail--2 > p::after {
   content: "";
   display: block;
   width: 100%;
@@ -221,7 +222,7 @@ main span {
 }
 .detail--navi > div {
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
 }
 
 /* 댓글 */

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <!-- en으로 해야 번역기가 안뜨는데? -->
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="../../assets/css/index.css" />
     <link rel="stylesheet" href="../../assets/css/common.css" />
     <link rel="stylesheet" href="../../assets/css/detail.css" />
-    <script src="../../assets/js/detail.js"></script>
   </head>
   <body>
     <header class="header--container">
@@ -39,7 +38,7 @@
 
       <div class="detail--container" style="border: 0px">
         <div class="detail--body">
-          <div class="detail--title">
+          <div  id='detail' class="detail--title">
             <!-- detail 로고랑 오른쪽에 >next 들어가는 영역 -->
             <div class="title">
               <h5>DETAIL</h5>
@@ -52,6 +51,7 @@
           <div class="detail--1">
             <div class="detail--1L">
               <div class="detail--imageWrapper">
+                <img src="../../assets/images/adbanner.jpg" alt="">
                 <!-- 사진꺼 (detail--picture) -->
 
                 <!-- ** 가로가 세로보다 긴 사진일때 ** -->
@@ -83,7 +83,7 @@
               </div>
             </div>
           </div>
-          <div class="detail--2title">
+          <div id='about-photo' class="detail--2title">
             <h2>ABOUT THIS PHOTO</h2>
             <span>
               <label>✐ 수정</label>
@@ -99,12 +99,11 @@
               진짜입니다.
             </p>
           </div>
-          <div class="detail--3">
+          <div id='comment-list' class="detail--3">
             <!-- 댓글 (detail--comments) -->
             <h2>COMMENTS</h2>
-            <br /><br />
+            <div class="detail-gap"></div>
             <h3>댓글작성</h3>
-            <br />
             <form action="">
               <input
                 type="text"
@@ -112,41 +111,96 @@
               />
               <button type="submit" class="btn btn-small">등록</button>
             </form>
-            <br /><br />
-            <table>
-              <tr class="coHead">
-                <td width="40">
-                  <img
-                    src="../../assets/images/logo.png"
-                    width="25"
-                    height="25"
-                  />
-                </td>
-                <td
-                  colspan="2"
-                  style="color: #006064; font-size: 18px; font-weight: bold"
-                >
-                  Conrad
-                </td>
-                <td colspan="2">remove 🚫</td>
-              </tr>
-              <tr class="coCont">
-                <td colspan="3">Soooooooooo Goooooood!!</td>
-                <td width="50">112 ⚠</td>
-                <td width="50">Fix ✐</td>
-              </tr>
-            </table>
+            <div class="detail-gap"></div>
+            <ul class="comment--container">
+              <li class="comment--item">
+                <div class="comment-top">
+                  <div class="comment-user">
+                    <img src="../../assets/images/오로라.jpg" alt="">
+                    <span>닉네임</span>
+                  </div>
+                  <div class="comment-remove">
+                    <span>remove</span>
+                    <i>X</i>
+                  </div>
+                </div>
+                <div class="comment-bottom">
+                  <p>첫번째 댓글입니다.</p>
+                  <div class="icon-box">
+                    <div class="comment-icon">
+                      <small>수정</small>
+                      <i>X</i>
+                    </div>
+                    <div class="comment-icon">
+                      <small>신고</small>
+                      <i>X</i>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="comment--item">
+                <div class="comment-top">
+                  <div class="comment-user">
+                    <img src="../../assets/images/오로라.jpg" alt="">
+                    <span>닉네임</span>
+                  </div>
+                  <div class="comment-remove">
+                    <span>remove</span>
+                    <i>X</i>
+                  </div>
+                </div>
+                <div class="comment-bottom">
+                  <p>첫번째 댓글입니다.</p>
+                  <div class="icon-box">
+                    <div class="comment-icon">
+                      <small>수정</small>
+                      <i>X</i>
+                    </div>
+                    <div class="comment-icon">
+                      <small>신고</small>
+                      <i>X</i>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="comment--item">
+                <div class="comment-top">
+                  <div class="comment-user">
+                    <img src="../../assets/images/오로라.jpg" alt="">
+                    <span>닉네임</span>
+                  </div>
+                  <div class="comment-remove">
+                    <span>remove</span>
+                    <i>X</i>
+                  </div>
+                </div>
+                <div class="comment-bottom">
+                  <p>첫번째 댓글입니다.</p>
+                  <div class="icon-box">
+                    <div class="comment-icon">
+                      <small>수정</small>
+                      <i>X</i>
+                    </div>
+                    <div class="comment-icon">
+                      <small>신고</small>
+                      <i>X</i>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="detail--navi">
-          <div id="detail--naviBar" onscroll="naviScroll();">
-            <a href="#">＞ 작품정보</a>
-            <a href="#">＞ 작가설명</a>
-            <a href="#">＞ COMMENT</a>
+          <div class="detail--navi-bar" onscroll="naviScroll();">
+            <a href="#detail">＞ 작품 정보</a>
+            <a href="#about-photo">＞ 작가의 설명</a>
+            <a href="#comment-list">＞ COMMENT</a>
             <a href="#">＞ TOP</a>
           </div>
         </div>
       </div>
     </main>
+      <!-- <script src="../../assets/js/detail.js"></script> -->
   </body>
 </html>

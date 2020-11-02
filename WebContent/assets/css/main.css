@@ -70,7 +70,7 @@
   width: 100%;
 }
 
-.layout--shop--container {
+/* .layout--shop--container {
   width: 1200px;
   margin: 0 auto;
   background: #000;
@@ -84,7 +84,51 @@
   background: white;
   margin-bottom: 30px;
   display: inline-block;
-}
+} */
 .feed-item img {
   width: 100%;
 }
+
+/* .shop--list--container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.shop-item {
+  width: 30%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+} */
+/* 사진 */
+/* .item-thumb-wrapper {
+  height: 260px;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-thumb-wrapper img {
+  max-width: 95%;
+  max-height: 95%;
+} */
+/* 설명 */
+/* .item-info-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.item-info-wrapper span {
+  font-size: 21px;
+}
+.item-info-wrapper strong {
+  font-size: 18px;
+  font-weight: bold;
+}
+.item-info-wrapper strong::after {
+  content: " ₩";
+} */

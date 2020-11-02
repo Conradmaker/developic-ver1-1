@@ -113,7 +113,21 @@ header .header--right i {
 .btn-long {
   width: 200px;
 }
-
+.btn-outline-pink {
+  background: #fff;
+  border: 2px solid #ed8074;
+  color: #ed8074;
+}
+.btn-outline-yellow {
+  background: #fff;
+  border: 2px solid #ffca3e;
+  color: #ffca3e;
+}
+.btn-outline-green {
+  background: #fff;
+  border: 2px solid #006064;
+  color: #006064;
+}
 /* 라벨 */
 .label {
   height: 35px;

@@ -44,8 +44,8 @@
             <div class="title">
               <h5>DETAIL</h5>
             </div>
-            <a href="#">NEXT &gt;</a>
-            <!-- <a href="#">&lt; BACK</a> -->
+            <a href="#">NEXT ＞</a>
+            <!-- <a href="#">＜ BACK</a> -->
           </div>
 
           <!-- 상세 (detail--body)                           |          네이게이션바(detail--navi) -->
@@ -71,14 +71,9 @@
               <!-- 가격정보 (detail--price) -->
               <span>
                 <h2>Last Article</h2>
-                <br />
-                <br /><br />
                 <h3>Yoo Won Geun</h3>
-                <br />
                 <a href="#">More Picture &gt;</a>
-                <br /><br /><br />
-                <h3>2020-09-26</h3>
-                <br /><br /><br />
+                <h4>2020-09-26</h4>
                 <p>9,000,000 ₩</p>
                 <br />
               </span>
@@ -143,7 +138,14 @@
             </table>
           </div>
         </div>
-        <div class="detail--navi">.detail--navi</div>
+        <div class="detail--navi">
+          <div id="detail--naviBar" onscroll="naviScroll();">
+            <a href="#">＞ 작품정보</a>
+            <a href="#">＞ 작가설명</a>
+            <a href="#">＞ COMMENT</a>
+            <a href="#">＞ TOP</a>
+          </div>
+        </div>
       </div>
     </main>
   </body>

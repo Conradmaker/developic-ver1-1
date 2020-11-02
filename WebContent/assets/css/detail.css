@@ -1,8 +1,8 @@
-/* main div,
+main div,
 main span {
   border: 1px solid salmon;
   box-sizing: border-box;
-} */
+}
 .detail--container {
   display: flex;
   width: 1220px;
@@ -63,11 +63,13 @@ main span {
   /* 가로가 더 긴 사진 */
   width: 100%;
   height: auto;
+  border-radius: 10px;
 }
 .detail--imagexY {
   /* 세로가 더 긴 사진 */
   width: auto;
   height: 100%;
+  border-radius: 10px;
 }
 
 /*------ .detail--label ------*/
@@ -124,15 +126,24 @@ main span {
 .detail--1R > span > h3 {
   font-size: 18px;
   font-weight: 500;
+  padding-top: 50px;
 }
 .detail--1R > span > a {
+  display: block;
   color: gray;
   font-size: 16px;
+  padding-top: 20px;
+}
+.detail--1R > span > h4 {
+  font-size: 18px;
+  font-weight: 500;
+  padding-top: 40px;
 }
 .detail--1R > span > p {
   color: rgb(196, 51, 51);
   font-size: 20px;
   font-weight: 600;
+  padding-top: 40px;
 }
 .detail--1R > .btn--wrapper {
   width: 100%;
@@ -160,6 +171,7 @@ main span {
 }
 
 /*------ .detail--3 ------*/
+
 .detail--3 > form > input {
   width: 50%;
 }
@@ -180,4 +192,15 @@ main span {
 }
 .detail--3 > table > tr[class="coCont"] {
   height: 100px;
+}
+
+/*------ .detail--navi ------*/
+
+.detail--navi > div > a {
+  display: block;
+  padding: 15px 0;
+}
+.detail--navi > div {
+  margin: 0 auto;
+  width: 60%;
 }

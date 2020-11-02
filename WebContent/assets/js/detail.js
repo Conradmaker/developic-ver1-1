@@ -4,6 +4,11 @@ const imageWrapper = document.querySelector(".detail--imageWrapper");
 const image = document.createElement('img');
 
 
+const naviBar = document.querySelector("#detail--naviBar");
+function naviScroll(){
+    console.log("스크롤바뀜!");
+}
+
 function paintImg(){
 
     console.log(image.width);

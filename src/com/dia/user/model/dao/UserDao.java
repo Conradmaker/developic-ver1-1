@@ -1,4 +1,4 @@
-package com.kh.member.model.dao;
+package com.dia.user.model.dao;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -8,61 +8,59 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
-import static com.kh.common.JDBCTemplate.*;
-import com.kh.member.model.vo.Member;
+import static com.dia.common.JDBCTemplate.*;
+import com.dia.user.model.vo.Users;
 
-public class MemberDao {
+public class UserDao {
 	
 	private Properties prop = new Properties();
 	
-	public MemberDao() {
+	public UserDao() {
 		
-		String fileName = MemberDao.class.getResource("/sql/member/member-mapper.xml").getPath();
+		String fileName = UserDao.class.getResource("/sql/user.xml").getPath();
 		
 		try {
-			//prop.load(new FileInputStream(fileName));
+			
 			prop.loadFromXML(new FileInputStream(fileName));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public Member loginMember(Connection conn, String userId, String userPwd) {
-		// select문 => 한 행 => Member 
+	public Users loginMember(Connection conn, String userId, String userPwd) {
 		
-		// 필요한 변수들 먼저 셋팅
-		Member m = null;
+		
+		Users u = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		// 실행할 sql문
-		String sql = prop.getProperty("loginMember");
+		
+		String sql = prop.getProperty("loginUsers");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 애초에 sql문 담은채로 생성
-			// 현재 담긴 sql문이 미완성된 sql문이기 때문에 바로 실행 불가!
+			pstmt = conn.prepareStatement(sql);
 			
-			// 완성형태로 만든 후에 실행해야됨!!
-			pstmt.setString(1, userId); // 'admin'
-			pstmt.setString(2, userPwd);// '1234'
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userPwd);
 			
-			// 실행! (select문 => executeQuery(반환형ResultSet) / dml문 => executeUpdate(반환형int))
 			rset = pstmt.executeQuery();
 			
-			if(rset.next()) { // 일치하는 회원을 찾았을 경우
-				m = new Member(
-							   rset.getInt("USER_NO"), 
-							   rset.getString("USER_ID"),
-							   rset.getString("user_pwd"),
+			if(rset.next()) { 
+				u = new Users(
+							   rset.getString("user_id"), 
+							   rset.getString("user_email"),
+							   rset.getString("user_password"),
 							   rset.getString("user_name"),
-							   rset.getString("phone"),
-							   rset.getString("email"),
-							   rset.getString("address"),
-							   rset.getString("interest"),
-							   rset.getDate("enroll_date"),
-							   rset.getDate("modify_date"),
-							   rset.getString("status")
+							   rset.getString("user_nickname"),
+							   rset.getString("user_phone"),
+							   rset.getString("user_address"),
+							   rset.getString("user_sns"),
+							   rset.getString("user_info"),
+							   rset.getString("user_avatar_src"),
+							   rset.getDate("user_lastLogin"),
+							   rset.getDate("use_createAt"),
+							   rset.getInt("user_role")
 							  );
 			}
 			
@@ -73,33 +71,32 @@ public class MemberDao {
 			/*JDBCTemplate.*/close(pstmt);
 		}
 		
-		return m; // 일치하는회원을 찾았을 경우 생성된 Member 객체 반환 / 일치하는회원을 찾지 못했을 경우 null 반환
-		
+		return u; 
 	}
 	
-	public int insertMember(Connection conn, Member m) {
-		// insert문 => 처리된 행 수
+	public int insertUsers(Connection conn, Users u) {
 		
-		// 필요한 변수들 셋팅
+		
+		
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("insertMember"); // 미완성
+		String sql = prop.getProperty("insertUsers"); // 誘몄셿�꽦
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 담긴 sql문이 미완성
+			pstmt = conn.prepareStatement(sql); // �떞湲� sql臾몄씠 誘몄셿�꽦
 			
-			// 완성형태로 만들고
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getUserPwd());
-			pstmt.setString(3, m.getUserName());
-			pstmt.setString(4, m.getPhone());
-			pstmt.setString(5, m.getEmail());
-			pstmt.setString(6, m.getAddress());
-			pstmt.setString(7, m.getInterest());
 			
-			// 실행
+			pstmt.setString(1, u.getUser_id());
+			pstmt.setString(2, u.getUser_password());
+			pstmt.setString(3, u.getUser_name());
+			pstmt.setString(4, u.getUser_phone());
+			pstmt.setString(5, u.getUser_email());
+			pstmt.setString(6, u.getUser_address());
+			
+			
+			// �떎�뻾
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -112,26 +109,24 @@ public class MemberDao {
 		
 	}
 	
-	public int updateMember(Connection conn, Member m) {
-		// update문 => 처리된 행수
+	public int updateUsers(Connection conn, Users u) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("updateMember");
+		String sql = prop.getProperty("updateUsers");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 미완성된 sql문
+			pstmt = conn.prepareStatement(sql); // 誘몄셿�꽦�맂 sql臾�
 			
-			// 완성형태로 채운후 
-			pstmt.setString(1, m.getUserName());
-			pstmt.setString(2, m.getPhone());
-			pstmt.setString(3, m.getEmail());
-			pstmt.setString(4, m.getAddress());
-			pstmt.setString(5, m.getInterest());
-			pstmt.setString(6, m.getUserId());
 			
-			// 실행 후 결과 받기
+			pstmt.setString(1, u.getUser_name());
+			pstmt.setString(2, u.getUser_phone());
+			pstmt.setString(3, u.getUser_email());
+			pstmt.setString(4, u.getUser_address());			
+			pstmt.setString(5, u.getUser_id());
+			
+			
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -143,35 +138,37 @@ public class MemberDao {
 		return result;
 	}
 	
-	public Member selectMember(Connection conn, String userId) {
-		// select문 => 한 행 조회 => Member객체
-		Member m = null;
+	public Users selectUsers(Connection conn, String userId) {
+		
+		Users u = null;
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectMember");
+		String sql = prop.getProperty("selectUsers");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 미완성 sql문
+			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, userId);
 			
 			rset = pstmt.executeQuery();
 			
 			if(rset.next()) {
-				m = new Member(
-							   rset.getInt("USER_NO"), 
-							   rset.getString("USER_ID"),
-							   rset.getString("user_pwd"),
-							   rset.getString("user_name"),
-							   rset.getString("phone"),
-							   rset.getString("email"),
-							   rset.getString("address"),
-							   rset.getString("interest"),
-							   rset.getDate("enroll_date"),
-							   rset.getDate("modify_date"),
-							   rset.getString("status")
+				u = new Users(    
+								rset.getString("user_id"), 
+								rset.getString("user_email"),
+								rset.getString("user_password"),
+								rset.getString("user_name"),
+								rset.getString("user_nickname"),
+								rset.getString("user_phone"),
+								rset.getString("user_address"),
+								rset.getString("user_sns"),
+								rset.getString("user_info"),
+								rset.getString("user_avatar_src"),
+								rset.getDate("user_lastLogin"),
+								rset.getDate("use_createAt"),
+								rset.getInt("user_role")
 							  );
 			}
 			
@@ -183,21 +180,20 @@ public class MemberDao {
 			close(pstmt);
 		}
 		
-		return m;
+		return u;
 		
 	}
 	
-	public int updatePwdMember(Connection conn, String userId, String userPwd, String updatePwd) {
+	public int updatePwdUsers(Connection conn, String userId, String userPwd, String updatePwd) {
 		
-		// update문 => 처리된 행수 
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("updatePwdMember");
+		String sql = prop.getProperty("updatePwdUsers");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 미완성된 sql문
+			pstmt = conn.prepareStatement(sql); 
 			
 			pstmt.setString(1, updatePwd);
 			pstmt.setString(2, userId);
@@ -215,15 +211,14 @@ public class MemberDao {
 	}
 	
 	
-	public int deleteMember(Connection conn, String userId, String userPwd) {
-		// update문 => 처리된 행수
+	public int deleteUsers(Connection conn, String userId, String userPwd) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("deleteMember");
+		String sql = prop.getProperty("deleteUsers");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 미완성 sql
+			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, userId);
 			pstmt.setString(2, userPwd);
@@ -241,7 +236,7 @@ public class MemberDao {
 	}
 	
 	public int idCheck(Connection conn, String checkId) {
-		//select문 => 갯수(int)
+		
 		int count = 0;
 		
 		PreparedStatement pstmt = null;

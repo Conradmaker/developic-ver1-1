@@ -35,6 +35,13 @@ public class Users {
 	    	this.user_role = user_role;
 	    	
 	    }
+	    public Users(String user_id,String user_password, String user_name,String user_email) {
+	    	this.user_id =user_id;
+	    	this.user_password = user_password;
+	    	this.user_name = user_name;
+	    	this.user_email = user_email;
+	    	
+	    }
 		public String getUser_id() {
 			return user_id;
 		}

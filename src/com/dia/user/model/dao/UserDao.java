@@ -27,7 +27,7 @@ public class UserDao {
 		}
 	}
 	
-	public Users loginMember(Connection conn, String userId, String userPwd) {
+	public Users loginUsers(Connection conn, String user_id, String user_Password) {
 		
 		
 		Users u = null;
@@ -41,8 +41,8 @@ public class UserDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userPwd);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, user_Password);
 			
 			rset = pstmt.executeQuery();
 			
@@ -82,21 +82,23 @@ public class UserDao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("insertUsers"); // 誘몄셿�꽦
+		String sql = prop.getProperty("insertUsers"); 
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // �떞湲� sql臾몄씠 誘몄셿�꽦
+			pstmt = conn.prepareStatement(sql); 
 			
 			
 			pstmt.setString(1, u.getUser_id());
-			pstmt.setString(2, u.getUser_password());
-			pstmt.setString(3, u.getUser_name());
-			pstmt.setString(4, u.getUser_phone());
-			pstmt.setString(5, u.getUser_email());
-			pstmt.setString(6, u.getUser_address());
+			pstmt.setString(2, u.getUser_email());
+			pstmt.setString(3, u.getUser_password());
+			pstmt.setString(4, u.getUser_name());
+			pstmt.setString(5, u.getUser_nickname());
+			pstmt.setString(6, u.getUser_phone());
+			pstmt.setString(7, u.getUser_address());
+			pstmt.setString(8, u.getUser_sns());
+			pstmt.setString(9, u.getUser_info());
+			pstmt.setString(10, u.getUser_avatar_src());
 			
-			
-			// �떎�뻾
 			result = pstmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -117,8 +119,7 @@ public class UserDao {
 		String sql = prop.getProperty("updateUsers");
 		
 		try {
-			pstmt = conn.prepareStatement(sql); // 誘몄셿�꽦�맂 sql臾�
-			
+			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, u.getUser_name());
 			pstmt.setString(2, u.getUser_phone());
@@ -138,7 +139,7 @@ public class UserDao {
 		return result;
 	}
 	
-	public Users selectUsers(Connection conn, String userId) {
+	public Users selectUsers(Connection conn, String user_id) {
 		
 		Users u = null;
 		
@@ -150,7 +151,7 @@ public class UserDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userId);
+			pstmt.setString(1, user_id);
 			
 			rset = pstmt.executeQuery();
 			
@@ -184,7 +185,7 @@ public class UserDao {
 		
 	}
 	
-	public int updatePwdUsers(Connection conn, String userId, String userPwd, String updatePwd) {
+	public int updatePwdUsers(Connection conn, String user_id, String user_password, String updatePwd) {
 		
 		int result = 0;
 		
@@ -196,8 +197,8 @@ public class UserDao {
 			pstmt = conn.prepareStatement(sql); 
 			
 			pstmt.setString(1, updatePwd);
-			pstmt.setString(2, userId);
-			pstmt.setString(3, userPwd);
+			pstmt.setString(2, user_id);
+			pstmt.setString(3, user_password);
 			
 			result = pstmt.executeUpdate();
 			
@@ -211,7 +212,7 @@ public class UserDao {
 	}
 	
 	
-	public int deleteUsers(Connection conn, String userId, String userPwd) {
+	public int deleteUsers(Connection conn, String user_id, String user_password) {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -220,8 +221,8 @@ public class UserDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userPwd);
+			pstmt.setString(1, user_id);
+			pstmt.setString(2, user_password);
 			
 			result = pstmt.executeUpdate();
 			

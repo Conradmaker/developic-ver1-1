@@ -1,4 +1,4 @@
-package com.kh.common;
+package com.dia.common;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -114,3 +114,4 @@ public class JDBCTemplate {
 	
 
 }
+

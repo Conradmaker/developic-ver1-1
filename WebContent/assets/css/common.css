@@ -106,6 +106,10 @@ header .header--right i {
 .btn-pink {
   background: #ed8074;
 }
+
+.btn-blue {
+  background: #001c67;
+}
 .btn-small {
   width: 100px;
   height: 35px;

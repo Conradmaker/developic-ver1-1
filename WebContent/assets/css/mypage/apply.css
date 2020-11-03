@@ -1,0 +1,34 @@
+.apply--process {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.apply--process li {
+  font-size: 23px;
+  list-style: none;
+}
+.apply--process i {
+  color: #ffca3e;
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+}
+.apply--process i div {
+  width: 2px;
+  height: 25px;
+  background: #ffca3e;
+}
+
+.apply--result {
+  padding: 40px 20px;
+}
+.apply--result h1 {
+  font-size: 30px;
+  font-weight: bold;
+}
+.apply--result p {
+  margin: 20px 0;
+  font-size: 23px;
+}

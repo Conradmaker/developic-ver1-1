@@ -1,0 +1,59 @@
+.cart--item-box {
+  width: 84%;
+  height: 120px;
+  display: flex;
+  padding: 30px 0 10px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+}
+.check-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.check-box input {
+  width: 20px;
+  height: 20px;
+  font-size: 28px;
+  color: #006064;
+  cursor: pointer;
+}
+.cart--img-box {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart--img-box img {
+  max-height: 100%;
+  max-width: 100%;
+  cursor: pointer;
+}
+.cart--summary-box {
+  flex: 7;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border-left: 3px solid #999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cart--summary-box h2 {
+  font-size: 22px;
+}
+.cart--summary-box span {
+  font-size: 20px;
+}
+.cart--summary-box span::before {
+  content: "- ";
+}
+.cart--summary-box p {
+  font-size: 21px;
+  font-weight: bold;
+  color: #006064;
+  align-self: flex-end;
+}
+.cart--summary-box p::before {
+  content: " ₩";
+}

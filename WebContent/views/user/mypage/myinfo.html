@@ -6,13 +6,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../../assets/css/index.css">
     <link rel="stylesheet" href="../../../assets/css/common.css">
+    <link rel="stylesheet" href="../../../assets/css/mypage/common.css">
     <link rel="stylesheet" href="../../../assets/css/mypage/userinfo.css">
 </head>
 <body>
     <header class='header--container'>
         <div class="header--box">
             <a href="#">
-                <img src='../../assets/images/logo.png' width="250px" alt="" />
+                <img src='../../../assets/images/logo.png' width="250px" alt="" />
             </a>
             <div class="header--right">
                 <a href="">LOGIN</a>
@@ -32,7 +33,6 @@
                 <li>ABOUT</li>
             </a>
         </ul>
-        <!-- 여기에 컨텐츠 작성 -->
         <div class="mypage-container">
             <div class="mypage-left">
                 <div class='title'>
@@ -41,28 +41,82 @@
                 <!-- 마이페이지 컨텐츠 -->
                 <div class="label">
                     개인정보관리
-                    <em />
+                    <em></em>
                 </div>
+                <div class="gapper"></div>
+                <form action="">
+                    <h2 class="sub--label">아바타</h2>
+                    <div class="avatar--wrapper">
+                        <img class="avatar-img" src="../../../assets/images/pengha.jpg" alt="">
+                    </div>
+                    <div id='image-input-value'></div>
+                    <input id='image-input' type="file" hidden name="avatar" >
+                    <button id='img-select' type='button' class='btn'>사진선택</button>
+                    <div class="gapper"></div>
+                    <div class="input--box">
+                        <label>닉네임</label>
+                        <input type="text" />
+                    </div>
+                    <div class="input--box">
+                        <label>연락처</label>
+                        <input type="text" />
+                    </div>
+                    <div class="input--box">
+                        <label>SNS</label>
+                        <input type="text" />
+                    </div>
+                    <div class="input--box input--long">
+                        <label>주소</label>
+                        <input type="text" />
+                    </div>
+                    <div class="gapper"></div>
+                    <h2 class="sub--label">작가소개</h2>
+                    <textarea class="artist-info--inut" name="info"></textarea>
+                    <div class="btn-wrapper">
+                        <button class='btn' type='button'>회원탈퇴</button>
+                        <button class='btn btn-yellow' type='submit'>수정</button>
+                    </div>
+                </form>
             </div>
             <div class="mypage-right">
                 <!-- 네비게이션바 -->
-                    <ul class="mypage-nav">
+                    <ul class="right-nav">
                         <li>
-                            <a href="">1</a>
+                            <a href="#" class="nav--active">▷개인정보수정</a>
                         </li>
                         <li>
-                            <a href="">2</a>
+                            <a href="likelist.html">▷좋아요목록</a>
                         </li>
                         <li>
-                            <a href="">3</a>
+                            <a href="buylist.html">▷구매내역</a>
                         </li>
                         <li>
-                            <a href="">4</a>
+                            <a href="cart.html">▷장바구니</a>
+                        </li>
+                        <li>
+                            <a href="applyresult.html">▷작가신청결과 OR</a>
+                        </li>
+                        <li>
+                            <a href="selllist.html">▷판매내역</a>
+                        </li>
+                        <li>
+                            <a href="commentList.html">▷나의 댓글 목록</a>
+                        </li>
+                        <li>
+                            <a href="qnaList.html">▷1:1문의내역</a>
                         </li>
                     </ul>
             </div>
         </div>
         <!-- 여기까지 -->
     </main>
+    <script defer>
+        document.querySelector('#img-select').addEventListener('click',()=>{
+            document.querySelector('#image-input').click();
+        })
+        document.querySelector('#image-input').addEventListener('change',(e)=>{
+            document.querySelector('#image-input-value').innerText=e.target.value;
+        })
+    </script>
 </body>
 </html>

@@ -190,3 +190,19 @@ header .header--right i {
   border-bottom: 2px solid black;
   flex: 4;
 }
+
+.nav--active {
+  text-decoration: underline;
+}
+.mypage-left .input--long {
+  width: 700px;
+}
+.input--long input {
+  flex: 6;
+}
+.input--long input:focus {
+  flex: 7.7;
+}
+textarea {
+  font-family: "Roboto", sans-serif;
+}

@@ -59,21 +59,21 @@
             <div class="buy-gap"></div>
             <h2>UPLOAD PHOTO</h2>
             <div class="buy-gap"></div>
+
+            <!-- 파일 선택하는 부분 -->
             <div class="buy--fileWrapper">
-              <input type="text" readonly="readonly" id="fileRoute" />
-              <div class="buy--fileBtnWrapper">
-                <label for=""> SELECT A FILE </label>
-                <input
-                  type="file"
-                  onchange="javascript:document.querySelector('#fileRoute').value=this.value"
-                />
-              </div>
+              <label for="fileBtn" id="fileLabel"></label>
+              <input type="file" id="hiddenFileBtn" hidden>
+              <button type="button" id="fileBtn" class="btn btn-green">SELECT A FILE</button>
+
             </div>
             <!-- <input type="file" value="SELECT A FILE" /> -->
             <div class="buy-gap"></div>
             <p>미리보기</p>
-            <!-- <img src="../../assets/images/오로라.jpg" alt="" /> -->
-            <img src="../../assets/images/오로라.jpg" alt="" />
+            <div class="buy--imageWrapper">
+              <!-- <img src="../../assets/images/오로라.jpg" alt="" /> -->
+              <img src="" id="fileImage" />
+            </div>
           </div>
           <div class="buy--info">
             <div class="buy-gap"></div>
@@ -88,19 +88,27 @@
               <tr>
                 <th><label for="">카테고리</label></th>
                 <td>
-                  <select name="" id="">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                  <select name="category">
+                    <option value="ani">ANIMALS</option>
+                    <option value="peo">PEOPLE</option>
+                    <option value="ur">URBAN</option>
+                    <option value="na">NATURE</option>
+                    <option value="etc" selected>ETC</option>
                   </select>
                 </td>
               </tr>
               <tr>
                 <th><label for="">판매여부</label></th>
-                <td>똑딱이</td>
+                <td>
+                  <div class="buy--saleWrapper">
+                    <div class="buy--saleLa">판매가능</div>
+                    <div class="buy--saleLa">판매불가</div>
+                    <div id="buy-saleBtn" class="saleSelectY"></div>
+                  </div>
+                </td>
               </tr>
               <tr>
-                <th colspan="2"><label for="">소개</label></th>
+                <th colspan="2" ><label for="">소개</label></th>
               </tr>
               <tr>
                 <td colspan="2">
@@ -114,8 +122,12 @@
               <tr>
                 <th><label for="">픽스토리</label></th>
                 <td>
-                  <span></span>
-                  <button class="btn btn-green btn-small">SELECT</button>
+                  <div class="picsWrapper">
+                    <label for="" id="picsLabel"></label>
+                    <button type="button" id="picsBtn" class="btn btn-green btn-small">SELECT</button>
+                    <!-- <span></span>
+                    <button class="btn btn-green btn-small">SELECT</button> -->
+                  </div>
                 </td>
               </tr>
             </table>
@@ -129,13 +141,41 @@
         <div class="buy--navi"></div>
       </div>
     </main>
-    <script>
-      // const onClick=(a)=>	document.getElementById('form-submit').addEventListener('click',(e)=>{
-      //    e.preventDefault();
-      //    console.log(a.getHtml());
-      //    console.log(a.getMarkdown());
-      //  },false)
-     
+
+    <script src="../../assets/js/buy.js" defer></script>
+
+    <!-- 파일 선택하는 버튼 -->
+    <!-- <script>
+      const fileBtn = document.querySelector("#fileBtn");
+      const hiddenBtn = document.querySelector("#hiddenFileBtn");
+      const fileLabel = document.querySelector("#fileLabel");
+      const fileImg = document.querySelector("#fileImage");
+      
+      fileBtn.addEventListener("click", () => {
+        hiddenBtn.click();
+        hiddenBtn.addEventListener("change", (e) => {
+          // console.log("변화!");
+          fileLabel.innerHTML = e.target.value;
+
+          if(e.target.files.length == 1){
+            const reader = new FileReader();
+            
+            reader.readAsDataURL(e.target.files[0]);
+            reader.onload = (ee) => {
+              fileImg.setAttribute("src", ee.target.result);
+            };
+          }else{
+            fileImg.setAttribute("src", null);
+          }
+
+          document.querySelector("#fileImage").value = e.target.value;
+        });
+      });
+    </script> -->
+
+    <!-- 에디터 api -->
+    <!-- <script>     
+
      document.addEventListener(
          "DOMContentLoaded",
          () => {
@@ -144,13 +184,11 @@
              el: document.querySelector("#editorSection"),
              initialEditType: "markdown",
              previewStyle: "vertical",
-             height: "400px"
+             height: "700px"
            });
- 
-          //  onClick(editor);
          }
        );
        
-       </script>
+       </script> -->
   </body>
 </html>

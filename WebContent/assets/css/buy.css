@@ -1,11 +1,19 @@
 /* div,
-table {
+table,
+table tr,
+table th,
+table td {
   border: 1px solid salmon;
 } */
 .buy--container {
   display: flex;
   width: 1220px;
   margin: 0 auto;
+}
+.buy--title,
+.buy--upload,
+.buy--info {
+  width: 100%;
 }
 .buy-gap {
   height: 30px;
@@ -37,56 +45,100 @@ table {
   border-bottom: 5px solid #ffca3e;
   margin-top: 10px;
 }
-.buy--upload .buy--fileWrapper {
+.buy--upload .buy--fileWrapper,
+.buy--info .picsWrapper {
   display: flex;
   flex-wrap: wrap;
+  /* margin-top: 10px; */
 }
-.buy--fileWrapper input[type="text"] {
+.buy--fileWrapper label,
+.picsWrapper label {
   border: 1px solid #006064;
-  /* display: block; */
+  width: 300px;
+  line-height: 35px;
+  vertical-align: middle;
 }
-.buy--fileWrapper .buy--fileBtnWrapper {
-  position: relative;
-}
-.buy--fileWrapper > * {
-  position: absolute;
-}
-
 .buy--upload p {
   font-size: 17px;
+  font-weight: bold;
 }
-.buy--upload img {
+.buy--imageWrapper {
   margin-top: 10px;
-  max-width: 50%;
-  max-height: 400px;
+  width: 50%;
+  height: 300px;
+}
+.buy--imageWrapper img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /*------ .buy--info ------*/
 
+.buy--info table th {
+  vertical-align: middle;
+  text-align: left;
+  width: 100px;
+}
+.buy--info table td {
+  vertical-align: middle;
+  width: 900px;
+}
 .buy--info label {
   font-size: 20px;
   font-weight: bolder;
 }
-.buy--info table th {
-  text-align: left;
-  width: 100px;
-}
-.buy--info input {
+.buy--info input,
+.buy--info select {
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid gray;
+  outline: none;
   width: 300px;
+  font-size: 15px;
+  margin-top: 3px;
 }
 .buy--info table tr {
   height: 50px;
 }
 
-.buy--info table #editorSection {
-  width: 100%;
+.buy--saleWrapper {
+  background: #006064;
+  width: 200px;
+  height: 30px;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.buy--saleWrapper .buy--saleLa {
+  margin: 0 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+}
+/* #buy-saleBtn { */
+.saleSelectY {
+  width: 77px;
+  height: 22px;
+  border: 2px solid #ffca3e;
+  border-radius: 23px;
+  position: absolute;
+  margin-left: 2px;
+  transition: all 0.3s;
+}
+.saleSelectN {
+  width: 77px;
+  height: 22px;
+  border: 2px solid #ed8074;
+  border-radius: 23px;
+  position: absolute;
+  /* transform: translate(-100, 0); */
+  margin-left: 118px;
 }
 
-.buy--info table span {
-  width: 300px;
-  border: 1px solid red;
+.buy--info table #editorSection {
+  width: 100%;
 }
 
 /* ------ button ------ */

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dia.user.model.service.UserService;
-import com.dia.user.model.vo;
+import com.dia.user.model.vo.Users;;
+
+
 
 /**
  * Servlet implementation class MemberInsertController
@@ -32,41 +34,41 @@ public class MemberInsertController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// íšŒì›ê°€ì… ìš”ì²­ì²˜ë¦¬ìš© controller		
+		// È¸¿ø°¡ÀÔ ¿äÃ»Ã³¸®¿ë controller		
 		
-		// 1. ìš”ì²­ì‹œ ì „ë‹¬ê°’ì— í•œê¸€ì´ ìˆì„ ê²½ìš° ëŒ€ë¹„í•´ì„œ ì¸ì½”ë”© (postë°©ì‹ì¼ë•Œ)
+		// 1. ¿äÃ»½Ã Àü´Ş°ª¿¡ ÇÑ±ÛÀÌ ÀÖÀ» °æ¿ì ´ëºñÇØ¼­ ÀÎÄÚµù (post¹æ½ÄÀÏ¶§)
 		request.setCharacterEncoding("utf-8");
 		
-		// 2. ìš”ì²­ì‹œ ì „ë‹¬ê°’ ë½‘ê¸° (requestì˜ parameterì˜ì—­ìœ¼ë¡œë¶€í„°)
+		// 2. ¿äÃ»½Ã Àü´Ş°ª »Ì±â (requestÀÇ parameter¿µ¿ªÀ¸·ÎºÎÅÍ)
 		String user_id = request.getParameter("user_id");	
 		String user_password = request.getParameter("user_password");
 		String user_name = request.getParameter("user_name");
 		String user_email = request.getParameter("user_email");
 	
 		
-		// ê¸°ë³¸ìƒì„±ìë¡œ ìƒì„±í•œ í›„ ê°í•„ë“œì˜ setterë©”ì†Œë“œ ì´ìš©í•´ì„œ ë‹´ê¸°
-		// "ì•„ì‹¸ë¦¬ ë§¤ê°œë³€ìˆ˜ ìƒì„±ìë¥¼ ì´ìš©í•´ì„œ ë‹´ê¸°"
-		Member m = new Users(userId, userPwd, userName, phone, email, address, interest);
+		// ±âº»»ı¼ºÀÚ·Î »ı¼ºÇÑ ÈÄ °¢ÇÊµåÀÇ setter¸Ş¼Òµå ÀÌ¿ëÇØ¼­ ´ã±â
+		// "¾Æ½Î¸® ¸Å°³º¯¼ö »ı¼ºÀÚ¸¦ ÀÌ¿ëÇØ¼­ ´ã±â"
+		Users u = new Users(user_id, user_password, user_name, user_email);
 		
-		// 3. ìš”ì²­ì„ ì²˜ë¦¬í•´ì£¼ëŠ” ì„œë¹„ìŠ¤ í´ë˜ìŠ¤ì˜ ë©”ì†Œë“œ í˜¸ì¶œ í›„ ê²°ê³¼ ë°›ê¸°
-		int result = new MemberService().insertMember(m);
+		// 3. ¿äÃ»À» Ã³¸®ÇØÁÖ´Â ¼­ºñ½º Å¬·¡½ºÀÇ ¸Ş¼Òµå È£Ãâ ÈÄ °á°ú ¹Ş±â
+		int result = new Userservice().insertMember(m);
 		
-		// 4. ë°˜í™˜ ë°›ì€ ê²°ê³¼ë¥¼ ê°€ì§€ê³  ì‚¬ìš©ìê°€ ë³´ê²Œë  ì‘ë‹µí˜ì´ì§€ ì§€ì •
-		if(result > 0) { // íšŒì›ê°€ì… ì„±ê³µ => ì¸ë±ìŠ¤í˜ì´ì§€ ë„ìš°ê¸°
-			//System.out.println("íšŒì›ê°€ì… ì„±ê³µ!!");
+		// 4. ¹İÈ¯ ¹ŞÀº °á°ú¸¦ °¡Áö°í »ç¿ëÀÚ°¡ º¸°ÔµÉ ÀÀ´äÆäÀÌÁö ÁöÁ¤
+		if(result > 0) { // È¸¿ø°¡ÀÔ ¼º°ø => ÀÎµ¦½ºÆäÀÌÁö ¶ç¿ì±â
+			//System.out.println("È¸¿ø°¡ÀÔ ¼º°ø!!");
 			
-			// sessionì˜ì—­ì— alertë¡œ ë„ì›Œì¤„ ì¼íšŒì„± ë©”ì„¸ì§€ ë‹´ê¸°
+			// session¿µ¿ª¿¡ alert·Î ¶ç¿öÁÙ ÀÏÈ¸¼º ¸Ş¼¼Áö ´ã±â
 			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "ì„±ê³µì ìœ¼ë¡œ íšŒì›ê°€ì…ì´ ëìŠµë‹ˆë‹¤!");			
+			session.setAttribute("alertMsg", "¼º°øÀûÀ¸·Î È¸¿ø°¡ÀÔÀÌ µÆ½À´Ï´Ù!");			
 			
-			// redirect ë°©ì‹ (urlì„ ì¬ìš”ì²­)
+			// redirect ¹æ½Ä (urlÀ» Àç¿äÃ»)
 			response.sendRedirect(request.getContextPath());
 			
 			
-		}else { // íšŒì›ê°€ì… ì‹¤íŒ¨ => ì—ëŸ¬í˜ì´ì§€ ë„ìš°ê¸°
-			//System.out.println("íšŒì›ê°€ì… ì‹¤íŒ¨!!");
+		}else { // È¸¿ø°¡ÀÔ ½ÇÆĞ => ¿¡·¯ÆäÀÌÁö ¶ç¿ì±â
+			//System.out.println("È¸¿ø°¡ÀÔ ½ÇÆĞ!!");
 			
-			request.setAttribute("errorMsg", "íšŒì›ê°€ì…ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+			request.setAttribute("errorMsg", "È¸¿ø°¡ÀÔ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);

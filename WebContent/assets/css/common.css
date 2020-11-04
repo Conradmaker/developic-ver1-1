@@ -231,7 +231,7 @@ textarea {
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -364,4 +364,7 @@ textarea {
 .modal--paycancel-form {
   display: flex;
   flex-direction: column;
+}
+.modalActive {
+  display: flex;
 }

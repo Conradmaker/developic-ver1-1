@@ -107,18 +107,14 @@
                     <!-- api 에디터 부분!! -->
                     <div>
                         <div id="editorSection"></div>
-                        <button id="form-submit"></button>
+                        <!-- <button id="form-submit"></button> -->
                     </div>
                 </td>
               </tr>
               <tr>
                 <th><label for="">픽스토리</label></th>
                 <td>
-                  <select name="" id="">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                  </select>
+                  <span></span>
                   <button class="btn btn-green btn-small">SELECT</button>
                 </td>
               </tr>
@@ -133,6 +129,28 @@
         <div class="buy--navi"></div>
       </div>
     </main>
-    <script src="../../assets/js/buy.js" defer></script>
+    <script>
+      // const onClick=(a)=>	document.getElementById('form-submit').addEventListener('click',(e)=>{
+      //    e.preventDefault();
+      //    console.log(a.getHtml());
+      //    console.log(a.getMarkdown());
+      //  },false)
+     
+     document.addEventListener(
+         "DOMContentLoaded",
+         () => {
+          //  console.log("시작");
+           var editor = new tui.Editor({
+             el: document.querySelector("#editorSection"),
+             initialEditType: "markdown",
+             previewStyle: "vertical",
+             height: "400px"
+           });
+ 
+          //  onClick(editor);
+         }
+       );
+       
+       </script>
   </body>
 </html>

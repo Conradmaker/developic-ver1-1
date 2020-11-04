@@ -79,6 +79,18 @@ table {
 .buy--info table tr {
   height: 50px;
 }
+
+.buy--info table #editorSection {
+  width: 100%;
+}
+
+.buy--info table span {
+  width: 300px;
+  border: 1px solid red;
+}
+
+/* ------ button ------ */
+
 .buy--info table button {
   display: inline;
 }

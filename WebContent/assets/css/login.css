@@ -104,12 +104,12 @@ body {
 
 .overlay {
   background-color: var(--lightblue);
-  background: url("../images/pengsu.jpg");
+  background: url("../images/pengsuright.jpg");
   /* background: url("https://res.cloudinary.com/dbhnlktrv/image/upload/v1599997626/background_oeuhe7.jpg"); */
   background-attachment: fixed;
-  background-position: center;
+  background-position: 0 0 0 0;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 80%;
   height: 100%;
   left: -100%;
   position: relative;

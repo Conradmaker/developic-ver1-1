@@ -49,7 +49,8 @@
                     <div class="avatar--wrapper">
                         <img class="avatar-img" src="../../../assets/images/pengha.jpg" alt="">
                     </div>
-                    <input id='image-input' type="file" hidden name="avatar" id="">
+                    <div id='image-input-value'></div>
+                    <input id='image-input' type="file" hidden name="avatar" >
                     <button id='img-select' type='button' class='btn'>사진선택</button>
                     <div class="gapper"></div>
                     <div class="input--box">
@@ -112,6 +113,9 @@
     <script defer>
         document.querySelector('#img-select').addEventListener('click',()=>{
             document.querySelector('#image-input').click();
+        })
+        document.querySelector('#image-input').addEventListener('change',(e)=>{
+            document.querySelector('#image-input-value').innerText=e.target.value;
         })
     </script>
 </body>

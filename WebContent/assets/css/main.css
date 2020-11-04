@@ -545,3 +545,116 @@ figure.effect-terry:hover p a:nth-child(4) {
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
+
+/* picfeed 이미지 확대 기능 */
+/* LightboxImgx41 */
+.MOD_LIGHTBOXIMGX4 img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.2s;
+}
+.MOD_LIGHTBOXIMGX4 img:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+.MOD_LIGHTBOXIMGX4 figcaption {
+  display: none;
+}
+.MOD_LIGHTBOXIMGX4 [data-layout="_r"] {
+  padding: 2rem 1.5rem;
+}
+.MOD_LIGHTBOXIMGX4 [data-layout="_r"] > div {
+  padding: 0.5rem;
+}
+
+/* LightboxImgx41Background */
+.MOD_LIGHTBOXIMGX4BACKGROUND img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.2s;
+}
+.MOD_LIGHTBOXIMGX4BACKGROUND img:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+.MOD_LIGHTBOXIMGX4BACKGROUND figcaption {
+  display: none;
+}
+.MOD_LIGHTBOXIMGX4BACKGROUND [data-layout="_r"] {
+  padding: 2rem 1.5rem;
+}
+.MOD_LIGHTBOXIMGX4BACKGROUND [data-layout="_r"] > div {
+  padding: 0.5rem;
+}
+
+/* Lightbox General */
+.AP_ligtbox_window {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.AP_ligtbox_img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.AP_ligtbox_img button.AP_ligtbox_close {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 3rem;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 2em;
+  padding: 0;
+  line-height: 0;
+}
+
+.AP_lightbox_Caption {
+  padding: 0.5em 1em;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Lightbox General - Delta */
+@media (min-width: 43.75em) {
+  .AP_ligtbox_img {
+    border: 5px solid white;
+    box-shadow: 0 0 10px black;
+    background-size: cover;
+    width: 80%;
+    height: 80%;
+    max-width: 900px;
+  }
+  .AP_ligtbox_img button.AP_ligtbox_close {
+    background: black;
+    right: -1.5rem;
+    top: -1.5rem;
+    border: 3px solid white;
+  }
+
+  .AP_lightbox_Caption {
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+  }
+}

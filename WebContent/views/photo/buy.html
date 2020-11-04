@@ -1,39 +1,156 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeveloPic | Buy</title>
-    <link rel="stylesheet" href="../../assets/css/index.css">
-    <link rel="stylesheet" href="../../assets/css/common.css">
-</head>
-<body>
-    <header class='header--container'>
-        <div class="header--box">
-            <a href="#">
-                <img src='../../assets/images/logo.png' width="250px" alt="" />
-            </a>
-            <div class="header--right">
-                <a href="">LOGIN</a>
-                <a href="">SIGNUP</a>
-            </div>
-        </div>
-    </header>
-    <main class='main--container'>
-        <ul class='navigation--main'>
-            <a href="">
-                <li>PICFEED</li>
-            </a>
-            <a href="">
-                <li>PICSHOP</li>
-            </a>
-            <a href="">
-                <li>ABOUT</li>
-            </a>
-        </ul>
-        
-        <!-- 여기에 컨텐츠 작성 -->
+    <link rel="stylesheet" href="../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../assets/css/common.css" />
+    <link rel="stylesheet" href="../../assets/css/buy.css" />
 
+    <!-- 갖고옴^!^ -->
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui-editor/latest/tui-editor.css"></link>
+    <link rel="stylesheet" href="https://uicdn.toast.com/tui-editor/latest/tui-editor-contents.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"></link>
+    <!-- Scripts -->
+    <script src="https://uicdn.toast.com/tui-editor/latest/tui-editor-Editor-full.js"></script>
+
+  </head>
+  <body>
+    <header class="header--container">
+      <div class="header--box">
+        <a href="#">
+          <img src="../../assets/images/logo.png" width="250px" alt="" />
+        </a>
+        <div class="header--right">
+          <a href="">LOGIN</a>
+          <a href="">SIGNUP</a>
+        </div>
+      </div>
+    </header>
+    <main class="main--container">
+      <ul class="navigation--main">
+        <a href="">
+          <li>PICFEED</li>
+        </a>
+        <a href="">
+          <li>PICSHOP</li>
+        </a>
+        <a href="">
+          <li>ABOUT</li>
+        </a>
+      </ul>
+
+      <!-- 여기에 컨텐츠 작성 -->
+
+      <div class="buy--container">
+        <div class="buy--body">
+          <div class="buy--title">
+            <!-- detail 로고랑 오른쪽에 >next 들어가는 영역 -->
+            <div class="title">
+              <h5>EDIT</h5>
+            </div>
+            <!-- <a href="#">NEXT ＞</a> -->
+            <a href="#">＜ BACK</a>
+          </div>
+          <div class="buy--upload">
+            <div class="buy-gap"></div>
+            <h2>UPLOAD PHOTO</h2>
+            <div class="buy-gap"></div>
+            <div class="buy--fileWrapper">
+              <input type="text" readonly="readonly" id="fileRoute" />
+              <div class="buy--fileBtnWrapper">
+                <label for=""> SELECT A FILE </label>
+                <input
+                  type="file"
+                  onchange="javascript:document.querySelector('#fileRoute').value=this.value"
+                />
+              </div>
+            </div>
+            <!-- <input type="file" value="SELECT A FILE" /> -->
+            <div class="buy-gap"></div>
+            <p>미리보기</p>
+            <!-- <img src="../../assets/images/오로라.jpg" alt="" /> -->
+            <img src="../../assets/images/오로라.jpg" alt="" />
+          </div>
+          <div class="buy--info">
+            <div class="buy-gap"></div>
+            <div class="buy-gap"></div>
+            <h2>INFORMATION</h2>
+            <div class="buy-gap"></div>
+            <table>
+              <tr>
+                <th><label for="">제목</label></th>
+                <td><input type="text" placeholder="TITLE" /></td>
+              </tr>
+              <tr>
+                <th><label for="">카테고리</label></th>
+                <td>
+                  <select name="" id="">
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th><label for="">판매여부</label></th>
+                <td>똑딱이</td>
+              </tr>
+              <tr>
+                <th colspan="2"><label for="">소개</label></th>
+              </tr>
+              <tr>
+                <td colspan="2">
+                    <!-- api 에디터 부분!! -->
+                    <div>
+                        <div id="editorSection"></div>
+                        <!-- <button id="form-submit"></button> -->
+                    </div>
+                </td>
+              </tr>
+              <tr>
+                <th><label for="">픽스토리</label></th>
+                <td>
+                  <span></span>
+                  <button class="btn btn-green btn-small">SELECT</button>
+                </td>
+              </tr>
+            </table>
+            <div class="buy-gap"></div>
+            <div class="buy-gap"></div>
+            <div class="buy--btnWrapper">
+              <button class="btn btn-yellow btn-small">등록</button>
+            </div>
+          </div>
+        </div>
+        <div class="buy--navi"></div>
+      </div>
     </main>
-</body>
+    <script>
+      // const onClick=(a)=>	document.getElementById('form-submit').addEventListener('click',(e)=>{
+      //    e.preventDefault();
+      //    console.log(a.getHtml());
+      //    console.log(a.getMarkdown());
+      //  },false)
+     
+     document.addEventListener(
+         "DOMContentLoaded",
+         () => {
+          //  console.log("시작");
+           var editor = new tui.Editor({
+             el: document.querySelector("#editorSection"),
+             initialEditType: "markdown",
+             previewStyle: "vertical",
+             height: "400px"
+           });
+ 
+          //  onClick(editor);
+         }
+       );
+       
+       </script>
+  </body>
 </html>

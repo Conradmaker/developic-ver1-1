@@ -144,51 +144,5 @@
 
     <script src="../../assets/js/buy.js" defer></script>
 
-    <!-- 파일 선택하는 버튼 -->
-    <!-- <script>
-      const fileBtn = document.querySelector("#fileBtn");
-      const hiddenBtn = document.querySelector("#hiddenFileBtn");
-      const fileLabel = document.querySelector("#fileLabel");
-      const fileImg = document.querySelector("#fileImage");
-      
-      fileBtn.addEventListener("click", () => {
-        hiddenBtn.click();
-        hiddenBtn.addEventListener("change", (e) => {
-          // console.log("변화!");
-          fileLabel.innerHTML = e.target.value;
-
-          if(e.target.files.length == 1){
-            const reader = new FileReader();
-            
-            reader.readAsDataURL(e.target.files[0]);
-            reader.onload = (ee) => {
-              fileImg.setAttribute("src", ee.target.result);
-            };
-          }else{
-            fileImg.setAttribute("src", null);
-          }
-
-          document.querySelector("#fileImage").value = e.target.value;
-        });
-      });
-    </script> -->
-
-    <!-- 에디터 api -->
-    <!-- <script>     
-
-     document.addEventListener(
-         "DOMContentLoaded",
-         () => {
-          //  console.log("시작");
-           var editor = new tui.Editor({
-             el: document.querySelector("#editorSection"),
-             initialEditType: "markdown",
-             previewStyle: "vertical",
-             height: "700px"
-           });
-         }
-       );
-       
-       </script> -->
   </body>
 </html>

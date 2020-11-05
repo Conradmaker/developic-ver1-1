@@ -31,6 +31,7 @@ document.querySelector("#img-select").addEventListener("click", () => {
 document.querySelector("#image-input").addEventListener("change", (e) => {
   document.querySelector("#image-input-value").innerText = e.target.value;
 });
+//개인정보관리 - 미리보기
 function loadImg(inputFile) {
   if (inputFile.files.length == 1) {
     var reader = new FileReader();

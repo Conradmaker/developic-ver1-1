@@ -1,122 +1,152 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../../../assets/css/index.css">
-    <link rel="stylesheet" href="../../../assets/css/common.css">
-    <link rel="stylesheet" href="../../../assets/css/mypage/common.css">
-    <link rel="stylesheet" href="../../../assets/css/mypage/userinfo.css">
-</head>
-<body>
-    <header class='header--container'>
+    <link rel="stylesheet" href="../../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../../assets/css/common.css" />
+    <link rel="stylesheet" href="../../../assets/css/mypage/common.css" />
+    <link rel="stylesheet" href="../../../assets/css/mypage/userinfo.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header--container">
         <div class="header--box">
-            <a href="#">
-                <img src='../../../assets/images/logo.png' width="250px" alt="" />
-            </a>
-            <div class="header--right">
-                <a href="">LOGIN</a>
-                <a href="">SIGNUP</a>
-            </div>
+          <a href="#">
+            <img src="../../../assets/images/logo.png" width="250px" alt="" />
+          </a>
+          <div class="header--right">
+            <a href="">LOGIN</a>
+            <a href="">SIGNUP</a>
+          </div>
         </div>
-    </header>
-    <main class='main--container'>
-        <ul class='navigation--main'>
-            <a href="">
-                <li>PICFEED</li>
-            </a>
-            <a href="">
-                <li>PICSHOP</li>
-            </a>
-            <a href="">
-                <li>ABOUT</li>
-            </a>
+      </header>
+      <main class="main--container">
+        <ul class="navigation--main">
+          <a href="">
+            <li>PICFEED</li>
+          </a>
+          <a href="">
+            <li>PICSHOP</li>
+          </a>
+          <a href="">
+            <li>ABOUT</li>
+          </a>
         </ul>
         <div class="mypage-container">
-            <div class="mypage-left">
-                <div class='title'>
-                    <h5>MYPAGE</h5>
-                </div>
-                <!-- 마이페이지 컨텐츠 -->
-                <div class="label">
-                    개인정보관리
-                    <em></em>
-                </div>
-                <div class="gapper"></div>
-                <form action="">
-                    <h2 class="sub--label">아바타</h2>
-                    <div class="avatar--wrapper">
-                        <img class="avatar-img" src="../../../assets/images/pengha.jpg" alt="">
-                    </div>
-                    <div id='image-input-value'></div>
-                    <input id='image-input' type="file" hidden name="avatar" >
-                    <button id='img-select' type='button' class='btn'>사진선택</button>
-                    <div class="gapper"></div>
-                    <div class="input--box">
-                        <label>닉네임</label>
-                        <input type="text" />
-                    </div>
-                    <div class="input--box">
-                        <label>연락처</label>
-                        <input type="text" />
-                    </div>
-                    <div class="input--box">
-                        <label>SNS</label>
-                        <input type="text" />
-                    </div>
-                    <div class="input--box input--long">
-                        <label>주소</label>
-                        <input type="text" />
-                    </div>
-                    <div class="gapper"></div>
-                    <h2 class="sub--label">작가소개</h2>
-                    <textarea class="artist-info--inut" name="info"></textarea>
-                    <div class="btn-wrapper">
-                        <button class='btn' type='button'>회원탈퇴</button>
-                        <button class='btn btn-yellow' type='submit'>수정</button>
-                    </div>
-                </form>
+          <div class="mypage-left">
+            <div class="title">
+              <h5>MYPAGE</h5>
             </div>
-            <div class="mypage-right">
-                <!-- 네비게이션바 -->
-                    <ul class="right-nav">
-                        <li>
-                            <a href="#" class="nav--active">▷개인정보수정</a>
-                        </li>
-                        <li>
-                            <a href="likelist.html">▷좋아요목록</a>
-                        </li>
-                        <li>
-                            <a href="buylist.html">▷구매내역</a>
-                        </li>
-                        <li>
-                            <a href="cart.html">▷장바구니</a>
-                        </li>
-                        <li>
-                            <a href="applyresult.html">▷작가신청결과 OR</a>
-                        </li>
-                        <li>
-                            <a href="selllist.html">▷판매내역</a>
-                        </li>
-                        <li>
-                            <a href="commentList.html">▷나의 댓글 목록</a>
-                        </li>
-                        <li>
-                            <a href="qnaList.html">▷1:1문의내역</a>
-                        </li>
-                    </ul>
+            <!-- 마이페이지 컨텐츠 -->
+            <div class="label">
+              개인정보관리
+              <em></em>
             </div>
+            <div class="gapper"></div>
+            <form action="">
+              <h2 class="sub--label">아바타</h2>
+              <div class="avatar--wrapper">
+                <img
+                  class="avatar-img"
+                  src="../../../assets/images/pengha.jpg"
+                  alt=""
+                />
+              </div>
+              <div id="image-input-value"></div>
+              <input id="image-input" type="file" hidden name="avatar" />
+              <button id="img-select" type="button" class="btn">
+                사진선택
+              </button>
+              <div class="gapper"></div>
+              <div class="input--box">
+                <label>닉네임</label>
+                <input type="text" />
+              </div>
+              <div class="input--box">
+                <label>연락처</label>
+                <input type="text" />
+              </div>
+              <div class="input--box">
+                <label>SNS</label>
+                <input type="text" />
+              </div>
+              <div class="input--box input--long">
+                <label>주소</label>
+                <input type="text" />
+              </div>
+              <div class="gapper"></div>
+              <h2 class="sub--label">작가소개</h2>
+              <textarea class="artist-info--inut" name="info"></textarea>
+              <div class="btn-wrapper">
+                <button class="btn" type="button" @click="setLeaveModal">
+                  회원탈퇴
+                </button>
+                <button class="btn btn-yellow" type="submit">수정</button>
+              </div>
+            </form>
+          </div>
+          <div class="mypage-right">
+            <!-- 네비게이션바 -->
+            <ul class="right-nav">
+              <li>
+                <a href="#" class="nav--active">▷개인정보수정</a>
+              </li>
+              <li>
+                <a href="likelist.html">▷좋아요목록</a>
+              </li>
+              <li>
+                <a href="buylist.html">▷구매내역</a>
+              </li>
+              <li>
+                <a href="cart.html">▷장바구니</a>
+              </li>
+              <li>
+                <a href="applyresult.html">▷작가신청결과 OR</a>
+              </li>
+              <li>
+                <a href="selllist.html">▷판매내역</a>
+              </li>
+              <li>
+                <a href="commentList.html">▷나의 댓글 목록</a>
+              </li>
+              <li>
+                <a href="qnaList.html">▷1:1문의내역</a>
+              </li>
+            </ul>
+          </div>
         </div>
         <!-- 여기까지 -->
-    </main>
-    <script defer>
-        document.querySelector('#img-select').addEventListener('click',()=>{
-            document.querySelector('#image-input').click();
-        })
-        document.querySelector('#image-input').addEventListener('change',(e)=>{
-            document.querySelector('#image-input-value').innerText=e.target.value;
-        })
-    </script>
-</body>
+      </main>
+
+      <!-- 모달 -->
+      <div class="modal--container" :class="{modalActive:leaveModal}">
+        <div class="modal--box">
+          <h1>탈퇴 하시겠습니까?</h1>
+          <div class="gap"></div>
+          <div class="gap"></div>
+          <div class="gap"></div>
+          <div class="modal--btn-box">
+            <button class="btn" @click="setLeaveModal">닫기</button>
+            <button class="btn btn-yellow">확인</button>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.querySelector("#img-select").addEventListener("click", () => {
+          document.querySelector("#image-input").click();
+        });
+        document
+          .querySelector("#image-input")
+          .addEventListener("change", (e) => {
+            document.querySelector("#image-input-value").innerText =
+              e.target.value;
+          });
+      </script>
+      <script src="../../../assets/js/mypage/index.js" defer></script>
+    </div>
+  </body>
 </html>

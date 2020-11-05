@@ -11,21 +11,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dia.user.model.service.UserService;
-import com.dia.user.model.vo.Users;;
-
-
+import com.dia.user.model.vo.Users;
 
 /**
- * Servlet implementation class MemberInsertController
+ * Servlet implementation class LoginController
  */
-@WebServlet("/insert.us")
-public class UserInsertController extends HttpServlet {
+@WebServlet("/login.us")
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UserInsertController() {
+    public LoginController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,37 +32,28 @@ public class UserInsertController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		
 		request.setCharacterEncoding("utf-8");
-		
-		String user_id = request.getParameter("user_id");	
+		 
+		String user_id = request.getParameter("user_id");
 		String user_password = request.getParameter("user_password");
-		String user_name = request.getParameter("user_name");
-		String user_email = request.getParameter("user_email");
-	
-		Users u = new Users(user_id, user_password, user_name, user_email);
 		
-		int result = new UserService().insertUsers(u);
-				
-		if(result > 0) { 
+		Users loginUser = new UserService().loginUsers(user_id, user_password);
+		
+		if(loginUser == null) { 
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "¼º°øÀûÀ¸·Î È¸¿ø°¡ÀÔÀÌ µÆ½À´Ï´Ù!");			
-			
-			
-			response.sendRedirect(request.getContextPath());
-			
-			
-		}else { 
-			
-			request.setAttribute("errorMsg", "È¸¿ø°¡ÀÔ¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
+			request.setAttribute("errorMsg", "ë¡œê·¸ì¸ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);
 			
-		}
-		
-		
+		}else { 	
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", loginUser);
+			
+			response.sendRedirect(request.getContextPath());
+				
+		}		
 	}
 
 	/**

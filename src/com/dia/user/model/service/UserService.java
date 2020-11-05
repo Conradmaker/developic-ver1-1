@@ -19,7 +19,7 @@ public class UserService {
 		
 		Connection conn = /*JDBCTemplate.*/getConnection();
 		
-		Users loginUser = new UsersDao().loginUsers(conn, userId, userPwd);
+		Users loginUser = new UserDao().loginUsers(conn, userId, userPwd);
 		
 		/*JDBCTemplate.*/close(conn);
 		
@@ -27,16 +27,17 @@ public class UserService {
 		
 	}
 	
+	
 	/**
 	 * 2. 회원가입용 서비스	
 	 * @param m		사용자가입력한 아이디,비밀번호,이름,전화번호,이메일,주소,취미가 담겨있는 객체
 	 * @return		처리된 행 수
-	 */
-	public int insertUsers(Users m) {
+	 */ 
+	public int insertUsers(Users u) {
 		
 		Connection conn = getConnection();
 		
-		int result = new UsersDao().insertUsers(conn, m);
+		int result = new UserDao().insertUsers(conn, u);
 		
 		if(result > 0) {
 			/*JDBCTemplate.*/commit(conn);
@@ -55,26 +56,25 @@ public class UserService {
 	 * 3. 정보변경용 서비스
 	 * @param m		변경할 내용들+변경요청한회원의아이디 가 담겨있는 객체
 	 * @return		갱신된 회원 객체/null
-	 */
-	public Users updateUsers(Users m) {
+	 */	 
+	public Users updateUsers(Users u) {
 		
 		Connection conn = getConnection();
 		
-		int result = new UsersDao().updateUsers(conn, m);
+		int result = new UserDao().updateUsers(conn, u);
 		
-		Users updateMem = null;
-		if(result > 0) { // update 성공 했을 경우
+		Users updateUser = null;
+		if(result > 0) { 
 			commit(conn);
-			// 갱신된 회원 다시 조회해오기
-			updateMem = new UsersDao().selectUsers(conn, m.getUserId());
+			updateUser = new UserDao().selectUsers(conn, u.getUser_id());
 			
-		}else { // update 실패 했을 경우
+		}else { 
 			rollback(conn);
 		}
 		
 		close(conn);
 		
-		return updateMem;
+		return updateUser;
 		
 	}
 	
@@ -85,38 +85,33 @@ public class UserService {
 	 * @param updatePwd		변경할 비밀번호
 	 * @return				갱신된 회원객체/null
 	 */
-	public Users updatePwdUsers(String userId, String userPwd, String updatePwd) {
+	public Users updatePwdUsers(String user_id, String user_password, String update_Password) {
 		
 		Connection conn = getConnection();
 		
-		int result = new UsersDao().updatePwdUsers(conn, userId, userPwd, updatePwd);
+		int result = new UserDao().updatePwdUsers(conn, user_id, user_password, update_Password);
 		
-		Users updateMem = null;
-		if(result > 0) { // 비밀번호변경 성공
+		Users updateUser = null;
+		if(result > 0) { 
 			commit(conn);
 			
-			// 갱신된 회원 재 조회
-			updateMem = new UsersDao().selectUsers(conn, userId);
+			updateUser = new UserDao().selectUsers(conn, user_id);
 			
-		}else { // 실패
+		}else { 
 			rollback(conn);
 		}
 		
 		close(conn);
 		
-		return updateMem;
+		return updateUser;
 	}
 	
-	/**
-	 * 5. 회원 탈퇴용 서비스
-	 * @param userId	탈퇴요청한 회원의 아이디
-	 * @param userPwd	탈퇴요청한 회원의 비밀번호
-	 * @return			처리된 행수 
-	 */
-	public int deleteUsers(String userId, String userPwd) {
+	
+	// 탈퇴용
+	public int deleteUsers(String user_id, String user_Password) {
 		Connection conn = getConnection();
 		
-		int result = new UsersDao().deleteUsers(conn, userId, userPwd);
+		int result = new UserDao().deleteUsers(conn, user_id, user_Password);
 		
 		if(result > 0) {
 			commit(conn);
@@ -129,11 +124,11 @@ public class UserService {
 		return result;
 	}
 	
-	public int idCheck(String checkId) {
+	public int idCheck(String check_id) {
 		
 		Connection conn = getConnection();
 		
-		int count = new UsersDao().idCheck(conn, checkId);
+		int count = new UserDao().idCheck(conn, check_id);
 		
 		close(conn);
 		

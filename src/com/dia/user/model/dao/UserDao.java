@@ -191,7 +191,7 @@ public class UserDao {
 		
 		PreparedStatement pstmt = null;
 		
-		String sql = prop.getProperty("updatePwdUsers");
+		String sql = prop.getProperty("updatePwd.u");
 		
 		try {
 			pstmt = conn.prepareStatement(sql); 
@@ -216,7 +216,7 @@ public class UserDao {
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
-		String sql = prop.getProperty("deleteUsers");
+		String sql = prop.getProperty("delete.u");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);

@@ -23,3 +23,23 @@ const vm = new Vue({
     },
   },
 });
+
+//개인정보관리
+document.querySelector("#img-select").addEventListener("click", () => {
+  document.querySelector("#image-input").click();
+});
+document.querySelector("#image-input").addEventListener("change", (e) => {
+  document.querySelector("#image-input-value").innerText = e.target.value;
+});
+function loadImg(inputFile) {
+  if (inputFile.files.length == 1) {
+    var reader = new FileReader();
+    reader.readAsDataURL(inputFile.files[0]);
+    reader.onload = function (e) {
+      console.log(e);
+      document.querySelector("#title-img").src = e.target.result;
+    };
+  } else {
+    document.querySelector("#title-img").src = null;
+  }
+}

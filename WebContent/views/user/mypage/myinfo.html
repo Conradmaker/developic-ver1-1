@@ -50,13 +50,20 @@
               <h2 class="sub--label">아바타</h2>
               <div class="avatar--wrapper">
                 <img
+                  id="title-img"
                   class="avatar-img"
                   src="../../../assets/images/pengha.jpg"
                   alt=""
                 />
               </div>
               <div id="image-input-value"></div>
-              <input id="image-input" type="file" hidden name="avatar" />
+              <input
+                id="image-input"
+                type="file"
+                hidden
+                name="avatar"
+                onchange="loadImg(this)"
+              />
               <button id="img-select" type="button" class="btn">
                 사진선택
               </button>
@@ -135,17 +142,6 @@
         </div>
       </div>
 
-      <script>
-        document.querySelector("#img-select").addEventListener("click", () => {
-          document.querySelector("#image-input").click();
-        });
-        document
-          .querySelector("#image-input")
-          .addEventListener("change", (e) => {
-            document.querySelector("#image-input-value").innerText =
-              e.target.value;
-          });
-      </script>
       <script src="../../../assets/js/mypage/index.js" defer></script>
     </div>
   </body>

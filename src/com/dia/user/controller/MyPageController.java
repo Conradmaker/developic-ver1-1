@@ -1,4 +1,4 @@
-package com.dia.user.controller;
+package com.kh.member.controller;
 
 import java.io.IOException;
 
@@ -8,22 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.dia.user.model.service.UserService;
-import com.dia.user.model.vo.Users;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class MyPageController
  */
-@WebServlet("/login.us")
-public class LoginController extends HttpServlet {
+@WebServlet("/myPage.me")
+public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public MyPageController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,28 +28,11 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		
-		request.setCharacterEncoding("utf-8");
-		 
-		String user_id = request.getParameter("user_id");
-		String user_password = request.getParameter("user_password");
-		
-		Users loginUser = new UserService().loginUsers(user_id, user_password);
-		
-		if(loginUser == null) { 
-			
-			request.setAttribute("errorMsg", "로그인에 실패했습니다.");
-			
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
-			
-		}else { 	
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
-			
-			response.sendRedirect(request.getContextPath());
-				
-		}		
+		RequestDispatcher view = request.getRequestDispatcher("views/member/myPage.jsp");
+		view.forward(request, response);
+	
 	}
 
 	/**

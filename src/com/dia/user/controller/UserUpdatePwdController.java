@@ -2,7 +2,6 @@ package com.dia.user.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,19 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dia.user.model.service.UserService;
+
 import com.dia.user.model.vo.Users;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class MemberUpdatePwdController
  */
-@WebServlet("/login.us")
-public class LoginController extends HttpServlet {
+@WebServlet("/updatePwd.us")
+public class UserUpdatePwdController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public UserUpdatePwdController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,28 +32,28 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("utf-8");
-		 
+	
 		String user_id = request.getParameter("user_id");
 		String user_password = request.getParameter("user_password");
 		
-		Users loginUser = new UserService().loginUsers(user_id, user_password);
+		String update_Pwd = request.getParameter("update_Pwd");
 		
-		if(loginUser == null) { 
+		Users updateUser = new UserService().updatePwdUsers(user_id, user_password, update_Pwd);
+		
+		if(updateUser == null) {
+			request.setAttribute("errorMsg", "비밀번호 변경 실패");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 			
-			request.setAttribute("errorMsg", "�α��ο� �����߽��ϴ�.");
+		}else {  
 			
-			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
-			view.forward(request, response);
-			
-		}else { 	
 			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
+			session.setAttribute("loginUser", updateUser);
+			session.setAttribute("alertMsg", "성공적으로 비밀번호 변경됐습니다.");
 			
-			response.sendRedirect(request.getContextPath());
-				
-		}		
+			response.sendRedirect(request.getContextPath() + "/myPage.me");
+			
+		}
+	
 	}
 
 	/**

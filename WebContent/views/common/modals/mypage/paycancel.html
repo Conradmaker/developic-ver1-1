@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../../assets/css/index.css">
-    <link rel="stylesheet" href="../../../../assets/css/common.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../../../assets/css/common.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="modal--container">
-        <div class="modal--box">
-            <h1>결제를 취소하시겠습니까?</h1>
-            <div class="gap"></div>
-            <form class="modal--paycancel-form" method="POST" action="">
-                <label>
-                    <input
-                      type="radio"
-                      name="reason"
-                      value="단순변심"
-                      onChange={onChange}
-                    />
-                    단순변심
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="reason"
-                      value="돈이 없어짐"
-                      onChange={onChange}
-                    />
-                    돈이 없어짐
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="reason"
-                      value="결제방식변경"
-                      onChange={onChange}
-                    />
-                    결제방식변경
-                  </label>
-                  <label>
-                    <input
-                      type="radio"
-                      name="reason"
-                      value="서비스 불만족"
-                      onChange={onChange}
-                    />
-                    서비스 불만족
-                  </label>
-            </form>
-            <div class="gap"></div>
-            <div class="gap"></div>
-            <div class="modal--btn-box">
-                <button class="btn">닫기</button>
-                <button class="btn btn-yellow">취소</button>
-            </div>
+      <div class="modal--box">
+        <h1>결제를 취소하시겠습니까?</h1>
+        <div class="gap"></div>
+        <form class="modal--paycancel-form" method="POST" action="">
+          <label>
+            <input
+              type="radio"
+              name="reason"
+              value="단순변심"
+              onChange="{onChange}"
+            />
+            단순변심
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="reason"
+              value="돈이 없어짐"
+              onChange="{onChange}"
+            />
+            돈이 없어짐
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="reason"
+              value="결제방식변경"
+              onChange="{onChange}"
+            />
+            결제방식변경
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="reason"
+              value="서비스 불만족"
+              onChange="{onChange}"
+            />
+            서비스 불만족
+          </label>
+        </form>
+        <div class="gap"></div>
+        <div class="gap"></div>
+        <div class="modal--btn-box">
+          <button class="btn">닫기</button>
+          <button class="btn btn-yellow">취소</button>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

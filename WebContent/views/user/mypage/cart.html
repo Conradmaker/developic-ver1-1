@@ -1,129 +1,150 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
-  />
-    <link rel="stylesheet" href="../../../assets/css/index.css">
-    <link rel="stylesheet" href="../../../assets/css/common.css">
-    <link rel="stylesheet" href="../../../assets/css/mypage/common.css">
-    <link rel="stylesheet" href="../../../assets/css/mypage/cart.css">
-</head>
-<body>
-    <header class='header--container'>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../../../assets/css/index.css" />
+    <link rel="stylesheet" href="../../../assets/css/common.css" />
+    <link rel="stylesheet" href="../../../assets/css/mypage/common.css" />
+    <link rel="stylesheet" href="../../../assets/css/mypage/cart.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header--container">
         <div class="header--box">
-            <a href="#">
-                <img src='../../../assets/images/logo.png' width="250px" alt="" />
-            </a>
-            <div class="header--right">
-                <a href="">LOGIN</a>
-                <a href="">SIGNUP</a>
-            </div>
+          <a href="#">
+            <img src="../../../assets/images/logo.png" width="250px" alt="" />
+          </a>
+          <div class="header--right">
+            <a href="">LOGIN</a>
+            <a href="">SIGNUP</a>
+          </div>
         </div>
-    </header>
-    <main class='main--container'>
-        <ul class='navigation--main'>
-            <a href="">
-                <li>PICFEED</li>
-            </a>
-            <a href="">
-                <li>PICSHOP</li>
-            </a>
-            <a href="">
-                <li>ABOUT</li>
-            </a>
+      </header>
+      <main class="main--container">
+        <ul class="navigation--main">
+          <a href="">
+            <li>PICFEED</li>
+          </a>
+          <a href="">
+            <li>PICSHOP</li>
+          </a>
+          <a href="">
+            <li>ABOUT</li>
+          </a>
         </ul>
         <!-- 여기에 컨텐츠 작성 -->
         <div class="mypage-container">
-            <div class="mypage-left">
-                <div class='title'>
-                    <h5>MYPAGE</h5>
-                </div>
-                <!-- 마이페이지 컨텐츠 -->
-                <div class="label">
-                    장바구니
-                    <em></em>
-                </div>
-                <!-- 아이템 -->
-                <div class="cart--item-box">
-                    <div class="check-box">
-                        <input type="checkbox" name="check">
-                    </div>
-                    <div class="cart--img-box">
-                        <img src='../../../assets/images/오로라.jpg' alt="" />
-                    </div>
-                    <div class="cart--summary-box">
-                        <h2>STELLHEAD AND SPINES IN ALASKA</h2>
-                        <span>conrad</span>
-                        <p>9,000,000</p>
-                    </div>
-                </div>
-                <div class="cart--item-box">
-                    <div class="check-box">
-                        <input type="checkbox" name="check">
-                    </div>
-                    <div class="cart--img-box">
-                        <img src='../../../assets/images/오로라.jpg' alt="" />
-                    </div>
-                    <div class="cart--summary-box">
-                        <h2>STELLHEAD AND SPINES IN ALASKA</h2>
-                        <span>conrad</span>
-                        <p>9,000,000</p>
-                    </div>
-                </div>
-
-
-                <div class="mypage--item-container">
-                    <div class="common--item-box item-box-small"></div>
-                    <div class="common--item-box item-box-small">
-                        <div class="common--img-box">
-                            <button class='btn btn-small' color="black">
-                                선택취소
-                            </button>
-                            <button class='btn btn-small btn-yellow'>선택구매</button>
-                        </div>
-                        <div class="common--summary">
-                            <h3>TOTAL</h3>
-                            <em>10,231,000</em>
-                        </div>
-                    </div>
-                </div>
+          <div class="mypage-left">
+            <div class="title">
+              <h5>MYPAGE</h5>
             </div>
-            <div class="mypage-right">
-                <!-- 네비게이션바 -->
-                    <ul class="right-nav">
-                        <li>
-                            <a href="myinfo.html">▷개인정보수정</a>
-                        </li>
-                        <li>
-                            <a href="likelist.html">▷좋아요목록</a>
-                        </li>
-                        <li>
-                            <a href="buylist.html">▷구매내역</a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav--active">▷장바구니</a>
-                        </li>
-                        <li>
-                            <a href="applyresult.html">▷작가신청결과 OR</a>
-                        </li>
-                        <li>
-                            <a href="selllist.html">▷판매내역</a>
-                        </li>
-                        <li>
-                            <a href="commentList.html">▷나의 댓글 목록</a>
-                        </li>
-                        <li>
-                            <a href="qnaList.html">▷1:1문의내역</a>
-                        </li>
-                    </ul>
+            <!-- 마이페이지 컨텐츠 -->
+            <div class="label">
+              장바구니
+              <em></em>
             </div>
+            <!-- 아이템 -->
+            <div class="cart--item-box">
+              <div class="check-box">
+                <input type="checkbox" name="check" />
+              </div>
+              <div class="cart--img-box">
+                <img src="../../../assets/images/오로라.jpg" alt="" />
+              </div>
+              <div class="cart--summary-box">
+                <h2>STELLHEAD AND SPINES IN ALASKA</h2>
+                <span>conrad</span>
+                <p>9,000,000</p>
+              </div>
+            </div>
+            <div class="cart--item-box">
+              <div class="check-box">
+                <input type="checkbox" name="check" />
+              </div>
+              <div class="cart--img-box">
+                <img src="../../../assets/images/오로라.jpg" alt="" />
+              </div>
+              <div class="cart--summary-box">
+                <h2>STELLHEAD AND SPINES IN ALASKA</h2>
+                <span>conrad</span>
+                <p>9,000,000</p>
+              </div>
+            </div>
+
+            <div class="mypage--item-container">
+              <div class="common--item-box item-box-small"></div>
+              <div class="common--item-box item-box-small">
+                <div class="common--img-box">
+                  <button
+                    class="btn btn-small"
+                    color="black"
+                    @click="setDeleteCartModal"
+                  >
+                    선택취소
+                  </button>
+                  <button class="btn btn-small btn-yellow">선택구매</button>
+                </div>
+                <div class="common--summary">
+                  <h3>TOTAL</h3>
+                  <em>10,231,000</em>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mypage-right">
+            <!-- 네비게이션바 -->
+            <ul class="right-nav">
+              <li>
+                <a href="myinfo.html">▷개인정보수정</a>
+              </li>
+              <li>
+                <a href="likelist.html">▷좋아요목록</a>
+              </li>
+              <li>
+                <a href="buylist.html">▷구매내역</a>
+              </li>
+              <li>
+                <a href="#" class="nav--active">▷장바구니</a>
+              </li>
+              <li>
+                <a href="applyresult.html">▷작가신청결과 OR</a>
+              </li>
+              <li>
+                <a href="selllist.html">▷판매내역</a>
+              </li>
+              <li>
+                <a href="commentList.html">▷나의 댓글 목록</a>
+              </li>
+              <li>
+                <a href="qnaList.html">▷1:1문의내역</a>
+              </li>
+            </ul>
+          </div>
         </div>
         <!-- 여기까지 -->
-    </main>
-</body>
+      </main>
+
+      <!-- 모달 -->
+      <div class="modal--container" :class="{modalActive:deleteCartModal}">
+        <div class="modal--box">
+          <h1>삭제하시겠습니까?</h1>
+          <div class="gap"></div>
+          <div class="gap"></div>
+          <div class="modal--btn-box">
+            <button class="btn" @click="setDeleteCartModal">취소</button>
+            <button class="btn btn-yellow">삭제</button>
+          </div>
+        </div>
+      </div>
+
+      <script src="../../../assets/js/mypage/index.js" defer></script>
+    </div>
+  </body>
 </html>

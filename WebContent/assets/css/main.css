@@ -36,9 +36,9 @@
   gap: 20px;
   position: absolute;
   right: 105px;
-  bottom: 0;
+  bottom: 30px;
   top: 0;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .btn-big {
@@ -71,8 +71,12 @@
   margin: 50px auto 50px auto;
   font-size: 23px;
   font-weight: bold;
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
 }
 
+/* PICFEED */
 .feed--container {
   width: 1200px;
   margin: 0 auto;
@@ -112,8 +116,8 @@
 
 .feed--summary i {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 25px;
+  right: 20px;
 }
 
 .feed--item:hover .feed--summary {
@@ -130,6 +134,7 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* TOP BTN */
 .top-arrow {
   position: fixed;
   bottom: 50px;
@@ -142,6 +147,7 @@
   margin-bottom: 50px;
 }
 
+/* MORE BTN */
 .more {
   display: flex;
   justify-content: center;
@@ -154,6 +160,7 @@
   font-weight: bolder;
 }
 
+/* 중간 배너 */
 .ad--banner {
   width: 100%;
 }
@@ -162,6 +169,7 @@
   width: 100%;
 }
 
+/* PICSHOP */
 .shop--container {
   width: 1200px;
   margin: 0 auto;
@@ -212,7 +220,7 @@
 .item-info span {
   font-size: 18px;
   font-weight: bold;
-  color: ;
+  color: #070707;
 }
 .item-info strong {
   font-size: 18px;

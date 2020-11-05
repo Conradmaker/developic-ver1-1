@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="../../../assets/css/index.css" />
     <link rel="stylesheet" href="../../../assets/css/common.css" />
     <link rel="stylesheet" href="../../../assets/css/mypage/common.css" />
@@ -20,7 +24,20 @@
           <div class="header--right">
             <a href="">LOGIN</a>
             <a href="">SIGNUP</a>
+            <i @click="setSearchOpen" v-if="searchOpen"
+              ><i class="fas fa-times"></i
+            ></i>
+            <i @click="setSearchOpen" v-else
+              ><i class="fas fa-search" @click=""></i
+            ></i>
           </div>
+        </div>
+        <div class="search--container" :class="{searchActive:searchOpen}">
+          <form class="search--box" method="POST" action="">
+            <label><input type="checkbox" name="saleCheck" />판매여부</label>
+            <input type="text" placeholder="SEARCH" />
+            <i class="fas fa-search"></i>
+          </form>
         </div>
       </header>
       <main class="main--container">

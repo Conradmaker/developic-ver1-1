@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="../../assets/css/index.css" />
     <link rel="stylesheet" href="../../assets/css/common.css" />
     <link rel="stylesheet" href="../../assets/css/buy.css" />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
     <!-- 갖고옴^!^ -->
     <!-- Styles -->
     <link rel="stylesheet" href="https://uicdn.toast.com/tui-editor/latest/tui-editor.css"></link>
@@ -16,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"></link>
     <!-- Scripts -->
     <script src="https://uicdn.toast.com/tui-editor/latest/tui-editor-Editor-full.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
     <header class="header--container">
@@ -26,7 +29,12 @@
         </a>
         <div class="header--right">
           <a href="">LOGIN</a>
-          <a href="">SIGNUP</a>
+          <a href="">SIGNUP</a>            <i @click="setSearchOpen" v-if="searchOpen"
+          ><i class="fas fa-times"></i
+        ></i>
+        <i @click="setSearchOpen" v-else
+          ><i class="fas fa-search" @click=""></i
+        ></i>
         </div>
       </div>
     </header>

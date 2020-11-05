@@ -26,7 +26,20 @@
           <div class="header--right">
             <a href="">LOGIN</a>
             <a href="">SIGNUP</a>
+            <i @click="setSearchOpen" v-if="searchOpen"
+              ><i class="fas fa-times"></i
+            ></i>
+            <i @click="setSearchOpen" v-else
+              ><i class="fas fa-search" @click=""></i
+            ></i>
           </div>
+        </div>
+        <div class="search--container" :class="{searchActive:searchOpen}">
+          <form class="search--box" method="POST" action="">
+            <label><input type="checkbox" name="saleCheck" />판매여부</label>
+            <input type="text" placeholder="SEARCH" />
+            <i class="fas fa-search"></i>
+          </form>
         </div>
       </header>
       <main class="main--container">

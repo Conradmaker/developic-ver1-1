@@ -6,6 +6,8 @@ const vm = new Vue({
       deleteCartModal: false,
       leaveModal: false,
       deleteLikeModal: false,
+      searchOpen: false,
+      findIdModal: false,
     };
   },
   methods: {
@@ -20,6 +22,12 @@ const vm = new Vue({
     },
     setDeleteLikeModal() {
       this.deleteLikeModal = !this.deleteLikeModal;
+    },
+    setSearchOpen() {
+      this.searchOpen = !this.searchOpen;
+    },
+    setFindIdOpen() {
+      this.findIdModal = !this.findIdModal;
     },
   },
 });

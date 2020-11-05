@@ -68,7 +68,7 @@
 
 .main--title {
   text-align: center;
-  margin: 50px auto 50px auto;
+  margin: 50px auto 30px auto;
   font-size: 23px;
   font-weight: bold;
   width: 30%;
@@ -86,9 +86,10 @@
 
 .feed--item {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: -30px;
   display: inline-block;
   position: relative;
+  margin-top: 50px;
 }
 
 .feed--summary {

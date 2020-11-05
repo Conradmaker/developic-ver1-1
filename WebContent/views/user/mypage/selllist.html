@@ -14,133 +14,134 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <header class="header--container">
-      <div class="header--box">
-        <a href="#">
-          <img src="../../../assets/images/logo.png" width="250px" alt="" />
-        </a>
-        <div class="header--right">
-          <a href="">LOGIN</a>
-          <a href="">SIGNUP</a>
-          <i @click="setSearchOpen" v-if="searchOpen"
-            ><i class="fas fa-times"></i
-          ></i>
-          <i @click="setSearchOpen" v-else
-            ><i class="fas fa-search" @click=""></i
-          ></i>
+    <div id="app">
+      <header class="header--container">
+        <div class="header--box">
+          <a href="#">
+            <img src="../../../assets/images/logo.png" width="250px" alt="" />
+          </a>
+          <div class="header--right">
+            <a href="">LOGIN</a>
+            <a href="">SIGNUP</a>
+            <i @click="setSearchOpen"
+              ><i class="fas fa-search" @click=""></i
+            ></i>
+          </div>
         </div>
-      </div>
+      </header>
       <div class="search--container" :class="{searchActive:searchOpen}">
         <form class="search--box" method="POST" action="">
           <label><input type="checkbox" name="saleCheck" />판매여부</label>
           <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search"></i
+          ><i class="fas fa-times" @click="setSearchOpen"></i>
         </form>
       </div>
-    </header>
-    <main class="main--container">
-      <ul class="navigation--main">
-        <a href="">
-          <li>PICFEED</li>
-        </a>
-        <a href="">
-          <li>PICSHOP</li>
-        </a>
-        <a href="">
-          <li>ABOUT</li>
-        </a>
-      </ul>
-      <!-- 여기에 컨텐츠 작성 -->
-      <div class="mypage-container">
-        <div class="mypage-left">
-          <div class="title">
-            <h5>MYPAGE</h5>
-          </div>
-          <!-- 마이페이지 컨텐츠 -->
-          <div class="label">
-            판매내역
-            <em></em>
-          </div>
-          <div class="mypage--item-container">
-            <!-- 아이템 -->
-            <div class="common--item-box">
-              <div class="common--img-box">
-                <img src="../../../assets/images/오로라.jpg" alt="" />
-              </div>
-              <div class="common--summary">
-                <h2>STEELHEAD AND SPINES IN ALASKA</h2>
-                <div>
-                  <button class="btn btn-yellow">상태수정</button>
-                  <span>FOR CONRAD</span>
+      <main class="main--container">
+        <ul class="navigation--main">
+          <a href="">
+            <li>PICFEED</li>
+          </a>
+          <a href="">
+            <li>PICSHOP</li>
+          </a>
+          <a href="">
+            <li>ABOUT</li>
+          </a>
+        </ul>
+        <!-- 여기에 컨텐츠 작성 -->
+        <div class="mypage-container">
+          <div class="mypage-left">
+            <div class="title">
+              <h5>MYPAGE</h5>
+            </div>
+            <!-- 마이페이지 컨텐츠 -->
+            <div class="label">
+              판매내역
+              <em></em>
+            </div>
+            <div class="mypage--item-container">
+              <!-- 아이템 -->
+              <div class="common--item-box">
+                <div class="common--img-box">
+                  <img src="../../../assets/images/오로라.jpg" alt="" />
                 </div>
-                <p>
-                  <span>9,000,000</span>
-                  <small>2020-10-04</small>
-                </p>
+                <div class="common--summary">
+                  <h2>STEELHEAD AND SPINES IN ALASKA</h2>
+                  <div>
+                    <button class="btn btn-yellow">상태수정</button>
+                    <span>FOR CONRAD</span>
+                  </div>
+                  <p>
+                    <span>9,000,000</span>
+                    <small>2020-10-04</small>
+                  </p>
+                </div>
+              </div>
+              <div class="common--item-box">
+                <div class="common--img-box">
+                  <img src="../../../assets/images/오로라.jpg" alt="" />
+                </div>
+                <div class="common--summary">
+                  <h2>STEELHEAD AND SPINES IN ALASKA</h2>
+                  <div>
+                    <button class="btn btn-yellow">상태수정</button>
+                    <span>FOR CONRAD</span>
+                  </div>
+                  <p>
+                    <span>9,000,000</span>
+                    <small>2020-10-04</small>
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="common--item-box">
-              <div class="common--img-box">
-                <img src="../../../assets/images/오로라.jpg" alt="" />
-              </div>
-              <div class="common--summary">
-                <h2>STEELHEAD AND SPINES IN ALASKA</h2>
-                <div>
-                  <button class="btn btn-yellow">상태수정</button>
-                  <span>FOR CONRAD</span>
+            <div class="mypage--item-container">
+              <div class="common--item-box item-box-small"></div>
+              <div class="common--item-box item-box-small">
+                <div class="common--summary">
+                  <h3>TOTAL EARNED</h3>
+                  <em>10,231,000</em>
                 </div>
-                <p>
-                  <span>9,000,000</span>
-                  <small>2020-10-04</small>
-                </p>
+                <div class="common--summary">
+                  <h3>TOTAL COUNT</h3>
+                  <h3>13</h3>
+                </div>
               </div>
             </div>
           </div>
-          <div class="mypage--item-container">
-            <div class="common--item-box item-box-small"></div>
-            <div class="common--item-box item-box-small">
-              <div class="common--summary">
-                <h3>TOTAL EARNED</h3>
-                <em>10,231,000</em>
-              </div>
-              <div class="common--summary">
-                <h3>TOTAL COUNT</h3>
-                <h3>13</h3>
-              </div>
-            </div>
+          <div class="mypage-right">
+            <!-- 네비게이션바 -->
+            <ul class="right-nav">
+              <li>
+                <a href="myinfo.html">▷개인정보수정</a>
+              </li>
+              <li>
+                <a href="likelist.html">▷좋아요목록</a>
+              </li>
+              <li>
+                <a href="buylist.html">▷구매내역</a>
+              </li>
+              <li>
+                <a href="cart.html">▷장바구니</a>
+              </li>
+              <li>
+                <a href="applyresult.html">▷작가신청결과 OR</a>
+              </li>
+              <li>
+                <a href="#" class="nav--active">▷판매내역</a>
+              </li>
+              <li>
+                <a href="commentList.html">▷나의 댓글 목록</a>
+              </li>
+              <li>
+                <a href="qnaList.html">▷1:1문의내역</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="mypage-right">
-          <!-- 네비게이션바 -->
-          <ul class="right-nav">
-            <li>
-              <a href="myinfo.html">▷개인정보수정</a>
-            </li>
-            <li>
-              <a href="likelist.html">▷좋아요목록</a>
-            </li>
-            <li>
-              <a href="buylist.html">▷구매내역</a>
-            </li>
-            <li>
-              <a href="cart.html">▷장바구니</a>
-            </li>
-            <li>
-              <a href="applyresult.html">▷작가신청결과 OR</a>
-            </li>
-            <li>
-              <a href="#" class="nav--active">▷판매내역</a>
-            </li>
-            <li>
-              <a href="commentList.html">▷나의 댓글 목록</a>
-            </li>
-            <li>
-              <a href="qnaList.html">▷1:1문의내역</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- 여기까지 -->
-    </main>
+        <!-- 여기까지 -->
+      </main>
+    </div>
+    <script src="../../../assets/js/mypage/index.js"></script>
   </body>
 </html>

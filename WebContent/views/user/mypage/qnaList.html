@@ -15,212 +15,213 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <header class="header--container">
-      <div class="header--box">
-        <a href="#">
-          <img src="../../../assets/images/logo.png" width="250px" alt="" />
-        </a>
-        <div class="header--right">
-          <a href="">LOGIN</a>
-          <a href="">SIGNUP</a>
-          <i @click="setSearchOpen" v-if="searchOpen"
-            ><i class="fas fa-times"></i
-          ></i>
-          <i @click="setSearchOpen" v-else
-            ><i class="fas fa-search" @click=""></i
-          ></i>
+    <div id="app">
+      <header class="header--container">
+        <div class="header--box">
+          <a href="#">
+            <img src="../../../assets/images/logo.png" width="250px" alt="" />
+          </a>
+          <div class="header--right">
+            <a href="">LOGIN</a>
+            <a href="">SIGNUP</a>
+            <i @click="setSearchOpen"
+              ><i class="fas fa-search" @click=""></i
+            ></i>
+          </div>
         </div>
-      </div>
+      </header>
       <div class="search--container" :class="{searchActive:searchOpen}">
         <form class="search--box" method="POST" action="">
           <label><input type="checkbox" name="saleCheck" />판매여부</label>
           <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search"></i
+          ><i class="fas fa-times" @click="setSearchOpen"></i>
         </form>
       </div>
-    </header>
-    <main class="main--container">
-      <ul class="navigation--main">
-        <a href="">
-          <li>PICFEED</li>
-        </a>
-        <a href="">
-          <li>PICSHOP</li>
-        </a>
-        <a href="">
-          <li>ABOUT</li>
-        </a>
-      </ul>
-      <!-- 여기에 컨텐츠 작성 -->
-      <div class="mypage-container">
-        <div class="mypage-left">
-          <div class="title">
-            <h5>MYPAGE</h5>
-          </div>
-          <!-- 마이페이지 컨텐츠 -->
-          <div class="label">
-            1:1문의내역
-            <em></em>
-          </div>
-
-          <div class="faq-and-qna">
-            <div class="faq-box">
-              <span class="small-title">답변완료 목록</span>
-              <!-- 아이템 -->
-              <ul class="qna-list">
-                <li>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <span class="small-title last-small-title">미답변 목록</span>
-              <ul class="qna-list">
-                <li>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
-                </li>
-              </ul>
+      <main class="main--container">
+        <ul class="navigation--main">
+          <a href="">
+            <li>PICFEED</li>
+          </a>
+          <a href="">
+            <li>PICSHOP</li>
+          </a>
+          <a href="">
+            <li>ABOUT</li>
+          </a>
+        </ul>
+        <!-- 여기에 컨텐츠 작성 -->
+        <div class="mypage-container">
+          <div class="mypage-left">
+            <div class="title">
+              <h5>MYPAGE</h5>
+            </div>
+            <!-- 마이페이지 컨텐츠 -->
+            <div class="label">
+              1:1문의내역
+              <em></em>
             </div>
 
-            <div class="qna-box">
-              <div class="label">1:1문의<em></em></div>
-              <span>
-                원하는 답이 없다면
-                <br />
-                1:1문의를 이용하세요.
-                <p>
-                  Open at AM 10:00 ~ PM 17:00
+            <div class="faq-and-qna">
+              <div class="faq-box">
+                <span class="small-title">답변완료 목록</span>
+                <!-- 아이템 -->
+                <ul class="qna-list">
+                  <li>
+                    <div class="about-list-title">
+                      <h1>첫번째 질답입니다.</h1>
+                      ▼
+                    </div>
+                    <div class="about-list-detail">
+                      <p>
+                        five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more
+                        recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="about-list-title">
+                      <h1>첫번째 질답입니다.</h1>
+                      ▼
+                    </div>
+                    <div class="about-list-detail">
+                      <p>
+                        five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more
+                        recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="about-list-title">
+                      <h1>첫번째 질답입니다.</h1>
+                      ▼
+                    </div>
+                    <div class="about-list-detail">
+                      <p>
+                        five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more
+                        recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+                <span class="small-title last-small-title">미답변 목록</span>
+                <ul class="qna-list">
+                  <li>
+                    <div class="about-list-title">
+                      <h1>첫번째 질답입니다.</h1>
+                      ▼
+                    </div>
+                    <div class="about-list-detail">
+                      <p>
+                        five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more
+                        recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="about-list-title">
+                      <h1>첫번째 질답입니다.</h1>
+                      ▼
+                    </div>
+                    <div class="about-list-detail">
+                      <p>
+                        five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more
+                        recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="about-list-title">
+                      <h1>첫번째 질답입니다.</h1>
+                      ▼
+                    </div>
+                    <div class="about-list-detail">
+                      <p>
+                        five centuries, but also the leap into electronic
+                        typesetting, remaining essentially unchanged. It was
+                        popularised in the 1960s with the release of Letraset
+                        sheets containing Lorem Ipsum passages, and more
+                        recently with desktop publishing software like Aldus
+                        PageMaker including versions of Lorem Ipsum.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="qna-box">
+                <div class="label">1:1문의<em></em></div>
+                <span>
+                  원하는 답이 없다면
                   <br />
-                  Lunch at PM 12:00 ~ 13:00
-                </p>
-                <div>
-                  <a href="../../cs/index.html#about-faq">
-                    <button class="btn btn-yellow">고객센터</button>
-                  </a>
-                </div>
-              </span>
+                  1:1문의를 이용하세요.
+                  <p>
+                    Open at AM 10:00 ~ PM 17:00
+                    <br />
+                    Lunch at PM 12:00 ~ 13:00
+                  </p>
+                  <div>
+                    <a href="../../cs/index.html#about-faq">
+                      <button class="btn btn-yellow">고객센터</button>
+                    </a>
+                  </div>
+                </span>
+              </div>
             </div>
           </div>
+          <div class="mypage-right">
+            <!-- 네비게이션바 -->
+            <ul class="right-nav">
+              <li>
+                <a href="myinfo.html">▷개인정보수정</a>
+              </li>
+              <li>
+                <a href="likelist.html">▷좋아요목록</a>
+              </li>
+              <li>
+                <a href="buylist.html">▷구매내역</a>
+              </li>
+              <li>
+                <a href="cart.html">▷장바구니</a>
+              </li>
+              <li>
+                <a href="applyresult.html">▷작가신청결과 OR</a>
+              </li>
+              <li>
+                <a href="selllist.html">▷판매내역</a>
+              </li>
+              <li>
+                <a href="commentList.html">▷나의 댓글 목록</a>
+              </li>
+              <li>
+                <a href="#" class="nav--active">▷1:1문의내역</a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="mypage-right">
-          <!-- 네비게이션바 -->
-          <ul class="right-nav">
-            <li>
-              <a href="myinfo.html">▷개인정보수정</a>
-            </li>
-            <li>
-              <a href="likelist.html">▷좋아요목록</a>
-            </li>
-            <li>
-              <a href="buylist.html">▷구매내역</a>
-            </li>
-            <li>
-              <a href="cart.html">▷장바구니</a>
-            </li>
-            <li>
-              <a href="applyresult.html">▷작가신청결과 OR</a>
-            </li>
-            <li>
-              <a href="selllist.html">▷판매내역</a>
-            </li>
-            <li>
-              <a href="commentList.html">▷나의 댓글 목록</a>
-            </li>
-            <li>
-              <a href="#" class="nav--active">▷1:1문의내역</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- 여기까지 -->
-    </main>
+        <!-- 여기까지 -->
+      </main>
+      <script src="../../../assets/js/mypage/index.js"></script>
+    </div>
   </body>
 </html>

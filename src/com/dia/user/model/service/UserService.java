@@ -4,16 +4,18 @@ import static com.dia.common.JDBCTemplate.*;
 
 import java.sql.Connection;
 
+
+
 import com.dia.user.model.dao.UserDao;
 import com.dia.user.model.vo.Users;
 
 public class UserService {
 	
 	/**
-	 * 1. 로그인용 서비스
-	 * @param userId	사용자가 입력한 아이디값
-	 * @param userPwd	사용자가 입력한 비밀번호값
-	 * @return			해당 아이디와 비밀번호가 일치하는 조회된 회원객체 / null
+	 * 1. 濡�洹몄�몄�� ��鍮���
+	 * @param userId	�ъ�⑹��媛� ���ν�� ���대��媛�
+	 * @param userPwd	�ъ�⑹��媛� ���ν�� 鍮�諛�踰��멸�
+	 * @return			�대�� ���대���� 鍮�諛�踰��멸� �쇱����� 議고���� ����媛�泥� / null
 	 */
 	public Users loginUsers(String userId, String userPwd) {
 		
@@ -29,9 +31,9 @@ public class UserService {
 	
 	
 	/**
-	 * 2. 회원가입용 서비스	
-	 * @param m		사용자가입력한 아이디,비밀번호,이름,전화번호,이메일,주소,취미가 담겨있는 객체
-	 * @return		처리된 행 수
+	 * 2. ����媛����� ��鍮���	
+	 * @param m		�ъ�⑹��媛����ν�� ���대��,鍮�諛�踰���,�대�,����踰���,�대���,二쇱��,痍⑤�멸� �닿꺼���� 媛�泥�
+	 * @return		泥�由щ�� �� ��
 	 */ 
 	public int insertUsers(Users u) {
 		
@@ -51,12 +53,6 @@ public class UserService {
 		
 	}
 	
-	
-	/**
-	 * 3. 정보변경용 서비스
-	 * @param m		변경할 내용들+변경요청한회원의아이디 가 담겨있는 객체
-	 * @return		갱신된 회원 객체/null
-	 */	 
 	public Users updateUsers(Users u) {
 		
 		Connection conn = getConnection();
@@ -79,11 +75,11 @@ public class UserService {
 	}
 	
 	/**
-	 * 4. 비밀번호 변경 요청용 서비스
-	 * @param userId		변경요청한 아이디
-	 * @param userPwd		현재 비밀번호
-	 * @param updatePwd		변경할 비밀번호
-	 * @return				갱신된 회원객체/null
+	 * 4. 鍮�諛�踰��� 蹂�寃� ��泥��� ��鍮���
+	 * @param userId		蹂�寃쎌��泥��� ���대��
+	 * @param userPwd		���� 鍮�諛�踰���
+	 * @param updatePwd		蹂�寃쏀�� 鍮�諛�踰���
+	 * @return				媛깆���� ����媛�泥�/null
 	 */
 	public Users updatePwdUsers(String user_id, String user_password, String update_Password) {
 		
@@ -107,7 +103,7 @@ public class UserService {
 	}
 	
 	
-	// 탈퇴용
+	// ���댁��
 	public int deleteUsers(String user_id, String user_Password) {
 		Connection conn = getConnection();
 		
@@ -135,9 +131,9 @@ public class UserService {
 		return count;
 		
 	}
-	
-
 }
+
+
 
 
 

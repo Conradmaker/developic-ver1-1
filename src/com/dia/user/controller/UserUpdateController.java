@@ -10,20 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
+
 import com.dia.user.model.service.UserService;
 import com.dia.user.model.vo.Users;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class MemberUpdateController
  */
-@WebServlet("/login.us")
-public class LoginController extends HttpServlet {
+@WebServlet("/update.us")
+public class UserUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public UserUpdateController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,28 +34,39 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		
 		request.setCharacterEncoding("utf-8");
-		 
+		
+		
 		String user_id = request.getParameter("user_id");
-		String user_password = request.getParameter("user_password");
+		String user_name = request.getParameter("user_name");
+		String user_phone = request.getParameter("user_phone");
+		String user_email = request.getParameter("user_email");
+		String user_address = request.getParameter("user_address");
 		
-		Users loginUser = new UserService().loginUsers(user_id, user_password);
 		
-		if(loginUser == null) { 
+		Users u = new Users(user_id, user_name, user_phone, user_email, user_address);
+		
+		
+		Users updateUser = new UserService().updateUsers(u);
+		
+		if(updateUser == null) {
 			
-			request.setAttribute("errorMsg", "�α��ο� �����߽��ϴ�.");
+			request.setAttribute("errorMsg", "회원정보 수정에 실패했습니다.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);
 			
-		}else { 	
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", loginUser);
+		}else { 
 			
-			response.sendRedirect(request.getContextPath());
-				
-		}		
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", updateUser); 
+			session.setAttribute("alertMsg", "성공적으로 회원정보를 수정했습니다");
+			
+			response.sendRedirect(request.getContextPath() + "/myPage.me");
+		}
+		
 	}
 
 	/**

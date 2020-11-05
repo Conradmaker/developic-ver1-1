@@ -42,6 +42,14 @@ public class Users {
 	    	this.user_email = user_email;
 	    	
 	    }
+		public Users(String user_id, String user_name, String user_phone, String user_email, String user_address) {
+			this.user_id =user_id;
+	    	this.user_name = user_name;
+	    	this.user_phone = user_phone;
+	    	this.user_email = user_email;
+	    	this.user_address = user_address;
+		}
+
 		public String getUser_id() {
 			return user_id;
 		}

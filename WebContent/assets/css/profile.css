@@ -54,10 +54,10 @@ li {
   margin-top: 25px;
 }
 .profile-L h2 {
-  font-size: 35px;
+  font-size: 25px;
 }
 .profile-L p {
-  font-size: 22px;
+  font-size: 17px;
   color: rgb(153, 153, 153);
 }
 .profile-L ul {
@@ -83,7 +83,7 @@ li {
 /* ----- .pro--profile (R) ----- */
 
 .profile-R h2 {
-  font-size: 40px;
+  font-size: 25px;
   font-weight: 500;
 }
 .profile-R ul {
@@ -94,15 +94,15 @@ li {
   width: 100px;
 }
 .profile-R .pro--ulNum li {
-  font-size: 40px;
+  font-size: 35px;
 }
 .profile-R .pro--ulName li {
-  font-size: 20px;
+  font-size: 17px;
   color: rgb(153, 153, 153);
 }
 .profile-R span {
-  font-size: 28px;
-  line-height: 44px;
+  font-size: 23px;
+  line-height: 37px;
   color: gray;
 }
 
@@ -135,7 +135,7 @@ li {
   gap: 100px;
 }
 .pro--tab li {
-  font-size: 35px;
+  font-size: 25px;
 }
 .pro--tab #pro--picBtn::after {
   content: "";

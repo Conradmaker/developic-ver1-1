@@ -35,14 +35,14 @@ public class LoginController extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		 
-		String user_id = request.getParameter("user_id");
-		String user_password = request.getParameter("user_password");
+		String user_id = request.getParameter("userId");
+		String user_password = request.getParameter("userPwd");
 		
 		Users loginUser = new UserService().loginUsers(user_id, user_password);
 		
 		if(loginUser == null) { 
 			
-			request.setAttribute("errorMsg", "·Î±×ÀÎ¿¡ ½ÇÆÐÇß½À´Ï´Ù.");
+			request.setAttribute("errorMsg", "ï¿½Î±ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);

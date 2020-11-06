@@ -11,12 +11,7 @@ import com.dia.user.model.vo.Users;
 
 public class UserService {
 	
-	/**
-	 * 1. 濡�洹몄�몄�� ��鍮���
-	 * @param userId	�ъ�⑹��媛� ���ν�� ���대��媛�
-	 * @param userPwd	�ъ�⑹��媛� ���ν�� 鍮�諛�踰��멸�
-	 * @return			�대�� ���대���� 鍮�諛�踰��멸� �쇱����� 議고���� ����媛�泥� / null
-	 */
+	
 	public Users loginUsers(String userId, String userPwd) {
 		
 		Connection conn = /*JDBCTemplate.*/getConnection();
@@ -30,11 +25,7 @@ public class UserService {
 	}
 	
 	
-	/**
-	 * 2. ����媛����� ��鍮���	
-	 * @param m		�ъ�⑹��媛����ν�� ���대��,鍮�諛�踰���,�대�,����踰���,�대���,二쇱��,痍⑤�멸� �닿꺼���� 媛�泥�
-	 * @return		泥�由щ�� �� ��
-	 */ 
+	
 	public int insertUsers(Users u) {
 		
 		Connection conn = getConnection();
@@ -62,7 +53,7 @@ public class UserService {
 		Users updateUser = null;
 		if(result > 0) { 
 			commit(conn);
-			updateUser = new UserDao().selectUsers(conn, u.getUser_id());
+			updateUser = new UserDao().selectUsers(conn, u.getUserId());
 			
 		}else { 
 			rollback(conn);
@@ -74,24 +65,18 @@ public class UserService {
 		
 	}
 	
-	/**
-	 * 4. 鍮�諛�踰��� 蹂�寃� ��泥��� ��鍮���
-	 * @param userId		蹂�寃쎌��泥��� ���대��
-	 * @param userPwd		���� 鍮�諛�踰���
-	 * @param updatePwd		蹂�寃쏀�� 鍮�諛�踰���
-	 * @return				媛깆���� ����媛�泥�/null
-	 */
-	public Users updatePwdUsers(String user_id, String user_password, String update_Password) {
+	
+	public Users updatePwdUsers(String userId, String userPwd, String updatePwd) {
 		
 		Connection conn = getConnection();
 		
-		int result = new UserDao().updatePwdUsers(conn, user_id, user_password, update_Password);
+		int result = new UserDao().updatePwdUsers(conn, userId, userPwd, updatePwd);
 		
 		Users updateUser = null;
 		if(result > 0) { 
 			commit(conn);
 			
-			updateUser = new UserDao().selectUsers(conn, user_id);
+			updateUser = new UserDao().selectUsers(conn, userId);
 			
 		}else { 
 			rollback(conn);
@@ -103,11 +88,11 @@ public class UserService {
 	}
 	
 	
-	// ���댁��
-	public int deleteUsers(String user_id, String user_Password) {
+	
+	public int deleteUsers(String userId, String userPwd) {
 		Connection conn = getConnection();
 		
-		int result = new UserDao().deleteUsers(conn, user_id, user_Password);
+		int result = new UserDao().deleteUsers(conn, userId, userPwd);
 		
 		if(result > 0) {
 			commit(conn);
@@ -120,11 +105,11 @@ public class UserService {
 		return result;
 	}
 	
-	public int idCheck(String check_id) {
+	public int idCheck(String checkId) {
 		
 		Connection conn = getConnection();
 		
-		int count = new UserDao().idCheck(conn, check_id);
+		int count = new UserDao().idCheck(conn, checkId);
 		
 		close(conn);
 		

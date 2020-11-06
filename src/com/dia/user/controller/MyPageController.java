@@ -1,4 +1,4 @@
-package com.kh.member.controller;
+package com.dia.user.controller;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class MyPageController
  */
-@WebServlet("/myPage.me")
+@WebServlet("/myPage.us")
 public class MyPageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

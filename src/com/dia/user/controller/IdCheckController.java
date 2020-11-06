@@ -31,7 +31,7 @@ public class IdCheckController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response, String check_id) throws ServletException, IOException {
 	
-		String checkId = request.getParameter("check_id");
+		String checkId = request.getParameter("checkId");
 		
 		//System.out.println(checkId);
 		int count = new UserService().idCheck(checkId);

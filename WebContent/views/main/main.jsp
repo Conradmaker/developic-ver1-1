@@ -23,8 +23,8 @@
             <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <div class="header--right">
-            <a href="../user/login/login.html">LOGIN</a>
-            <a href="../user/login/login.html">SIGNUP</a
+            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">LOGIN</a>
+            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">SIGNUP</a
             ><i @click="setSearchOpen"
               ><i class="fas fa-search" @click=""></i
             ></i>

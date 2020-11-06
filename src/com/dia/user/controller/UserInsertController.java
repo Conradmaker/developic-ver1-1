@@ -18,7 +18,7 @@ import com.dia.user.model.vo.Users;;
 /**
  * Servlet implementation class MemberInsertController
  */
-@WebServlet("/insert.us")
+@WebServlet("/signup.us")
 public class UserInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,7 +49,7 @@ public class UserInsertController extends HttpServlet {
 		if(result > 0) { 
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("alertMsg", "¼º°øÀûÀ¸·Î È¸¿ø°¡ÀÔÀÌ µÆ½À´Ï´Ù!");			
+			session.setAttribute("alertMsg", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ½ï¿½ï¿½Ï´ï¿½!");			
 			
 			
 			response.sendRedirect(request.getContextPath());
@@ -57,7 +57,7 @@ public class UserInsertController extends HttpServlet {
 			
 		}else { 
 			
-			request.setAttribute("errorMsg", "È¸¿ø°¡ÀÔ¿¡ ½ÇÆÐÇß½À´Ï´Ù.");
+			request.setAttribute("errorMsg", "È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);

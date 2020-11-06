@@ -5,9 +5,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../assets/css/index.css" />
-    <link rel="stylesheet" href="../../assets/css/common.css" />
-    <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/index.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -20,7 +20,7 @@
       <header class="header--container">
         <div class="header--box">
           <a href="#">
-            <img src="../../assets/images/logo.png" width="250px" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <div class="header--right">
             <a href="../user/login/login.html">LOGIN</a>
@@ -63,7 +63,7 @@
         <h2 class="main--title">PICFEED</h2>
         <div class="feed--container">
           <div class="feed--item">
-            <img src="../../assets/images/city.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/city.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/picfeedimg (1).jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (1).jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg fa-lg"></i>
               <h1>작품명</h1>
@@ -79,7 +79,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/brown.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/brown.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -87,7 +87,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/picfeedimg (3).jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (3).jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -95,7 +95,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/picfeedimg (4).jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (4).jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -103,7 +103,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/picfeedimg (5).png" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (5).png" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -111,7 +111,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/film.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/film.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -119,7 +119,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/cat.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/cat.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -127,7 +127,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/cherry.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/cherry.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/picfeedimg (6).jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (6).jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -143,7 +143,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/lemon.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/lemon.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -151,7 +151,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/pizza.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/pizza.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -159,7 +159,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/moon.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/moon.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -167,7 +167,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/mirror.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/mirror.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -175,7 +175,7 @@
             </div>
           </div>
           <div class="feed--item">
-            <img src="../../assets/images/sunset.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/sunset.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1>작품명</h1>
@@ -190,7 +190,7 @@
 
         <div class="ad--banner">
           <a href="">
-            <img src="../../assets/images/adbanner.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/adbanner.jpg" alt="" />
           </a>
         </div>
 
@@ -199,7 +199,7 @@
         <div class="shop--container">
           <div class="shop--item--wrapper">
             <div class="item-thumb">
-              <a href=""><img src="../../assets/images/city.jpg" alt="" /></a>
+              <a href=""><img src="${pageContext.request.contextPath}/assets/images/city.jpg" alt="" /></a>
             </div>
             <div class="item-info">
               <span>풀문</span>
@@ -210,7 +210,7 @@
             <div class="item-thumb">
               <a href=""
                 ><img
-                  src="../../assets/images/picfeedimg (1).jpg"
+                  src="${pageContext.request.contextPath}/assets/images/picfeedimg (1).jpg"
                   alt=""
                   srcset=""
               /></a>
@@ -223,7 +223,7 @@
           <div class="shop--item--wrapper">
             <div class="item-thumb">
               <a href=""
-                ><img src="../../assets/images/mirror.jpg" alt="" srcset=""
+                ><img src="${pageContext.request.contextPath}/assets/images/mirror.jpg" alt="" srcset=""
               /></a>
             </div>
             <div class="item-info">
@@ -234,7 +234,7 @@
           <div class="shop--item--wrapper">
             <div class="item-thumb">
               <a href=""
-                ><img src="../../assets/images/picfeedimg (3).jpg" alt=""
+                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (3).jpg" alt=""
               /></a>
             </div>
             <div class="item-info">
@@ -245,7 +245,7 @@
           <div class="shop--item--wrapper">
             <div class="item-thumb">
               <a href=""
-                ><img src="../../assets/images/picfeedimg (4).jpg" alt=""
+                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (4).jpg" alt=""
               /></a>
             </div>
             <div class="item-info">
@@ -256,7 +256,7 @@
           <div class="shop--item--wrapper">
             <div class="item-thumb">
               <a href=""
-                ><img src="../../assets/images/picfeedimg (5).jpg" alt=""
+                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (5).jpg" alt=""
               /></a>
             </div>
             <div class="item-info">
@@ -267,7 +267,7 @@
           <div class="shop--item--wrapper">
             <div class="item-thumb">
               <a href=""
-                ><img src="../../assets/images/picfeedimg (6).jpg" alt=""
+                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (6).jpg" alt=""
               /></a>
             </div>
             <div class="item-info">
@@ -277,7 +277,7 @@
           </div>
           <div class="shop--item--wrapper">
             <div class="item-thumb">
-              <a href=""><img src="../../assets/images/lemon.jpg" alt="" /></a>
+              <a href=""><img src="${pageContext.request.contextPath}/assets/images/lemon.jpg" alt="" /></a>
             </div>
             <div class="item-info">
               <span>풀문</span>
@@ -287,7 +287,7 @@
           <div class="shop--item--wrapper">
             <div class="item-thumb">
               <a href=""
-                ><img src="../../assets/images/moon.jpg" alt="" srcset=""
+                ><img src="${pageContext.request.contextPath}/assets/images/moon.jpg" alt="" srcset=""
               /></a>
             </div>
             <div class="item-info">
@@ -305,7 +305,7 @@
           <i class="fas fa-arrow-circle-up fa-3x"> </i>
         </a>
       </main>
-      <script src="../../assets/js/mypage/index.js"></script>
+      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
     </div>
   </body>
 </html>

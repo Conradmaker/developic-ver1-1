@@ -1,8 +1,201 @@
+/* div,
+img,
+li {
+  border: 1px solid salmon;
+  box-sizing: border;
+} */
 .pro--container {
+  width: 1220px;
+  margin: 0 auto;
 }
-.pro--title {
-}
-.pro--profile {
-}
+.pro--title,
+.pro--tab,
 .pro--picstory {
+  width: 100%;
+}
+.pro--btnWrapper {
+  width: 80%;
+  height: 45px;
+  margin: 0 auto;
+}
+.pro-gap {
+  height: 30px;
+}
+
+/* ----- .pro--profile (L) ----- */
+
+.pro--profile {
+  width: 80%;
+  height: 450px;
+  margin: 0 auto;
+  display: flex;
+}
+.profile-L,
+.profile-R {
+  flex: 1;
+  height: 100%;
+}
+.profile-L .pro--userImgWrapper {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.pro--userImgY {
+  max-width: 100%; /*세로가 더 긴 사진*/
+}
+.pro--userImgX {
+  max-height: 100%; /*가로가 더 긴 사진*/
+}
+.profile-L h2,
+.profile-L p {
+  text-align: center;
+  margin-top: 25px;
+}
+.profile-L h2 {
+  font-size: 25px;
+}
+.profile-L p {
+  font-size: 17px;
+  color: rgb(153, 153, 153);
+}
+.profile-L ul {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+.profile-L li {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-L #pro--sns-in,
+.profile-L #pro--sns-tw {
+  background: #006064;
+}
+.profile-L #pro--sns-fa {
+  background: #ffca3e;
+}
+
+/* ----- .pro--profile (R) ----- */
+
+.profile-R h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.profile-R ul {
+  display: flex;
+  gap: 10px;
+}
+.profile-R li {
+  width: 100px;
+}
+.profile-R .pro--ulNum li {
+  font-size: 35px;
+}
+.profile-R .pro--ulName li {
+  font-size: 17px;
+  color: rgb(153, 153, 153);
+}
+.profile-R span {
+  font-size: 23px;
+  line-height: 37px;
+  color: gray;
+}
+
+/* ----- .pro--btnWrapper ----- */
+
+.pro--btnWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.pro--btnWrapper .btn--wave {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.5em;
+  /* background: #006064; */
+  background: linear-gradient(0deg, #006064, #2eabaf);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+.pro--btnWrapper i {
+  font-size: 2.5em;
+  width: 45px;
+  height: 45px;
+}
+
+/* ----- .pro--tab ----- */
+
+.pro--tab ul {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+}
+.pro--tab li {
+  font-size: 25px;
+}
+.pro--tab #pro--picBtn::after {
+  content: "";
+  display: block;
+  width: 70px;
+  border-bottom: 5px solid #ffca3e;
+  margin-top: 10px;
+}
+
+/* ----- .pro--picstory ----- */
+
+.pro--picstory {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 70px;
+}
+.pro--picstory .pro--item {
+  padding: 15px;
+  background: rgb(225, 219, 207);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+.pro--picstory p {
+  font-size: 20px;
+  color: gray;
+  text-align: right;
+}
+.pro--picstory span {
+  flex-grow: 1;
+  word-break: break-all;
+  text-align: right;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+/* 가로로길게 (두줄) */
+.pro--twoC .pro--item {
+  width: 500px;
+  height: 240px;
+}
+.pro--twoC img {
+  width: 350px;
+}
+.pro--twoC p {
+  writing-mode: tb-rl;
+  width: 25px;
+}
+/* 세로로길게 (네줄) */
+.pro--fourC .pro--item {
+  width: 240px;
+  height: 500px;
+  flex-direction: column-reverse;
+}
+.pro--fourC img {
+  width: 100%;
+  height: 350px;
+}
+.pro--fourC p {
+  writing-mode: lr-tb;
+  width: 100%;
+  height: 25px;
 }

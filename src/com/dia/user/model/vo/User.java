@@ -1,165 +1,200 @@
 package com.dia.user.model.vo;
 
 import java.sql.Date;
-public class Users {
+public class User {
 		private int userNo;
 		private String userId;
-	    private String userEmail;
 	    private String userPwd;
 	    private String userName;
 	    private String userNickname;
-	    private String userPhone;
-	    private String userAddress;
-	    private String userSns;
+	    private String phone;
+	    private String email;
+	    private String address;
+	    private String sns;
 	    private String userInfo;
 	    private String userAvatarSrc;
 	    private Date userLastLogin;
-	    private Date userCreateAt;
+	    private Date userCreatedAt;
 	    private int userRole;
 	   
-	    public Users() {
+	    
+	    public User() {
 	    	
 	    }
 
-		public Users(int userNo, String userId, String userEmail, String userPwd, String userName, String userNickname,
-					 String userPhone, String userAddress, String userSns, String userInfo, String userAvatarSrc,
-					 Date userLastLogin, Date userCreateAt, int userRole) {
+
+		public User(int userNo, String userId, String userPwd, String userName, String userNickname, String phone,
+				String email, String address, String sns, String userInfo, String userAvatarSrc, Date userLastLogin,
+				Date userCreatedAt, int userRole) {
 			super();
 			this.userNo = userNo;
 			this.userId = userId;
-			this.userEmail = userEmail;
 			this.userPwd = userPwd;
 			this.userName = userName;
 			this.userNickname = userNickname;
-			this.userPhone = userPhone;
-			this.userAddress = userAddress;
-			this.userSns = userSns;
+			this.phone = phone;
+			this.email = email;
+			this.address = address;
+			this.sns = sns;
 			this.userInfo = userInfo;
 			this.userAvatarSrc = userAvatarSrc;
 			this.userLastLogin = userLastLogin;
-			this.userCreateAt = userCreateAt;
+			this.userCreatedAt = userCreatedAt;
 			this.userRole = userRole;
 		}
+
 
 		public int getUserNo() {
 			return userNo;
 		}
 
+
 		public void setUserNo(int userNo) {
 			this.userNo = userNo;
 		}
+
 
 		public String getUserId() {
 			return userId;
 		}
 
+
 		public void setUserId(String userId) {
 			this.userId = userId;
 		}
 
-		public String getUserEmail() {
-			return userEmail;
-		}
-
-		public void setUserEmail(String userEmail) {
-			this.userEmail = userEmail;
-		}
 
 		public String getUserPwd() {
 			return userPwd;
 		}
 
+
 		public void setUserPwd(String userPwd) {
 			this.userPwd = userPwd;
 		}
+
 
 		public String getUserName() {
 			return userName;
 		}
 
+
 		public void setUserName(String userName) {
 			this.userName = userName;
 		}
+
 
 		public String getUserNickname() {
 			return userNickname;
 		}
 
+
 		public void setUserNickname(String userNickname) {
 			this.userNickname = userNickname;
 		}
 
-		public String getUserPhone() {
-			return userPhone;
+
+		public String getPhone() {
+			return phone;
 		}
 
-		public void setUserPhone(String userPhone) {
-			this.userPhone = userPhone;
+
+		public void setPhone(String phone) {
+			this.phone = phone;
 		}
 
-		public String getUserAddress() {
-			return userAddress;
+
+		public String getEmail() {
+			return email;
 		}
 
-		public void setUserAddress(String userAddress) {
-			this.userAddress = userAddress;
+
+		public void setEmail(String email) {
+			this.email = email;
 		}
 
-		public String getUserSns() {
-			return userSns;
+
+		public String getAddress() {
+			return address;
 		}
 
-		public void setUserSns(String userSns) {
-			this.userSns = userSns;
+
+		public void setAddress(String address) {
+			this.address = address;
 		}
+
+
+		public String getSns() {
+			return sns;
+		}
+
+
+		public void setSns(String sns) {
+			this.sns = sns;
+		}
+
 
 		public String getUserInfo() {
 			return userInfo;
 		}
 
+
 		public void setUserInfo(String userInfo) {
 			this.userInfo = userInfo;
 		}
+
 
 		public String getUserAvatarSrc() {
 			return userAvatarSrc;
 		}
 
+
 		public void setUserAvatarSrc(String userAvatarSrc) {
 			this.userAvatarSrc = userAvatarSrc;
 		}
+
 
 		public Date getUserLastLogin() {
 			return userLastLogin;
 		}
 
+
 		public void setUserLastLogin(Date userLastLogin) {
 			this.userLastLogin = userLastLogin;
 		}
 
-		public Date getUserCreateAt() {
-			return userCreateAt;
+
+		public Date getUserCreatedAt() {
+			return userCreatedAt;
 		}
 
-		public void setUserCreateAt(Date userCreateAt) {
-			this.userCreateAt = userCreateAt;
+
+		public void setUserCreatedAt(Date userCreatedAt) {
+			this.userCreatedAt = userCreatedAt;
 		}
+
 
 		public int getUserRole() {
 			return userRole;
 		}
 
+
 		public void setUserRole(int userRole) {
 			this.userRole = userRole;
 		}
 
+
 		@Override
 		public String toString() {
-			return "Users [userNo=" + userNo + ", userId=" + userId + ", userEmail=" + userEmail + ", userPwd="
-					+ userPwd + ", userName=" + userName + ", userNickname=" + userNickname + ", userPhone=" + userPhone
-					+ ", userAddress=" + userAddress + ", userSns=" + userSns + ", userInfo=" + userInfo
-					+ ", userAvatarSrc=" + userAvatarSrc + ", userLastLogin=" + userLastLogin + ", userCreateAt="
-					+ userCreateAt + ", userRole=" + userRole + "]";
+			return "User [userNo=" + userNo + ", userId=" + userId + ", userPwd=" + userPwd + ", userName=" + userName
+					+ ", userNickname=" + userNickname + ", phone=" + phone + ", email=" + email + ", address="
+					+ address + ", sns=" + sns + ", userInfo=" + userInfo + ", userAvatarSrc=" + userAvatarSrc
+					+ ", userLastLogin=" + userLastLogin + ", userCreatedAt=" + userCreatedAt + ", userRole=" + userRole
+					+ "]";
 		}
+
+	    
 		
+	    
+	    
 }

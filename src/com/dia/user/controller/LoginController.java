@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dia.user.model.service.UserService;
-import com.dia.user.model.vo.Users;
+import com.dia.user.model.vo.User;
 
 /**
  * Servlet implementation class LoginController
@@ -32,17 +32,20 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		request.setCharacterEncoding("utf-8");
 		 
-		String user_id = request.getParameter("userId");
-		String user_password = request.getParameter("userPwd");
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
 		
-		Users loginUser = new UserService().loginUsers(user_id, user_password);
+		User loginUser = new UserService().loginUser(userId, userPwd);
 		
+		// 반환받은 결과를 가지고 사용자가 보게될 응답 화면 지정 
 		if(loginUser == null) { 
+		// System.out.println("로그인 실패!");
 			
-			request.setAttribute("errorMsg", "�α��ο� �����߽��ϴ�.");
+			// 에러페이지 연결은 되는데 에러 문구는 안뜸
+			request.setAttribute("errorMsg", "로그인 실패했습니다.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");
 			view.forward(request, response);
@@ -52,7 +55,7 @@ public class LoginController extends HttpServlet {
 			session.setAttribute("loginUser", loginUser);
 			
 			response.sendRedirect(request.getContextPath());
-				
+//			System.out.println("로그인성공!");
 		}		
 	}
 

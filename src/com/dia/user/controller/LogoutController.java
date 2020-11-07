@@ -32,7 +32,10 @@ public class LogoutController extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate(); 
 		
-		response.sendRedirect(request.getContextPath());
+		// 응답페이지 => index
+		// redirect 방식 (url 재요청)
+		response.sendRedirect("/dia");
+		
 		
 	}
 

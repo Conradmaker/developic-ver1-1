@@ -22,6 +22,15 @@ public class User {
 	    	
 	    }
 
+	    
+		public User(String userId, String userPwd, String userName, String email) {
+			super();
+			this.userId = userId;
+			this.userPwd = userPwd;
+			this.userName = userName;
+			this.email = email;
+		}
+
 
 		public User(int userNo, String userId, String userPwd, String userName, String userNickname, String phone,
 				String email, String address, String sns, String userInfo, String userAvatarSrc, Date userLastLogin,

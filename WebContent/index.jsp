@@ -13,10 +13,11 @@
 
 
         <!-- 여기에 컨텐츠 작성 -->
+       <main class="main--container">
         <div class="main--banner">
           <div class="btn--wrapper">
-            <button class="btn btn-outline-pink">LOG IN</button>
-            <button class="btn btn-pink">SIGN UP</button>
+         <!--   <button class="btn btn-outline-pink">LOG IN</button>
+            <button class="btn btn-pink">SIGN UP</button> -->
           </div>
         </div>
         <!-- PICFEED -->
@@ -266,7 +267,6 @@
         </a>
       </main>
       <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
-    </div>
-    
+ 
 </body>
 </html>

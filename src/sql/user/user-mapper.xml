@@ -3,6 +3,10 @@
 <properties>
 <entry key="loginUser">
 SELECT * FROM USERS WHERE USER_ID = ? AND USER_PWD = ? AND USER_ROLE != 5
+</entry>
+
+<entry key="insertUser">
+INSERT INTO USERS(USER_NO, USER_ID, USER_PWD, USER_NAME, EMAIL) VALUES(USER_NO_SEQ.NEXTVAL, ?, ?, ?, ?)
 
 
 </entry>

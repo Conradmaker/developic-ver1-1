@@ -1,18 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
     
-<%
-	User loginUser = (User)session.getAttribute("loginUser");
-	// > 로그인 요청전 : null
-	// > 로그인 성공후 : 로그인 성공한 회원정보가 담겨있는 User객체
-	
-	String alertMsg = (String)session.getAttribute("alertMsg");
-	// > 서비스 요청전 : null
-	// > 서비스 성공후 : alert로 띄워줄 메세지문구
-	
 
-%>      
-   
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,8 +25,8 @@
             <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <div class="header--right">
-            <a href="/dia/views/user/login/login.jsp">LOGIN</a>
-            <a href="/dia/views/user/login/login.jsp">SIGNUP</a
+            <a href="/dia/loginForm.us">LOGIN</a>
+            <a href="/dia/enrollForm.us">SIGNUP</a
             ><i @click="setSearchOpen"
               ><i class="fas fa-search" @click=""></i
             ></i>
@@ -65,6 +54,5 @@
           </a>
         </ul>
       </main>
-      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
-</body>
+  </body>
 </html>

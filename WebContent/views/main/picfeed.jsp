@@ -18,6 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>PICFEED | DEVELOPIC</title>
   </head>
   <body>
@@ -57,7 +58,7 @@
 	                </tr>
 <% } else { %>
 
-        <div class="feed--container">
+        <div class="feed--container" id='feedList' >
         
          <% for(Photo p : list) { %>
          
@@ -78,7 +79,48 @@
           <i class="fas fa-arrow-circle-up fa-3x"> </i>
         </a>
       </main>
-      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
-    </div>
+       </div>
+      <script>
+      const vm = new Vue({
+    	  el:'#feedList',
+    	  data(){
+    		  return{
+    			  feeds:[]
+    		  }
+    	  },
+      })
+      let current = 1;
+      const urlSearch = new URLSearchParams(location.search);
+      const category = parseInt(urlSearch.getAll('category')[0]);
+      const container = document.querySelector('#feedList');
+      let feedList = []
+      			
+      const makeEl = (v) =>{
+    	  const feedItem = createElement('div')
+    	  <!-- 여기하자 -->
+      };			
+      			const fetchData = () => {
+      				axios.get(`/dia/FeedAxios?currentPage=`+ ++current +`&category=`+category)
+        			.then(function(response) {
+        				vm.feeds = vm.feeds.concat(response.data);
+          				console.log(vm.feeds)
+          				response.data.forEach(v=>makeEl(v))
+        			})
+        			.catch(function(error) {
+          				console.log(error);
+        			});
+      			};
+      	const onScroll = ()=>{
+      		if(window.pageYOffset + document.documentElement.clientHeight >
+            document.documentElement.scrollHeight - 1){
+      			fetchData()
+      		};
+      	};
+      	window.addEventListener('scroll',onScroll);
+      </script>
+      
   </body>
 </html>
+
+
+

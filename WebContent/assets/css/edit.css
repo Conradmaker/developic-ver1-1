@@ -1,0 +1,169 @@
+/*div,
+table,
+table tr,
+table th,
+table td {
+  border: 1px solid salmon;
+}*/
+.buy--container {
+  display: flex;
+  width: 1220px;
+  margin: 0 auto;
+}
+.buy--title,
+.buy--upload,
+.buy--info {
+  width: 100%;
+}
+.buy-gap {
+  height: 30px;
+}
+.buy--body {
+  width: 85%;
+}
+.buy--navi {
+  width: 15%;
+}
+.buy--title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*------ .buy--upload ------*/
+
+.buy--upload h2,
+.buy--info h2 {
+  font-size: 27px;
+  font-weight: bold;
+}
+.buy--upload h2::after,
+.buy--info h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  border-bottom: 5px solid #ffca3e;
+  margin-top: 10px;
+}
+.buy--upload .buy--fileWrapper,
+.buy--info .picsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-top: 10px; */
+}
+/* .picsWrapper label, */
+.buy--fileWrapper label {
+  border: 1px solid #006064;
+  width: 300px;
+  line-height: 35px;
+  vertical-align: middle;
+}
+.buy--upload p {
+  font-size: 17px;
+  font-weight: bold;
+}
+.buy--imageWrapper {
+  margin-top: 10px;
+  width: 50%;
+  height: 300px;
+}
+.buy--imageWrapper img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/*------ .buy--info ------*/
+
+.buy--info table th {
+  vertical-align: middle;
+  text-align: left;
+  width: 220px;
+}
+.buy--info table td {
+  vertical-align: middle;
+  width: 500px;
+}
+.buy--info label {
+  font-size: 20px;
+  font-weight: bolder;
+}
+.buy--info input,
+.buy--info select,
+.picsWrapper label {
+  border: none;
+  border-bottom: 2px solid gray;
+  outline: none;
+  width: 300px;
+  font-size: 17px;
+  margin-top: 3px;
+}
+.buy--info .buy--photoPrice{
+	border-bottom:2px solid gray;
+	width:200px;
+}
+.buy--info table td p{
+	display:inline;
+}
+.buy--info table tr {
+  height: 50px;
+}
+
+.buy--saleWrapper {
+  background: #006064;
+  width: 200px;
+  height: 30px;
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.buy--saleWrapper .buy--saleLa {
+  margin: 0 10px;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+}
+/* #buy-saleBtn { */
+.saleSelectY {
+  width: 77px;
+  height: 22px;
+  border: 2px solid #ffca3e;
+  border-radius: 23px;
+  position: absolute;
+  margin-left: 2px;
+  transition: all 0.3s;
+}
+.saleSelectN {
+  width: 77px;
+  height: 22px;
+  border: 2px solid #ed8074;
+  border-radius: 23px;
+  position: absolute;
+  /* transform: translate(-100, 0); */
+  margin-left: 118px;
+}
+
+.buy--info table #editorSection {
+  width: 100%;
+}
+
+/* ------ button ------ */
+
+.buy--info table button {
+  display: inline;
+}
+/* .buy--info > button {
+  display: inline;
+  margin: auto;
+  right: 0;
+  align-items: right;
+} */
+.buy--info .buy--btnWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.buy--btnWrapper button {
+  display: inline;
+}

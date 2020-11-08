@@ -1,2 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="selectFeedListCount">
+		SELECT 
+		       COUNT(*) LISTCOUNT
+		  FROM PHOTOS
+		 WHERE PHOTO_STATE = 0 
+</entry>
+
+<entry key="loadMain">
+
+</entry>
+
+<entry key="loadFeed">
+SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , A.*
+		          FROM (
+		                SELECT *
+		                  FROM PHOTOS P
+		                  JOIN USERS ON(P.USER_NO = USERS.USER_NO)
+		                 WHERE P.PHOTO_STATE = 0
+		                 ORDER
+		                    BY PHOTO_CREATEDAT DESC
+		               ) A
+		        )
+		 WHERE RNUM BETWEEN ? AND ?
+</entry>
+
+</properties>

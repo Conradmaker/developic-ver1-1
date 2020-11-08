@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.dia.photo.model.vo.*, java.util.ArrayList" %>
+<%
+	PageInfo pi = (PageInfo)request.getAttribute("pi");
+	ArrayList<Photo> list = (ArrayList<Photo>)request.getAttribute("list");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -23,8 +28,8 @@
             <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <div class="header--right">
-            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp"">LOGIN</a>
-            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp"">SIGNUP</a
+            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">LOGIN</a>
+            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">SIGNUP</a
             ><i @click="setSearchOpen"
               ><i class="fas fa-search" @click=""></i
             ></i>
@@ -79,7 +84,12 @@
             <li>ETC</li>
           </a>
         </ul>
-
+<% if(list.isEmpty()) { %>
+    <tr>
+	                    <th colspan="6">조회된 게시글이 없습니다.</th>
+	                </tr>
+                <% } else { %>
+                <% } %>
         <div class="feed--container">
           <div class="feed--item">
             <img src="${pageContext.request.contextPath}/assets/images/city.jpg" alt="" />

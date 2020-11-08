@@ -21,11 +21,11 @@ public class PhotoService {
 		return listCount;
 	}
 	
-	public ArrayList<Photo> selectFeedList(PageInfo pi){
+	public ArrayList<Photo> selectFeedList(PageInfo pi,int catagory){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Photo> list = new PhotoDao().selectFeedList(conn, pi);
+		ArrayList<Photo> list = new PhotoDao().selectFeedList(conn, pi,catagory);
 		
 		close(conn);
 		

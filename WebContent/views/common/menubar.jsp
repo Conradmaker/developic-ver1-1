@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
 <%@ page import="com.dia.photo.model.vo.*, java.util.ArrayList" %>
-<%
-	PageInfo pi = (PageInfo)request.getAttribute("pi");
-	ArrayList<Photo> list = (ArrayList<Photo>)request.getAttribute("list");
-%>
+
 <%
 	User loginUser = (User)session.getAttribute("loginUser");
 	// > 로그인 요청전 : null
@@ -69,7 +66,7 @@
       </div>
       <main class="main--container">
         <ul class="navigation--main">
-          <a href="/dia/loadFeed?currentPage=0">
+          <a href="/dia/loadFeed?currentPage=1&category=0">
             <li>PICFEED</li>
           </a>
           <a href="">

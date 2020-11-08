@@ -21,41 +21,8 @@
     <title>PICFEED | DEVELOPIC</title>
   </head>
   <body>
-    <div id="app">
-      <header class="header--container">
-        <div class="header--box">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
-          </a>
-          <div class="header--right">
-            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">LOGIN</a>
-            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">SIGNUP</a
-            ><i @click="setSearchOpen"
-              ><i class="fas fa-search" @click=""></i
-            ></i>
-          </div>
-        </div>
-      </header>
-      <div class="search--container" :class="{searchActive:searchOpen}">
-        <form class="search--box" method="POST" action="">
-          <label><input type="checkbox" name="saleCheck" />판매여부</label>
-          <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i
-          ><i class="fas fa-times" @click="setSearchOpen"></i>
-        </form>
-      </div>
-      <main class="main--container">
-        <ul class="navigation--main">
-          <a href="">
-            <li>PICFEED</li>
-          </a>
-          <a href="">
-            <li>PICSHOP</li>
-          </a>
-          <a href="">
-            <li>ABOUT</li>
-          </a>
-        </ul>
+  
+    <%@ include file="../common/menubar.jsp" %>
 
         <!-- 여기에 컨텐츠 작성 -->
         <div class="feed--banner">
@@ -65,153 +32,48 @@
         </div>
         <h2 class="main--title">PICFEED</h2>
         <ul class="feed--category">
-          <a href="">
+          <a href="/dia/loadFeed?currentPage=1&category=0">
             <li>ALL</li>
           </a>
-          <a href="">
+          <a href="/dia/loadFeed?currentPage=1&category=10">
             <li>ANIMALS</li>
           </a>
-          <a href="">
+          <a href="/dia/loadFeed?currentPage=1&category=20">
             <li>PEOPLE</li>
           </a>
-          <a href="">
+          <a href="/dia/loadFeed?currentPage=1&category=30">
             <li>URBAN</li>
           </a>
-          <a href="">
+          <a href="/dia/loadFeed?currentPage=1&category=40">
             <li>NATURE</li>
           </a>
-          <a href="">
+          <a href="/dia/loadFeed?currentPage=1&category=50">
             <li>ETC</li>
           </a>
         </ul>
 <% if(list.isEmpty()) { %>
-    <tr>
+					<tr>
 	                    <th colspan="6">조회된 게시글이 없습니다.</th>
 	                </tr>
-                <% } else { %>
-                <% } %>
+<% } else { %>
+
         <div class="feed--container">
+        
+         <% for(Photo p : list) { %>
+         
           <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/city.jpg" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>" alt="" />
             <div class="feed--summary">
+              <input hidden value='<%= p.getPhotoId() %>'>
               <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
+              <h1><%= p.getPhotoName() %></h1>
+              <p>- <%= p.getUserNickname() %></p>
             </div>
           </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (1).jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/brown.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (3).jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (4).jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (5).png" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/film.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/cat.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/cherry.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/picfeedimg (6).jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/lemon.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/pizza.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/moon.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/mirror.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
-          <div class="feed--item">
-            <img src="${pageContext.request.contextPath}/assets/images/sunset.jpg" alt="" />
-            <div class="feed--summary">
-              <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
-            </div>
-          </div>
+         
+         <% } %>
         </div>
+<% } %>
         <a class="top-arrow" href="#">
           <i class="fas fa-arrow-circle-up fa-3x"> </i>
         </a>

@@ -34,7 +34,7 @@ public class FeedListController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		
+		int catagory;
 		int listCount;			
 		int currentPage;		
 		int pageLimit;			
@@ -48,6 +48,7 @@ public class FeedListController extends HttpServlet {
 		listCount = new PhotoService().selectFeedListCount();
 		
 		currentPage = Integer.parseInt(request.getParameter("currentPage"));
+		catagory = Integer.parseInt(request.getParameter("category"));
 		
 		pageLimit = 10;
 		
@@ -64,7 +65,7 @@ public class FeedListController extends HttpServlet {
 		
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
 		
-		ArrayList<Photo> list = new PhotoService().selectFeedList(pi);
+		ArrayList<Photo> list = new PhotoService().selectFeedList(pi,catagory);
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);

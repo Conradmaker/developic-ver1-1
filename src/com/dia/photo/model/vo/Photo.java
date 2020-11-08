@@ -8,34 +8,20 @@ public class Photo {
     private int photoSale;
     private int photoPrice;
     private Date photoCreatedAt;
-    private int photoState;
     private String photoSrc;
     private String photoInfo;
     private Date photoUpdatedAt;
-    private int userNo;
     private int categoryId;
+    private String userName;
+    private String userNickname;
    
     
-    public Photo() {
-    	
-    }
-
-
-	public Photo(int photoId, String photoName, int photoSale, int photoPrice, Date photoCreatedAt,
-			int photoState, String photoSrc, String photoInfo, Date photoUpdatedAt, int userNo,
-			int categoryId) {
-		super();
-		this.photoId = photoId;
-		this.photoName = photoName;
-		this.photoSale = photoSale;
-		this.photoPrice = photoPrice;
-		this.photoCreatedAt = photoCreatedAt;
-		this.photoState = photoState;
-		this.photoSrc = photoSrc;
-		this.photoInfo = photoInfo;
-		this.photoUpdatedAt = photoUpdatedAt;
-		this.userNo = userNo;
-		this.categoryId = categoryId;
+    @Override
+	public String toString() {
+		return "Photo [photoId=" + photoId + ", photoName=" + photoName + ", photoSale=" + photoSale + ", photoPrice="
+				+ photoPrice + ", photoCreatedAt=" + photoCreatedAt + ", photoSrc=" + photoSrc + ", photoInfo="
+				+ photoInfo + ", photoUpdatedAt=" + photoUpdatedAt + ", categoryId=" + categoryId + ", userName="
+				+ userName + ", userNickname=" + userNickname + "]";
 	}
 
 
@@ -89,16 +75,6 @@ public class Photo {
 	}
 
 
-	public int getPhotoState() {
-		return photoState;
-	}
-
-
-	public void setPhotoState(int photoState) {
-		this.photoState = photoState;
-	}
-
-
 	public String getPhotoSrc() {
 		return photoSrc;
 	}
@@ -129,16 +105,6 @@ public class Photo {
 	}
 
 
-	public int getUserNo() {
-		return userNo;
-	}
-
-
-	public void setUserNo(int userNo) {
-		this.userNo = userNo;
-	}
-
-
 	public int getCategoryId() {
 		return categoryId;
 	}
@@ -149,13 +115,45 @@ public class Photo {
 	}
 
 
-	@Override
-	public String toString() {
-		return "Photo [photoId=" + photoId + ", photoName=" + photoName + ", photoSale=" + photoSale + ", photoPrice="
-				+ photoPrice + ", photoCreatedAt=" + photoCreatedAt + ", photoState=" + photoState + ", photoSrc="
-				+ photoSrc + ", photoInfo=" + photoInfo + ", photoUpdatedAt=" + photoUpdatedAt + ", userNo=" + userNo
-				+ ", categoryId=" + categoryId + "]";
+	public String getUserName() {
+		return userName;
 	}
-    
-    
+
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+
+	public String getUserNickname() {
+		return userNickname;
+	}
+
+
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
+	}
+
+
+	public Photo(int photoId, String photoName, int photoSale, int photoPrice, Date photoCreatedAt, String photoSrc,
+			String photoInfo, Date photoUpdatedAt, int categoryId, String userName, String userNickname) {
+		super();
+		this.photoId = photoId;
+		this.photoName = photoName;
+		this.photoSale = photoSale;
+		this.photoPrice = photoPrice;
+		this.photoCreatedAt = photoCreatedAt;
+		this.photoSrc = photoSrc;
+		this.photoInfo = photoInfo;
+		this.photoUpdatedAt = photoUpdatedAt;
+		this.categoryId = categoryId;
+		this.userName = userName;
+		this.userNickname = userNickname;
+	}
+
+
+	public Photo() {
+    	
+    }
+
 }

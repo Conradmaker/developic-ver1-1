@@ -19,7 +19,19 @@ SELECT *
 		               ROWNUM RNUM
 		             , A.*
 		          FROM (
-		                SELECT *
+		                SELECT 
+		                       PHOTO_ID
+		                     , PHOTO_NAME
+		                     , PHOTO_SALE
+		                     , PHOTO_PRICE
+		                     , PHOTO_CREATEDAT
+		                     , PHOTO_STATE
+		                     , PHOTO_SRC
+		                     , PHOTO_INFO
+		                     , PHOTO_UPDATEAT
+		                     , CATEGORY_ID
+		                     , USER_NAME
+		                     , USER_NICKNAME
 		                  FROM PHOTOS P
 		                  JOIN USERS ON(P.USER_NO = USERS.USER_NO)
 		                 WHERE P.PHOTO_STATE = 0
@@ -29,5 +41,35 @@ SELECT *
 		        )
 		 WHERE RNUM BETWEEN ? AND ?
 </entry>
+<entry key="loadFeedCategory">
+SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , A.*
+		          FROM (
+		                SELECT 
+		                       PHOTO_ID
+		                     , PHOTO_NAME
+		                     , PHOTO_SALE
+		                     , PHOTO_PRICE
+		                     , PHOTO_CREATEDAT
+		                     , PHOTO_STATE
+		                     , PHOTO_SRC
+		                     , PHOTO_INFO
+		                     , PHOTO_UPDATEAT
+		                     , CATEGORY_ID
+		                     , USER_NAME
+		                     , USER_NICKNAME
+		                  FROM PHOTOS P
+		                  JOIN USERS ON(P.USER_NO = USERS.USER_NO)
+		                 WHERE P.PHOTO_STATE = 0 AND CATEGORY_ID = ?
+		                 ORDER
+		                    BY PHOTO_CREATEDAT DESC
+		               ) A
+		        )
+		 WHERE RNUM BETWEEN ? AND ?
+</entry>
+
 
 </properties>

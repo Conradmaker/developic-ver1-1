@@ -59,13 +59,17 @@ public class PhotoDao {
 		return listFeedCount;
 	}
 	
-	public ArrayList<Photo> selectFeedList(Connection conn, PageInfo pi){
+	public ArrayList<Photo> selectFeedList(Connection conn, PageInfo pi,int category){
 		ArrayList<Photo> list = new ArrayList<>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
 		String sql = prop.getProperty("loadFeed");
+		
+		if(category!=0) {
+			   sql = prop.getProperty("loadFeedCategory");
+		}
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -79,6 +83,13 @@ public class PhotoDao {
 			pstmt.setInt(1, startRow);
 			pstmt.setInt(2, endRow);
 			
+			if(category!=0) {
+				pstmt.setInt(1, category);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+			}
+
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
@@ -87,12 +98,12 @@ public class PhotoDao {
 						 		   rset.getInt("photo_sale"),
 						 		   rset.getInt("photo_price"),
 						 		   rset.getDate("photo_createdat"),
-						 		   rset.getInt("photo_state"),
 						 		   rset.getString("photo_src"),
 						 		   rset.getString("photo_info"),
 						 		   rset.getDate("photo_updateAt"),
-						 		   rset.getInt("a.user_no"),
-						 		   rset.getInt("catagory_id")));
+						 		   rset.getInt("category_id"),
+						 		   rset.getString("user_name"),
+						 		   rset.getString("user_nickname")));
 			}
 			
 		} catch (SQLException e) {

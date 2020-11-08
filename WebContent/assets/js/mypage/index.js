@@ -52,3 +52,4 @@ function loadImg(inputFile) {
     document.querySelector("#title-img").src = null;
   }
 }
+

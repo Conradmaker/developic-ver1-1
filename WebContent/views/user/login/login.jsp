@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
-<%
-	User loginUser = (User)session.getAttribute("loginUser");
-	// > 로그인 요청전 : null
-	// > 로그인 성공후 : 로그인 성공한 회원정보가 담겨있는 User객체
-	
-	String alertMsg = (String)session.getAttribute("alertMsg");
-	// > 서비스 요청전 : null
-	// > 서비스 성공후 : alert로 띄워줄 메세지문구
-	
 
-%>   
     
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +15,11 @@
   <body>
   
   
-<!-- <%@ include file="../../common/menubar.jsp" %>  -->
   
-<!--  <div class="container" id="app"> -->   
+  <div class="container" id="app">    
       <!-- Sign Up -->
       <div class="container__form container--signup">
-        <form action="/dia/enrollForm.us" method="POST" class="form" id="form1">
+        <form action="/dia/insert.us" method="POST" class="form" id="form1">
           <h2 class="form__title">회원가입</h2>
           <input type="text" placeholder="ID" name="userId" class="input" required/>
           <input
@@ -50,9 +39,8 @@
       <!-- Sign In -->
       
        <!-- 1. 로그인 전에 보여지는 로그인form -->
-      <% if(loginUser == null) { %>
       <div class="container__form container--signin">
-        <form action="/dia/login.us" method="POST" class="form" id="form2">
+        <form action="login.us" method="POST" class="form" id="form2">
           <h2 class="form__title">로그인</h2>
           <input type="text" placeholder="id" name="userId" class="input" required/>
           <input
@@ -63,8 +51,8 @@
             required
           />
           <span @click="setFindIdOpen">아이디가 기억나지 않으세요?</span>
-          <button class="login-btn" type='submit'>로그인</button>
-          <a class="login-btn" href="${pageContext.request.contextPath}/views/main/main.jsp"> 홈으로 </a>
+          <button  onClick="location.href='login.us'" type='submit' class="login-btn">로그인</button>
+          <a class="login-btn" href="${pageContext.request.contextPath}"> 홈으로 </a>
         </form>
       </div>
 
@@ -72,25 +60,14 @@
       <div class="container__overlay">
         <div class="overlay">
           <div class="overlay__panel overlay--left">
-            <button class="login-btn" id="signIn">로그인</button>
+            <button class="login-btn" onClick='document.querySelector(".container").classList.remove("right-panel-active")' id="signIn">로그인</button>
           </div>
           <div class="overlay__panel overlay--right">
-            <button class="login-btn" id="signUp">회원가입</button>
+            <button class="login-btn" onClick='document.querySelector(".container").classList.add("right-panel-active")' id="signUp">회원가입</button>
           </div>
         </div>
       </div>
       
-       <!-- 2. 로그인 성공 후 -->
-         <% }else { %> 
-	        <div id="userInfo">
-	    	    <div align="center">
-	    	    	<b><%= loginUser.getUserName() %>님</b><br><br>
-	                <a href="/dia/myPage.us">마이페이지</a>
-	                <a href="/dia/logout.us">로그아웃</a>
-	            </div>
-	        </div>
-        <%} %>
-
       <!-- 아이디찾기 -->
       <div class="modal--container" :class="{modalActive:findIdModal}">
         <form method='POST' action='dia/findid.us' class="modal--box modal--login">
@@ -103,9 +80,8 @@
           </div>
         </form>
       </div>
- <!--   </div>-->  
-
-<!--    <script src="${pageContext.request.contextPath}/assets/js/login/index.js" defer></script> -->
-    <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
+ </div>  
+ 
+    <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
   </body>
 </html>

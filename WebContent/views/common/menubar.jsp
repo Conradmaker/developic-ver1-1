@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
-    
+<%
+	User loginUser = (User)session.getAttribute("loginUser");
+	// > 로그인 요청전 : null
+	// > 로그인 성공후 : 로그인 성공한 회원정보가 담겨있는 User객체
+	
+	String alertMsg = (String)session.getAttribute("alertMsg");
+	// > 서비스 요청전 : null
+	// > 서비스 성공후 : alert로 띄워줄 메세지문구
+	
+
+%>      
 
 <!DOCTYPE html>
 <html>
@@ -24,6 +34,7 @@
           <a href="#">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
+          <% if(loginUser == null) { %>
           <div class="header--right">
             <a href="/dia/loginForm.us">LOGIN</a>
             <a href="/dia/enrollForm.us">SIGNUP</a
@@ -31,6 +42,16 @@
               ><i class="fas fa-search" @click=""></i
             ></i>
           </div>
+          <% }else { %>
+          <div class="header--right">
+            <a href="/dia/loginForm.us"><%= loginUser.getUserName() %>님</a>
+            <a href="/dia/myPage.us">MYPAGE</a
+            ><a href="/dia/logout.us">LOGOUT</a
+            ><i @click="setSearchOpen"
+              ><i class="fas fa-search" @click=""></i
+            ></i>
+          </div>
+          <%} %>
         </div>
       </header>
       <div class="search--container" :class="{searchActive:searchOpen}">
@@ -53,6 +74,3 @@
             <li>ABOUT</li>
           </a>
         </ul>
-      </main>
-  </body>
-</html>

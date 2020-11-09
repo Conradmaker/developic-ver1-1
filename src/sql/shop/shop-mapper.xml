@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+
+<entry key="selectPhotoList">
+	SELECT *
+		  FROM (
+		        SELECT 
+		               ROWNUM RNUM
+		             , A.*
+		          FROM (
+						SELECT 
+						        PHOTO_ID 
+						      , PHOTO_NAME
+						      , PHOTO_PRICE
+						      , PHOTO_SRC 
+						   FROM PHOTOS
+						  WHERE PHOTO_STATE = 0
+						    AND PHOTO_SALE = 1  
+						  ORDER
+						     BY PHOTO_ID DESC
+						 ) A
+		        )
+		 WHERE RNUM BETWEEN ? AND ?     
+						     
+</entry>
+
+
+<entry key="selectListCount">
+SELECT 
+       COUNT(*) LISTCOUNT
+  FROM PHOTOS
+ WHERE PHOTO_STATE = 0
+   AND PHOTO_SALE = 1
+</entry>
+
+
+
+</properties>

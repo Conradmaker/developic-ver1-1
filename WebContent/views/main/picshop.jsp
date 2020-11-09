@@ -16,12 +16,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/index.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>PICSHOP | DEVELOPIC</title>
   </head>
   <body>
@@ -42,25 +42,27 @@
 		
         <h2 class="main--title">PICSHOP</h2>
         <ul class="feed--category">
-          <a href="">
+          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=0">
             <li>ALL</li>
           </a>
-          <a href="">
+          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=10">
             <li>ANIMALS</li>
-          </a>
-          <a href="">
+          </a> 
+          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=20">
             <li>PEOPLE</li>
           </a>
-          <a href="">
+          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=30">
             <li>URBAN</li>
           </a>
-          <a href="">
+          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=40">
             <li>NATURE</li>
           </a>
-          <a href="">
+          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=50">
             <li>ETC</li>
           </a>
         </ul>
+   
+    	                 
         <div class="shop--container">
 		<% for(Photo p: list){ %>        
           <div class="shop--item--wrapper">
@@ -68,105 +70,16 @@
               <a href=""><img src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>" alt="" /></a>
             </div>
             <div class="item-info">
+              <div class="item-info-detail">
               <span><%= p.getPhotoName() %></span>
+              <span><%= p.getUserNickname() %></span>
+              </div>
               <strong><%= p.getPhotoPrice() %></strong>
             </div>
           </div>
          <% } %>
     
-<!--         
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img
-                  src="${pageContext.request.contextPath}/assets/images/picfeedimg (1).jpg"
-                  alt=""
-                  srcset=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img src="${pageContext.request.contextPath}/assets/images/mirror.jpg" alt="" srcset=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (3).jpg" alt=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (4).jpg" alt=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (5).jpg" alt=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img src="${pageContext.request.contextPath}/assets/images/picfeedimg (6).jpg" alt=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""><img src="${pageContext.request.contextPath}/assets/images/lemon.jpg" alt="" /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-          <div class="shop--item--wrapper">
-            <div class="item-thumb">
-              <a href=""
-                ><img src="${pageContext.request.contextPath}/assets/images/moon.jpg" alt="" srcset=""
-              /></a>
-            </div>
-            <div class="item-info">
-              <span>풀문</span>
-              <strong>100,000</strong>
-            </div>
-          </div>
-        </div>
-        
-         --> 
+
         <!-- 페이징 처리 / 위치 고정시키기 -->
      <!--  <div class="page_nation_container"> -->
         <div class="page_nation">

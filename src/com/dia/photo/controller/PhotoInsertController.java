@@ -1,9 +1,8 @@
 package com.dia.photo.controller;
 
-import com.dia.photo.model.vo.Photo;
-import com.dia.photo.model.service.PhotoService;
-
 import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
+import com.dia.photo.model.service.PhotoService;
+import com.dia.photo.model.vo.PhotoInsert;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -19,13 +20,13 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
  * Servlet implementation class PhotoInsertFormController
  */
 @WebServlet("/insert.ph")
-public class PhotoInsertFormController extends HttpServlet {
+public class PhotoInsertController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PhotoInsertFormController() {
+    public PhotoInsertController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,16 +35,17 @@ public class PhotoInsertFormController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		request.setCharacterEncoding("utf-8");
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 			
-			int maxSize = 10 * 1024 * 1024;
+			int maxSize = 20 * 1024 * 1024;
 			
-			String savePath = request.getSession().getServletContext().getRealPath("/assets/images/");
+			ServletContext context = request.getSession().getServletContext();
+			String realPath = context.getRealPath("/assets/uploads");
 			
-			MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+			MultipartRequest multiRequest = new MultipartRequest(request, realPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 			
 			String photoName = multiRequest.getParameter("photoName");
 			String photoSale = multiRequest.getParameter("photoSale");
@@ -53,9 +55,7 @@ public class PhotoInsertFormController extends HttpServlet {
 			String userNo = multiRequest.getParameter("userNo");
 			String categoryId = multiRequest.getParameter("categoryId");
 			
-			System.out.println("1111111111111111");
-			
-			Photo p = new Photo();
+			PhotoInsert p = new PhotoInsert();
 			p.setPhotoName(photoName);
 			p.setPhotoSale(Integer.parseInt(photoSale));
 			p.setPhotoPrice(Integer.parseInt(photoPrice));
@@ -64,13 +64,14 @@ public class PhotoInsertFormController extends HttpServlet {
 			p.setUserNo(Integer.parseInt(userNo));
 			p.setCategoryId(Integer.parseInt(categoryId));
 			
+			System.out.println(p);
 			
 			int result = new PhotoService().insertPhoto(p);
 			
 			if(result > 0) { // 성공 => profile 페이지 요청
 				
 				request.getSession().setAttribute("alertMsg", "작품이 성공적으로 등록되었습니다!!!");
-				response.sendRedirect(request.getContextPath() + "/main.ph");
+				response.sendRedirect(request.getContextPath());
 				
 			}else { // 실패 => 업로드된 파일 찾아 삭제 => 에러문구 담은 후 에러페이지로 포워딩
 				
@@ -85,6 +86,8 @@ public class PhotoInsertFormController extends HttpServlet {
 				
 			}
 			
+		}else {
+			System.out.println("안돼!!");
 		}
 		
 	}

@@ -1,5 +1,6 @@
 package com.dia.photo.model.dao;
 import static com.dia.common.JDBCTemplate.close;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
@@ -12,8 +13,8 @@ import java.util.Properties;
 
 import com.dia.photo.model.vo.PageInfo;
 import com.dia.photo.model.vo.Photo;
+import com.dia.photo.model.vo.PhotoInsert;
 import com.dia.user.model.dao.UserDao;
-import static com.dia.common.JDBCTemplate.close;
 
 
 public class PhotoDao {
@@ -119,7 +120,7 @@ public class PhotoDao {
 	}
 	
 	
-		public int insertPhoto(Connection conn, Photo p) {
+	public int insertPhoto(Connection conn, PhotoInsert p) {
 		// insert문 => 처리된 행수
 		int result = 0;
 		
@@ -129,7 +130,7 @@ public class PhotoDao {
 		try{ 
 			pstmt = conn.prepareStatement(sql);
 
-					pstmt.setString(1, p.getPhotoName());
+			pstmt.setString(1, p.getPhotoName());
 			pstmt.setInt(2, p.getPhotoSale());
 			pstmt.setInt(3, p.getPhotoPrice());
 			pstmt.setString(4, p.getPhotoSrc());
@@ -139,15 +140,16 @@ public class PhotoDao {
 			
 			result = pstmt.executeUpdate();			
 			
-			System.out.println("333333333333");
+			System.out.println("666666666666");
 
-					} catch (SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-					close(pstmt);
+			close(pstmt);
 		}
 		
 		return result;
 
-		}
+	}
+	
 }

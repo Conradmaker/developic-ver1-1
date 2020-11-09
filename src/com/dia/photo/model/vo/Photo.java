@@ -29,36 +29,29 @@ public class Photo {
 		return photoId;
 	}
 
-
 	public void setPhotoId(int photoId) {
 		this.photoId = photoId;
 	}
-
 
 	public String getPhotoName() {
 		return photoName;
 	}
 
-
 	public void setPhotoName(String photoName) {
 		this.photoName = photoName;
 	}
-
 
 	public int getPhotoSale() {
 		return photoSale;
 	}
 
-
 	public void setPhotoSale(int photoSale) {
 		this.photoSale = photoSale;
 	}
 
-
 	public int getPhotoPrice() {
 		return photoPrice;
 	}
-
 
 	public void setPhotoPrice(int photoPrice) {
 		this.photoPrice = photoPrice;
@@ -79,16 +72,13 @@ public class Photo {
 		return photoSrc;
 	}
 
-
 	public void setPhotoSrc(String photoSrc) {
 		this.photoSrc = photoSrc;
 	}
 
-
 	public String getPhotoInfo() {
 		return photoInfo;
 	}
-
 
 	public void setPhotoInfo(String photoInfo) {
 		this.photoInfo = photoInfo;
@@ -108,7 +98,6 @@ public class Photo {
 	public int getCategoryId() {
 		return categoryId;
 	}
-
 
 	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;

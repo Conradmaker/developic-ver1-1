@@ -70,6 +70,32 @@ SELECT *
 		        )
 		 WHERE RNUM BETWEEN ? AND ?
 </entry>
-
+<entry key="insertPhoto">
+	INSERT
+	  INTO PHOTOS
+	  (
+	     PHOTO_ID
+	   , PHOTO_NAME
+	   , PHOTO_SALE
+	   , PHOTO_PRICE
+	   , PHOTO_SRC
+	   , PHOTO_INFO
+	   , PHOTO_UPDATEAT
+	   , USER_NO
+	   , CATEGORY_ID
+	  )
+	  values
+	  (
+	     PHOTO_ID_SEQ.NEXTVAL
+	   , ?
+	   , ?
+	   , ?
+	   , ?
+	   , ?
+	   , SYSDATE
+	   , ?
+	   , ?
+	  )
+</entry>
 
 </properties>

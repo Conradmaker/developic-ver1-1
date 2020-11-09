@@ -233,6 +233,12 @@
 }
 
 /* 페이징 */
+
+.page_nation_container{
+
+}
+
+
 .page_nation {
   width: 35%;
   height: 200px;
@@ -242,6 +248,7 @@
   align-items: center;
   gap: 3px;
 }
+
 .page_nation a {
   border: 1px solid #e6e6e6;
   width: 50px;

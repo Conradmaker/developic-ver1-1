@@ -80,7 +80,9 @@
         </a>
       </main>
        </div>
-      <script>
+      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
+  </body>
+        <script>
       let current = 1;
       const urlSearch = new URLSearchParams(location.search);
       const category = parseInt(urlSearch.getAll('category')[0]);
@@ -108,12 +110,10 @@
     	  feedItem.appendChild(imgFace);
     	  feedItem.appendChild(feedSummary);
     	  container.appendChild(feedItem);
-    	  console.log(222)
       };			
       			const fetchData = () => {
       				axios.get(`/dia/FeedAxios?currentPage=`+ ++current +`&category=`+category)
         			.then(function(response) {
-        				vm.feeds = vm.feeds.concat(response.data);
           				console.log(vm.feeds)
           				response.data.forEach(v=>makeEl(v))
         			})
@@ -130,6 +130,4 @@
       	};
       	window.addEventListener('scroll',onScroll);
       </script>
-      
-  </body>
 </html>

@@ -81,14 +81,6 @@
       </main>
        </div>
       <script>
-      const vm = new Vue({
-    	  el:'#feedList',
-    	  data(){
-    		  return{
-    			  feeds:[]
-    		  }
-    	  },
-      })
       let current = 1;
       const urlSearch = new URLSearchParams(location.search);
       const category = parseInt(urlSearch.getAll('category')[0]);
@@ -96,8 +88,26 @@
       let feedList = []
       			
       const makeEl = (v) =>{
-    	  const feedItem = createElement('div')
-    	  <!-- 여기하자 -->
+    	  const feedItem = document.createElement('div');
+    	  feedItem.classList.add('feed--item');
+    	  const feedSummary = document.createElement('div');
+    	  feedSummary.classList.add('feed--summary');
+    	  
+    	  const icon = document.createElement('i');
+    	        icon.className="fa fa-fw fa-heart fa-lg";
+    	  const imgFace = document.createElement("img");
+                imgFace.src='/dia/assets/uploads/'+v.photoSrc;
+          const title = document.createElement('h1');
+          		title.innerText = v.photoName;
+          const desc = document.createElement('p');
+          		desc.innerText = v.userNickname;		
+          		
+    	  feedSummary.appendChild(icon);
+    	  feedSummary.appendChild(title);
+    	  feedSummary.appendChild(desc);
+    	  feedItem.appendChild(imgFace);
+    	  feedItem.appendChild(feedSummary);
+    	  container.appendChild(feedItem);
       };			
       			const fetchData = () => {
       				axios.get(`/dia/FeedAxios?currentPage=`+ ++current +`&category=`+category)
@@ -121,6 +131,3 @@
       
   </body>
 </html>
-
-
-

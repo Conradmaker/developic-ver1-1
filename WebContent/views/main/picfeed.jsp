@@ -108,6 +108,7 @@
     	  feedItem.appendChild(imgFace);
     	  feedItem.appendChild(feedSummary);
     	  container.appendChild(feedItem);
+    	  console.log(22)
       };			
       			const fetchData = () => {
       				axios.get(`/dia/FeedAxios?currentPage=`+ ++current +`&category=`+category)
@@ -123,6 +124,7 @@
       	const onScroll = ()=>{
       		if(window.pageYOffset + document.documentElement.clientHeight >
             document.documentElement.scrollHeight - 1){
+      			console.log(1111)
       			fetchData()
       		};
       	};

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dia.photo.model.service.PhotoService;
-import com.dia.photo.model.vo.PageInfo;
+import com.dia.shop.model.vo.PageInfo;
 import com.dia.photo.model.vo.Photo;
 
 /**

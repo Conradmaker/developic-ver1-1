@@ -65,7 +65,7 @@
 		<% for(Photo p: list){ %>        
           <div class="shop--item--wrapper">
             <div class="item-thumb">
-              <a href=""><img src="${pageContext.request.contextPath}/assets/images/<%= p.getPhotoSrc() %>" alt="" /></a>
+              <a href=""><img src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>" alt="" /></a>
             </div>
             <div class="item-info">
               <span><%= p.getPhotoName() %></span>

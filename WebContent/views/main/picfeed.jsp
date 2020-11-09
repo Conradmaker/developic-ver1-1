@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.dia.photo.model.vo.*, java.util.ArrayList" %>
+<%@ page import="com.dia.photo.model.vo.Photo, com.dia.shop.model.vo.PageInfo, java.util.ArrayList" %>
 <%
 	PageInfo pi = (PageInfo)request.getAttribute("pi");
 	ArrayList<Photo> list = (ArrayList<Photo>)request.getAttribute("list");
@@ -108,7 +108,7 @@
     	  feedItem.appendChild(imgFace);
     	  feedItem.appendChild(feedSummary);
     	  container.appendChild(feedItem);
-    	  console.log(22)
+    	  console.log(222)
       };			
       			const fetchData = () => {
       				axios.get(`/dia/FeedAxios?currentPage=`+ ++current +`&category=`+category)

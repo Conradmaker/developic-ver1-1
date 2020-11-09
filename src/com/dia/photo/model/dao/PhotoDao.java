@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
-import com.dia.photo.model.vo.PageInfo;
+import com.dia.shop.model.vo.PageInfo;
 import com.dia.photo.model.vo.Photo;
 import com.dia.user.model.dao.UserDao;
 import static com.dia.common.JDBCTemplate.close;

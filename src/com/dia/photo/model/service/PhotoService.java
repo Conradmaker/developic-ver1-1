@@ -4,7 +4,7 @@ import static com.dia.common.JDBCTemplate.close;
 import java.sql.Connection;
 import java.util.ArrayList;
 import com.dia.photo.model.dao.PhotoDao;
-import com.dia.photo.model.vo.PageInfo;
+import com.dia.shop.model.vo.PageInfo;
 import com.dia.photo.model.vo.Photo;
 
 public class PhotoService {

@@ -30,6 +30,7 @@ SELECT *
 		                     , PHOTO_INFO
 		                     , PHOTO_UPDATEAT
 		                     , CATEGORY_ID
+     						 , P.USER_NO
 		                     , USER_NAME
 		                     , USER_NICKNAME
 		                  FROM PHOTOS P
@@ -59,6 +60,7 @@ SELECT *
 		                     , PHOTO_INFO
 		                     , PHOTO_UPDATEAT
 		                     , CATEGORY_ID
+     						 , P.USER_NO
 		                     , USER_NAME
 		                     , USER_NICKNAME
 		                  FROM PHOTOS P
@@ -97,5 +99,35 @@ SELECT *
 	   , ?
 	  )
 </entry>
-
+<entry key="selectDetail">
+SELECT PHOTO_ID
+     , PHOTO_NAME
+     , PHOTO_SALE
+     , PHOTO_PRICE
+     , PHOTO_CREATEDAT
+     , PHOTO_STATE
+     , PHOTO_SRC
+     , PHOTO_INFO
+     , PHOTO_UPDATEAT
+     , CATEGORY_ID
+     , P.USER_NO
+     , USER_NAME
+     , USER_NICKNAME
+FROM PHOTOS P
+         JOIN USERS ON (P.USER_NO = USERS.USER_NO)
+WHERE P.PHOTO_STATE = 0 AND PHOTO_ID=?
+	</entry>
+<entry key="selectComment">
+SELECT COMMENT_ID
+     , COMMENT_CONTENT
+     , COMMENT_CREATEDAT
+     , COMMENT_UPDATEDAT
+     , C.USER_NO
+     , USER_NAME
+     , USER_NICKNAME
+     , PHOTO_ID
+FROM PCOMMENTS C
+         LEFT JOIN USERS U on C.USER_NO = U.USER_NO
+WHERE PHOTO_ID = ?
+	</entry>
 </properties>

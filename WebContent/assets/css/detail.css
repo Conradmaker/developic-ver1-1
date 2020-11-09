@@ -41,7 +41,6 @@ main span {
 }
 .detail--1,
 .detail--2title,
-.detail--2,
 .detail--3 {
   margin-top: 80px;
 }
@@ -111,11 +110,6 @@ main span {
   display: block;
   height: 80%;
 }
-.detail--1R > .btn--wrapper {
-  height: 15%;
-  position: absolute;
-  bottom: 0;
-}
 
 /*--- 1, 2, 3 title ---*/
 .detail--1R > span > h2,
@@ -157,7 +151,7 @@ main span {
   font-weight: 600;
   padding-top: 40px;
 }
-.detail--1R > .btn--wrapper {
+.btn--wrappers {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -173,13 +167,13 @@ main span {
 }
 
 /*------ .detail--2 ------*/
-
-.detail--2 > p::after {
-  content: "";
+.detail--2{
+  padding: 50px 0 30px 0;
+  border-bottom: 5px solid gray;
+}
+.detail--2 > p{
   display: block;
   width: 100%;
-  border-bottom: 5px solid gray;
-  margin-top: 50px;
 }
 
 /*------ .detail--3 ------*/

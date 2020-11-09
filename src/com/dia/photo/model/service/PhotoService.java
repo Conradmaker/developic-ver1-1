@@ -1,10 +1,13 @@
 package com.dia.photo.model.service;
 import static com.dia.common.JDBCTemplate.getConnection;
 import static com.dia.common.JDBCTemplate.close;
+import static com.dia.common.JDBCTemplate.rollback;
+import static com.dia.common.JDBCTemplate.commit;
 import java.sql.Connection;
 import java.util.ArrayList;
 import com.dia.photo.model.dao.PhotoDao;
 import com.dia.shop.model.vo.PageInfo;
+import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
 
 public class PhotoService {
@@ -51,5 +54,20 @@ public class PhotoService {
 		return result;
 		
 	}
-
+		
+//		디테일조회
+		public Photo selectBoard(int pno) {
+			
+			Connection conn = getConnection();
+			Photo p = new PhotoDao().selectDetail(conn, pno);
+			close(conn);
+			return p;
+		}
+//		댓글조회
+		public ArrayList<Comment> selectComment(int pno) {
+			Connection conn = getConnection();
+			ArrayList<Comment> cm = new PhotoDao().selectComment(conn, pno);
+			close(conn);
+			return cm;
+		}
 }

@@ -33,7 +33,7 @@
     <div id="app">
       <header class="header--container">
         <div class="header--box">
-          <a href="#">
+          <a href="${pageContext.request.contextPath}">
             <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <% if(loginUser == null) { %>
@@ -69,7 +69,7 @@
           <a href="/dia/loadFeed?currentPage=1&category=0">
             <li>PICFEED</li>
           </a>
-          <a href="">
+          <a href="/dia/shoplist.ph?currentPage=1">
             <li>PICSHOP</li>
           </a>
           <a href="">

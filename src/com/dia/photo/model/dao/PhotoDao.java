@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.dia.shop.model.vo.PageInfo;
+import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
 import com.dia.user.model.dao.UserDao;
 import static com.dia.common.JDBCTemplate.close;
@@ -103,6 +104,7 @@ public class PhotoDao {
 						 		   rset.getString("photo_info"),
 						 		   rset.getDate("photo_updateAt"),
 						 		   rset.getInt("category_id"),
+						 		   rset.getInt("user_no"),
 						 		   rset.getString("user_name"),
 						 		   rset.getString("user_nickname")));
 			}
@@ -150,4 +152,87 @@ public class PhotoDao {
 		return result;
 
 		}
+		
+		//게시글조회
+		public Photo selectDetail(Connection conn, int pno) {
+			Photo p = null;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			//SQL문 쓰자
+			String sql = prop.getProperty("selectDetail");  
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, pno);
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					p = new Photo(rset.getInt("photo_id"),
+					 		   rset.getString("photo_name"),
+					 		   rset.getInt("photo_sale"),
+					 		   rset.getInt("photo_price"),
+					 		   rset.getDate("photo_createdat"),
+					 		   rset.getString("photo_src"),
+					 		   rset.getString("photo_info"),
+					 		   rset.getDate("photo_updateAt"),
+					 		   rset.getInt("category_id"),
+					 		   rset.getInt("user_no"),
+					 		   rset.getString("user_name"),
+					 		   rset.getString("user_nickname"));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return p;
+			
+			
+		}
+		
+		//댓글조회
+		public ArrayList<Comment> selectComment(Connection conn, int pno) {
+			ArrayList<Comment> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("selectComment");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, pno);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Comment(rset.getInt("comment_id"),
+							 		   rset.getString("comment_content"),
+							 		   rset.getDate("comment_createdAt"),
+							 		   rset.getDate("comment_updatedAt"),
+							 		   rset.getInt("user_no"),
+							 		   rset.getString("user_name"),
+							 		   rset.getString("user_nickname"),
+							 		   rset.getInt("photo_id")));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+			
+			
+		}
+		
 }

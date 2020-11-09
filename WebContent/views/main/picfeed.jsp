@@ -65,7 +65,7 @@
           <div class="feed--item">
             <img src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>" alt="" />
             <div class="feed--summary">
-              <input hidden value='<%= p.getPhotoId() %>'>
+              <input hidden class='feed-item-id' value='<%= p.getPhotoId() %>'>
               <i class="fa fa-fw fa-heart fa-lg"></i>
               <h1><%= p.getPhotoName() %></h1>
               <p>- <%= p.getUserNickname() %></p>
@@ -87,13 +87,20 @@
       const urlSearch = new URLSearchParams(location.search);
       const category = parseInt(urlSearch.getAll('category')[0]);
       const container = document.querySelector('#feedList');
+      const feedItem = document.querySelectorAll('.feed--item');
+      const photoId = document.querySelectorAll('.feed-item-id');
       let feedList = []
       			
       const makeEl = (v) =>{
     	  const feedItem = document.createElement('div');
     	  feedItem.classList.add('feed--item');
     	  const feedSummary = document.createElement('div');
-    	  feedSummary.classList.add('feed--summary');
+        feedSummary.classList.add('feed--summary');
+        const feedItemId = document.createElement('input');
+        feedItemId.classList.add('feed-item-id');
+        feedItemId.hidden = true;
+        feedItemId.setAttribute('value',v.photoId);
+
     	  
     	  const icon = document.createElement('i');
     	        icon.className="fa fa-fw fa-heart fa-lg";
@@ -103,7 +110,8 @@
           		title.innerText = v.photoName;
           const desc = document.createElement('p');
           		desc.innerText = v.userNickname;		
-          		
+              
+        feedSummary.appendChild(feedItemId);
     	  feedSummary.appendChild(icon);
     	  feedSummary.appendChild(title);
     	  feedSummary.appendChild(desc);
@@ -114,8 +122,8 @@
       			const fetchData = () => {
       				axios.get(`/dia/FeedAxios?currentPage=`+ ++current +`&category=`+category)
         			.then(function(response) {
-          				console.log(vm.feeds)
           				response.data.forEach(v=>makeEl(v))
+          				console.log('받아오기 성공')
         			})
         			.catch(function(error) {
           				console.log(error);
@@ -124,10 +132,18 @@
       	const onScroll = ()=>{
       		if(window.pageYOffset + document.documentElement.clientHeight >
             document.documentElement.scrollHeight - 1){
-      			console.log(1111)
       			fetchData()
       		};
       	};
-      	window.addEventListener('scroll',onScroll);
+        window.addEventListener('scroll',onScroll);
+        setInterval(() => {
+          document.querySelectorAll('.feed--item').forEach((v,i)=>{
+          v.addEventListener('click',()=>{
+            location.href='${pageContext.request.contextPath}/LoadDetailController?pno='+ document.querySelectorAll('.feed-item-id')[i].value
+            console.log('asdasd')
+      		})
+        })
+        },1000);
+      	
       </script>
 </html>

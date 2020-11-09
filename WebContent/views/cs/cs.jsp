@@ -1,12 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DeveloPic | About</title>
-    <link rel="stylesheet" href="../../assets/css/index.css" />
-    <link rel="stylesheet" href="../../assets/css/common.css" />
-    <link rel="stylesheet" href="../../assets/css/about.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/index.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/about.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
@@ -14,7 +16,7 @@
       <header class="header--container">
         <div class="header--box">
           <a href="#">
-            <img src="../../assets/images/logo.png" width="250px" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <div class="header--right">
             <a href="">LOGIN</a>

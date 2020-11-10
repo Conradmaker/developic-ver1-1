@@ -20,4 +20,9 @@ VALUES ( COMMENT_ID_SEQ.nextval
        , ?)
 
 </entry>
+<entry key="deleteComment">
+DELETE
+FROM DIA.PCOMMENTS
+WHERE COMMENT_ID = ?
+</entry>
 </properties>

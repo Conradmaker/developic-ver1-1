@@ -133,7 +133,7 @@
                   </div>
                   <div class="comment-bottom">
                     <p><%= c.getCommentContent() %></p>
-                    <% if( loginUser.getUserNo() == c.getUserNo()){ %>  
+                    <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
                     <div class="icon-box">
                       <div class="comment-icon">
                         <small>수정</small>

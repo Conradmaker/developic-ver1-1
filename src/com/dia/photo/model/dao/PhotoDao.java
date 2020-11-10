@@ -122,7 +122,6 @@ public class PhotoDao {
 	
 	
 		public int insertPhoto(Connection conn, Photo p) {
-		// insert문 => 처리된 행수
 		int result = 0;
 		
 		PreparedStatement pstmt = null;
@@ -131,7 +130,7 @@ public class PhotoDao {
 		try{ 
 			pstmt = conn.prepareStatement(sql);
 
-					pstmt.setString(1, p.getPhotoName());
+			pstmt.setString(1, p.getPhotoName());
 			pstmt.setInt(2, p.getPhotoSale());
 			pstmt.setInt(3, p.getPhotoPrice());
 			pstmt.setString(4, p.getPhotoSrc());

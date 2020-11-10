@@ -18,6 +18,7 @@
     />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/detail.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     
@@ -75,7 +76,7 @@
             </div>
             <div id="about-photo" class="detail--2title">
               <h2>ABOUT THIS PHOTO</h2>
-              <% if( loginUser.getUserNo() == p.getUserNo()){ %>          
+              <% if(loginUser != null&& loginUser.getUserNo() == p.getUserNo()){ %>          
               <span>
                 <label>✐ 수정</label>
                 <label class="detail--delLabel">🚫 삭제</label>
@@ -93,12 +94,24 @@
               <br /><br />
               <h3>댓글작성</h3>
               <br />
-              <form action="">
-                <input
+              <form>
+                <% if(loginUser != null){ %> 
+
+                <input id='comment--input'
+                name='asd'
                   type="text"
                   placeholder="맑고 깨끗한 댓글문화를 만듭시다!"
+                >
+                <input type="text" hidden id='userNo' value="<%=loginUser.getUserNo() %>">
+                <input type="text"hidden  id='photoId' value='<%=p.getPhotoId() %>'>
+                <% }else{ %> 
+                  <input 
+                  disabled
+                  type="text"
+                  placeholder="로그인후 댓글작성이 가능합니다."
                 />
-                <button type="submit" class="btn btn-small">등록</button>
+                <% } %> 
+                <button type='button' onClick='fetchComment()' id='comment--submit' class="btn btn-small">등록</button>
               </form>
               <div class="detail-gap"></div>
               <ul class="comment--container">
@@ -111,15 +124,15 @@
                       <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
                       <span><%= c.getUserNickname() %></span>
                     </div>
-                    <% if( loginUser.getUserNo() == c.getUserNo()){ %>  
+                    <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
                     <div class="comment-remove">
-                      <span>remove</span>
+                      <span onClick='removeContent(<%= c.getCommentId()%>)'>remove</span>
                       <i>X</i>
                     </div>
                     <% } %>
                   </div>
                   <div class="comment-bottom">
-                    <p>첫번째 댓글입니다.</p>
+                    <p><%= c.getCommentContent() %></p>
                     <% if( loginUser.getUserNo() == c.getUserNo()){ %>  
                     <div class="icon-box">
                       <div class="comment-icon">
@@ -152,5 +165,26 @@
       </main>
     </div>
   </body>
-  <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
+  <script>
+    const userNo = document.querySelector('#userNo').value;
+    const photoId = document.querySelector('#photoId').value;
+    const commentBtn = document.querySelector('#comment--submit');
+    const fetchComment = async()=>{
+      const response = await axios.get('/dia/insert.cm?content='+document.querySelector('#comment--input').value+'&userNo='+userNo+'&photoId='+photoId)
+      if(response.data==='success'){
+        location.reload();
+      }else{
+        alert(response.data);
+      }
+    };
+    const removeContent = async(commentId)=>{
+      const response = await axios.get('/dia/delete.cm?cid='+commentId)
+      if(response.data==='success'){
+        location.reload();
+      }else{
+        alert(response.data);
+      }
+    }
+  </script>
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
 </html>

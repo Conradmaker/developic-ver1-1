@@ -44,4 +44,21 @@ public class CommentService {
 		return result;
 		
 	}
+	
+	public int fixComment(String content,int cid) {
+		Connection conn = getConnection();
+		
+		int result = new CommentDao().fixComment(conn,content, cid);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
 }

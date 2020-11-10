@@ -116,15 +116,16 @@
               <div class="detail-gap"></div>
               <ul class="comment--container">
 
+<% int commentIndex =0; %>  
 <% for(Comment c: list){ %>  
-
+                <input type="text" class='comment-id' hidden value='<%= c.getCommentId()%>'>
                 <li class="comment--item">
                   <div class="comment-top">
                     <div class="comment-user">
                       <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
                       <span><%= c.getUserNickname() %></span>
                     </div>
-                    <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
+                    <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %> 
                     <div class="comment-remove">
                       <span onClick='removeContent(<%= c.getCommentId()%>)'>remove</span>
                       <i>X</i>
@@ -132,10 +133,10 @@
                     <% } %>
                   </div>
                   <div class="comment-bottom">
-                    <p><%= c.getCommentContent() %></p>
+                    <p class='comment-value'><%= c.getCommentContent() %></p>
                     <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
                     <div class="icon-box">
-                      <div class="comment-icon">
+                      <div @click='setFixCommentOpen'onClick='setIndex(<%=commentIndex %>)' class="comment-icon">
                         <small>수정</small>
                         <i>X</i>
                       </div>
@@ -148,7 +149,7 @@
                   </div>
                 </li>
 
-<% } %>
+<% commentIndex++; } %>
 
               </ul>
             </div>
@@ -162,13 +163,33 @@
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </main>   
+      
+    <div class="modal--container" :class='{modalActive:fixCommentModal}'>
+      <div class="modal--box">
+        <h1>댓글수정</h1>
+        <div class="gap"></div>
+        <input type="text" class="modal--input" id='fix-content'>
+        <div class="gap"></div>
+        <div class="modal--btn-box">
+          <button class="btn" @click='setFixCommentOpen'>취소</button>
+          <button class="btn btn-yellow" onClick='fixContent()'>수정</button>
+        </div>
+      </div>
+     </div>
+   </div>
+
+ 
   </body>
-  <script>
+
+  <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
+  <script defer>
     const userNo = document.querySelector('#userNo').value;
     const photoId = document.querySelector('#photoId').value;
     const commentBtn = document.querySelector('#comment--submit');
+    const commentId = document.querySelectorAll('.comment-id');
+    let commentIndex = 0;
+
     const fetchComment = async()=>{
       const response = await axios.get('/dia/insert.cm?content='+document.querySelector('#comment--input').value+'&userNo='+userNo+'&photoId='+photoId)
       if(response.data==='success'){
@@ -185,6 +206,19 @@
         alert(response.data);
       }
     }
+    
+    const fixContent = async()=>{
+      console.log(1)
+      const response = await axios.get('/dia/fix.cm?cid='+commentId[commentIndex].value+'&content='+document.querySelector('#fix-content').value);
+      if(response.data==='success'){
+        location.reload();
+      }else{
+        alert(response.data);
+      }
+    }
+    const setIndex = (i)=>{
+      commentIndex=i;
+      document.querySelector('#fix-content').value = document.querySelectorAll('.comment-value')[commentIndex].innerText;
+    }
   </script>
-  <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
 </html>

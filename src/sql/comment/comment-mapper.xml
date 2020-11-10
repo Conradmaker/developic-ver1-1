@@ -25,4 +25,10 @@ DELETE
 FROM DIA.PCOMMENTS
 WHERE COMMENT_ID = ?
 </entry>
+
+<entry key="fixComment">
+UPDATE DIA.PCOMMENTS t
+SET t.COMMENT_CONTENT = ?
+WHERE t.COMMENT_ID = ?
+</entry>
 </properties>

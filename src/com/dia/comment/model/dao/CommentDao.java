@@ -92,4 +92,29 @@ public class CommentDao {
 		
 		return result;
 	}
+	
+	public int declareComment(Connection conn,String content, int cid, int uid) {
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		String sql = prop.getProperty("declareComment");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setInt(1, uid);
+			pstmt.setInt(2, cid);
+			pstmt.setString(3, content);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 }

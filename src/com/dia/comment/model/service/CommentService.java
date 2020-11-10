@@ -61,4 +61,21 @@ public class CommentService {
 		return result;
 		
 	}
+	
+	public int declareComment(String content,int cid,int uid) {
+		Connection conn = getConnection();
+		
+		int result = new CommentDao().declareComment(conn,content, cid,uid);
+		
+		if(result > 0) {
+			commit(conn);
+		}else {
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return result;
+		
+	}
 }

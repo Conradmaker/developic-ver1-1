@@ -9,6 +9,7 @@ const vm = new Vue({
       searchOpen: false,
       findIdModal: false,
       fixCommentModal:false,
+      declareCommentModal:false,
     };
   },
   methods: {
@@ -32,6 +33,9 @@ const vm = new Vue({
     },
     setFixCommentOpen() {
       this.fixCommentModal = !this.fixCommentModal;
+    },
+    setDeclareCommentOpen() {
+      this.declareCommentModal = !this.declareCommentModal;
     },
   },
 });

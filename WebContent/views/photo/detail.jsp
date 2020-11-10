@@ -136,11 +136,11 @@
                     <p class='comment-value'><%= c.getCommentContent() %></p>
                     <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
                     <div class="icon-box">
-                      <div @click='setFixCommentOpen'onClick='setIndex(<%=commentIndex %>)' class="comment-icon">
+                      <div @click='setFixCommentOpen' onClick='setIndex(<%=commentIndex %>)' class="comment-icon">
                         <small>수정</small>
                         <i>X</i>
                       </div>
-                      <div class="comment-icon">
+                      <div @click='setDeclareCommentOpen' onClick='setIndex(<%=commentIndex %>)' class="comment-icon">
                         <small>신고</small>
                         <i>X</i>
                       </div>
@@ -165,6 +165,7 @@
         </div>
       </main>   
       
+      <!-- 댓글수정 -->
     <div class="modal--container" :class='{modalActive:fixCommentModal}'>
       <div class="modal--box">
         <h1>댓글수정</h1>
@@ -177,9 +178,21 @@
         </div>
       </div>
      </div>
-   </div>
+     <!-- 댓글신고 -->
+     <div class="modal--container" :class='{modalActive:declareCommentModal}'>
+      <div class="modal--box">
+        <h1>🚔 신고하시겠습니까?</h1>
+        <div class="gap"></div>
+        <input type="text" class="modal--input"  id='declare-content' placeholder="사유를 입력해주세요"/>
+        <div class="gap"></div>
+        <div class="modal--btn-box">
+          <button class="btn" @click='setDeclareCommentOpen'>취소</button>
+          <button class="btn btn-yellow" onClick='declareComment()'>신고</button>
+        </div>
+      </div>
+    </div>
 
- 
+   </div>
   </body>
 
   <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
@@ -208,9 +221,17 @@
     }
     
     const fixContent = async()=>{
-      console.log(1)
       const response = await axios.get('/dia/fix.cm?cid='+commentId[commentIndex].value+'&content='+document.querySelector('#fix-content').value);
       if(response.data==='success'){
+        location.reload();
+      }else{
+        alert(response.data);
+      }
+    }
+    const declareComment = async()=>{
+      const response = await axios.get('/dia/declare.cm?cid='+commentId[commentIndex].value+'&content='+document.querySelector('#declare-content').value + '&uid='+userNo);
+      if(response.data==="신고가 접수되었습니다."){
+        alert(response.data);
         location.reload();
       }else{
         alert(response.data);

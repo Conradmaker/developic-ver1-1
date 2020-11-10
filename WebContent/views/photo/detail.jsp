@@ -11,7 +11,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>작품상세페이지</title>
+    <title><%= p.getPhotoName() %> | DETAIL</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
@@ -128,24 +128,26 @@
                     <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %> 
                     <div class="comment-remove">
                       <span onClick='removeContent(<%= c.getCommentId()%>)'>remove</span>
-                      <i>X</i>
+                      <i class="far fa-trash-alt"></i>
                     </div>
                     <% } %>
                   </div>
                   <div class="comment-bottom">
                     <p class='comment-value'><%= c.getCommentContent() %></p>
-                    <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
                     <div class="icon-box">
+                      <% if(loginUser != null&& loginUser.getUserNo() == c.getUserNo()){ %>  
                       <div @click='setFixCommentOpen' onClick='setIndex(<%=commentIndex %>)' class="comment-icon">
                         <small>수정</small>
-                        <i>X</i>
+                        <i class="fas fa-pencil-ruler"></i>
                       </div>
+                      <% }%>
+                      <% if(loginUser != null&& loginUser.getUserNo() != c.getUserNo()){ %>  
                       <div @click='setDeclareCommentOpen' onClick='setIndex(<%=commentIndex %>)' class="comment-icon">
                         <small>신고</small>
-                        <i>X</i>
+                        <i class="fas fa-balance-scale"></i>
                       </div>
+                      <% }%>
                     </div>
-                    <% } %>
                   </div>
                 </li>
 

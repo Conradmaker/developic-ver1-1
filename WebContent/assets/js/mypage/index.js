@@ -10,6 +10,7 @@ const vm = new Vue({
       findIdModal: false,
       fixCommentModal:false,
       declareCommentModal:false,
+      changePwdModal:false,
     };
   },
   methods: {
@@ -37,6 +38,9 @@ const vm = new Vue({
     setDeclareCommentOpen() {
       this.declareCommentModal = !this.declareCommentModal;
     },
+    setChangePwdModal(){
+    	this.changePwdModal = !this.changePwdModal;
+    }
   },
 });
 

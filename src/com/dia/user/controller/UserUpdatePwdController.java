@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dia.user.model.service.UserService;
 
-import com.dia.user.model.vo.Users;
+import com.dia.user.model.vo.User;
 
 /**
  * Servlet implementation class MemberUpdatePwdController
@@ -33,25 +33,26 @@ public class UserUpdatePwdController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String user_id = request.getParameter("user_id");
-		String user_password = request.getParameter("user_password");
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
 		
-		String update_Pwd = request.getParameter("update_Pwd");
+		String updatePwd = request.getParameter("updatePwd");
 		
-		Users updateUser = new UserService().updatePwdUsers(user_id, user_password, update_Pwd);
+		User updateUs = new UserService().updatePwdUser(userId, userPwd, updatePwd);
 		
-		if(updateUser == null) {
-			request.setAttribute("errorMsg", "비밀번호 변경 실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		if(updateUs != null) {
+	
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", updateUs);
+			session.setAttribute("alertMsg", "비밀번호 변경에 성공했습니다.");
+			
+			response.sendRedirect(request.getContextPath() + "/myPage.us");
 			
 		}else {  
 			
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", updateUser);
-			session.setAttribute("alertMsg", "성공적으로 비밀번호 변경됐습니다.");
-			
-			response.sendRedirect(request.getContextPath() + "/myPage.me");
-			
+			request.setAttribute("errorMsg", "비밀번호 변경에 실패했습니다");
+			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
+		
 		}
 	
 	}

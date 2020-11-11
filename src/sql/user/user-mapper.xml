@@ -10,7 +10,8 @@ SELECT *
 </entry>
 
 <entry key="insertUser">
-INSERT INTO USERS(USER_NO, USER_ID, USER_PWD, USER_NAME, EMAIL) VALUES(USER_NO_SEQ.NEXTVAL, ?, ?, ?, ?)
+INSERT 
+  INTO USERS(USER_NO, USER_ID, USER_PWD, USER_NAME, EMAIL) VALUES(USER_NO_SEQ.NEXTVAL, ?, ?, ?, ?)
 
 </entry>
 
@@ -39,6 +40,16 @@ SELECT *
 </entry>
 
 
+<entry key="updatePwdUser">
+UPDATE 
+    	   USERS
+	   SET USER_PWD=?
+	 WHERE USER_ID=?
+	   AND USER_PWD=?
+
+</entry>
+
+
 <entry key="deleteUser">
 	UPDATE
 	        USERS
@@ -46,6 +57,8 @@ SELECT *
 	  WHERE USER_ID=?
 	    AND USER_PWD=?
 </entry>
+
+
 
 
 </properties>

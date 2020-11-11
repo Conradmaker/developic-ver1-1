@@ -1,1 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<entry key="selectPicList">
+	SELECT
+	       *
+	  FROM PICSTORYS
+	 WHERE USER_NO = ?
+	 ORDER
+	    BY PICSTORY_CREATEDAT DESC
+</entry>
+
+<entry key="selectUser">
+	SELECT
+	       USER_ID
+	     , USER_NAME
+	     , USER_NICKNAME
+	     , PHONE
+	     , EMAIL
+	     , SNS
+	     , USER_INFO
+	     , USER_AVATAR_SRC
+	     , USER_ROLE
+	  FROM USERS
+	 WHERE USER_NO = ?
+	   AND USER_ROLE IN (0, 1, 4)
+</entry>
+
+</properties>

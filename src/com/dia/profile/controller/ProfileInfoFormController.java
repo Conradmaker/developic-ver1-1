@@ -10,34 +10,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dia.profile.model.service.ProfileService;
-import com.dia.profile.model.vo.Picstorys;
+import com.dia.user.model.vo.User;
 
 /**
- * Servlet implementation class ProfilePicFormController
+ * Servlet implementation class ProfileInfoFormController
  */
-@WebServlet("/piclist.pr")
-public class ProfilePicFormController extends HttpServlet {
+@WebServlet("/userInfo.pr")
+public class ProfileInfoFormController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProfilePicFormController() {
+    public ProfileInfoFormController() {
         super();
         // TODO Auto-generated constructor stub
-    } 
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		int userNo = Integer.parseInt(request.getParameter(""));
-		ArrayList<Picstorys> picList = new ProfileService().selectPicList(userNo);
 		
-		request.setAttribute("picList", picList);
+		ArrayList<User> userList = new ProfileService().selectUser(userNo);
 		
-		request.getRequestDispatcher("views/profile/picstoryList.jsp").forward(request, response);
+		request.setAttribute("userList", userList);
+		request.getRequestDispatcher("views/profile/profile.jsp").forward(request, response);	
 		
 	}
 

@@ -36,7 +36,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             class="pro--tab-select"
             <!-- onclick="location.href='${pageContext.request.contextPath}/allpost.pr';" -->
             >ALL POST</a
-          >
+          > 
         </li>
         <li>
           <a
@@ -44,7 +44,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             id="pro--picBtn"
             class=""
             onclick="location.href='${pageContext.request.contextPath}/piclist.pr';"
-            >PICSTORY</a
+            >PICSTORY</aㅣ
           >
         </li>
       </ul>

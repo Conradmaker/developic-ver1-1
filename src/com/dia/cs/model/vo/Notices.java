@@ -1,4 +1,4 @@
-package com.dia.notices.model.vo;
+package com.dia.cs.model.vo;
 
 import java.sql.Date;
 
@@ -25,22 +25,15 @@ public class Notices {
 	}
 	
 	
-
-	public Notices(int noticeId, String noticeTitle, int userNo, Date noticeCreatedAt, Date noticeUpdateAt) {
-		this.noticeId = noticeId;
-		this.noticeTitle = noticeTitle;
-		this.userNo = userNo;
-		this.noticeCreatedAt = noticeCreatedAt;
-		this.noticeUpdateAt = noticeUpdateAt;
-	}
-
-	public Notices(int noticeId, String noticeTitle, String noticeContent, int userNo, Date noticeCreatedAt) {
-		this.noticeId = noticeId;
+	
+	public Notices(String noticeTitle, String noticeContent) {
+		super();
 		this.noticeTitle = noticeTitle;
 		this.noticeContent = noticeContent;
-		this.userNo = userNo;
-		this.noticeCreatedAt = noticeCreatedAt;
 	}
+
+
+
 	public int getNoticeId() {
 		return noticeId;
 	}

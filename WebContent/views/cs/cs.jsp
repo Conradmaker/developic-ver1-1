@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList, com.dia.cs.model.vo.Notices"
+	import="java.util.ArrayList, com.dia.cs.model.vo.Faqs"%>
+<% 
+	ArrayList<Notices> noticeList = (ArrayList<Notices>)request.getAttribute("noticeList");
+	ArrayList<Faqs> faqsList = (ArrayList<Faqs>)request.getAttribute("faqsList");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>

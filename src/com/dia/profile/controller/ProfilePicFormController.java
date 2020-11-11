@@ -20,7 +20,7 @@ public class ProfilePicFormController extends HttpServlet {
     public ProfilePicFormController() {
         super();
         // TODO Auto-generated constructor stub
-    }
+    } 
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)

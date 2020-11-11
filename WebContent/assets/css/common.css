@@ -441,3 +441,7 @@ textarea {
   gap: 50px;
   justify-content: space-between;
 }
+.header--down{
+  background: #fff;
+  transition: all 0.7s;
+}

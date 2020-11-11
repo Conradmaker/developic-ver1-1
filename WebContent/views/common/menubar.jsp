@@ -76,3 +76,13 @@
             <li>ABOUT</li>
           </a>
         </ul>
+        <script>
+          window.addEventListener('scroll',()=>{
+            if(window.pageYOffset > 40){
+              document.querySelector('.header--box').classList.add('header--down')
+            }else{
+              document.querySelector('.header--box').classList.remove('header--down')
+            }
+          })
+
+        </script>

@@ -1,26 +1,29 @@
-package com.dia.notices.controller;
+package com.dia.cs.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dia.notices.model.service.NoticesService;
+import com.dia.cs.model.service.CsService;
+import com.dia.cs.model.vo.Notices;
 
 /**
- * Servlet implementation class NoticeDeleteController
+ * Servlet implementation class NoticeListController
  */
-@WebServlet("/delete.no")
-public class NoticeDeleteController extends HttpServlet {
+@WebServlet("/list.no")
+public class NoticeListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeDeleteController() {
+    public NoticeListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,19 +32,15 @@ public class NoticeDeleteController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		int result = new NoticesService().deleteNotice(Integer.parseInt(request.getParameter("nno")));
 		
-		if(result > 0) {
-			
-			request.getSession().setAttribute("alertMsg", "성공적으로 공지사항 삭제됐습니다.");
-			response.sendRedirect(request.getContextPath() + "/list.no");
-			
-		}else {
-			request.setAttribute("errorMsg", "공지사항 삭제 실패");
-			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
-		}
-	
+		ArrayList<Notices> list = new CsService().selectNoticeList();
+		
+		
+		request.setAttribute("list", list);
+		
+		RequestDispatcher view = request.getRequestDispatcher("views/cs/cs.jsp");
+		view.forward(request, response);
+		
 	}
 
 	/**

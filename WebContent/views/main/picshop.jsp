@@ -42,26 +42,26 @@
 		
         <h2 class="main--title">PICSHOP</h2>
         <ul class="feed--category">
-          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=0">
+          <a href="/dia/shopCateList.ph?currentPage=1&category=0">
             <li>ALL</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=10">
+          <a href="/dia/shopCateList.ph?currentPage=1&category=10">
             <li>ANIMALS</li>
           </a> 
-          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=20">
+          <a href="/dia/shopCateList.ph?currentPage=1&category=20">
             <li>PEOPLE</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=30">
+          <a href="/dia/shopCateList.ph?currentPage=1&category=30">
             <li>URBAN</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=40">
+          <a href="/dia/shopCateList.ph?currentPage=1&category=40">
             <li>NATURE</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=<%=pi.getCurrentPage()%>&category=50">
+          <a href="/dia/shopCateList.ph?currentPage=1&category=50">
             <li>ETC</li>
           </a>
         </ul>
-   
+		
     	                 
         <div class="shop--container">
 		<% for(Photo p: list){ %>        
@@ -80,7 +80,9 @@
          <% } %>
     
 
-        <!-- 페이징 처리 / 위치 고정시키기 -->
+      
+	</div>
+	  <!-- 페이징 처리 -->
      <!--  <div class="page_nation_container"> -->
         <div class="page_nation">
           <!-- <a class="arrow pprev" href="#"></a> -->
@@ -88,19 +90,34 @@
           <a class="arrow prev" href="/dia/shoplist.ph?currentPage=<%=pi.getCurrentPage()-1%>"></a>
       <% } %>
       <% for(int p=pi.getStartPage(); p<=pi.getEndPage(); p++){ %>
-          <a href="/dia/shoplist.ph?currentPage=<%= p %>"><%= p %></a>
+          <a class="pageSlide" href="/dia/shoplist.ph?currentPage=<%= p %>"><%= p %></a>
       <% } %>  
           <% if(pi.getCurrentPage() != pi.getMaxPage()){ %>
           <a class="arrow next" href="/dia/shoplist.ph?currentPage=<%=pi.getCurrentPage()+1%>"></a>
           	<% } %>
           <!-- <a class="arrow nnext" href="#"></a> -->
         </div>
-	</div>
         <a class="top-arrow" href="#">
           <i class="fas fa-arrow-circle-up fa-3x"> </i>
         </a>
       </main>
     </div>
-    <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
+    <script>
+
+    const pageSlide = document.querySelectorAll(".pageSlide");
+    const urlSearch = new URLSearchParams(location.search);
+    const category = parseInt(urlSearch.getAll("category")[0]);
+    console.log(category);
+    console.log(urlSearch.getAll("category")[0])
+  
+
+    pageSlide.forEach(item=>{
+      item.addEventListener("click", (e) => {
+      e.preventDefault()
+      location.href="/dia/shopCateList.ph?currentPage="+item.innerText+"&category="+category
+    })
+    });
+
+    </script>
   </body>
 </html>

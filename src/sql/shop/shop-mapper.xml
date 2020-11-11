@@ -15,6 +15,7 @@
 						      , PHOTO_NAME
 						      , PHOTO_PRICE
 						      , PHOTO_SRC
+						      , CATEGORY_ID
 						      , USER_NICKNAME 
  						   FROM PHOTOS P
 		                   JOIN USERS ON(P.USER_NO = USERS.USER_NO)
@@ -47,7 +48,6 @@ SELECT *
 		                SELECT 
 		                       PHOTO_ID
 		                     , PHOTO_NAME
-		                     , PHOTO_SALE
 		                     , PHOTO_PRICE
 		                     , PHOTO_SRC
 		                     , CATEGORY_ID

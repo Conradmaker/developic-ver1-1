@@ -92,6 +92,7 @@ public class ShopDao {
 					p.setPhotoName(rset.getString("PHOTO_NAME"));
 					p.setPhotoPrice(rset.getInt("PHOTO_PRICE"));
 					p.setPhotoSrc(rset.getString("PHOTO_SRC"));
+					p.setCategoryId(rset.getInt("CATEGORY_ID"));
 					p.setUserNickname(rset.getString("USER_NICKNAME"));
 					
 					list.add(p);
@@ -132,11 +133,10 @@ public class ShopDao {
 				pstmt.setInt(2, endRow);
 				
 				if(category!=0) {
-					pstmt.setInt(1, category);
+					pstmt.setInt(1,category);
 					pstmt.setInt(2, startRow);
 					pstmt.setInt(3, endRow);
 				}
-				
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {

@@ -2,13 +2,50 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="loginUser">
-SELECT * FROM USERS WHERE USER_ID = ? AND USER_PWD = ? AND USER_ROLE != 5
+SELECT * 
+  FROM USERS 
+ WHERE USER_ID = ? 
+   AND USER_PWD = ? 
+   AND USER_ROLE != 5
 </entry>
 
 <entry key="insertUser">
 INSERT INTO USERS(USER_NO, USER_ID, USER_PWD, USER_NAME, EMAIL) VALUES(USER_NO_SEQ.NEXTVAL, ?, ?, ?, ?)
 
+</entry>
+
+<entry key="updateUser">
+	UPDATE
+		       USERS
+		   SET USER_NAME=?
+		     , EMAIL=?
+		     , USER_NICKNAME=?
+		     , PHONE=?
+		     , ADDRESS=?
+		     , SNS=?
+		     , USER_INFO=?
+		     , USER_AVATAR_SRC=?
+		 WHERE USER_ID=?
 
 </entry>
+
+
+<entry key="selectUser">
+SELECT * 
+  FROM USERS 
+ WHERE USER_ID = ? 
+   AND USER_ROLE != 5
+
+</entry>
+
+
+<entry key="deleteUser">
+	UPDATE
+	        USERS
+	    SET USER_ROLE = 5
+	  WHERE USER_ID=?
+	    AND USER_PWD=?
+</entry>
+
 
 </properties>

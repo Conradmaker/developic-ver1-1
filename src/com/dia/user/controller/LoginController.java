@@ -42,7 +42,6 @@ public class LoginController extends HttpServlet {
 		
 		if(loginUser == null) { 
 			
-			// 에러페이지 연결은 되는데 에러 문구는 안뜸
 			request.setAttribute("errorMsg", "로그인 실패했습니다.");
 			
 			RequestDispatcher view = request.getRequestDispatcher("views/common/errorPage.jsp");

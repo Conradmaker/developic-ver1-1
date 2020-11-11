@@ -17,19 +17,24 @@ public class Photo {
 	private Date photoUpdateAt;
 	private int userNo;
 	private int categoryId;
+	private String userNickname;
 	
 	public Photo() {}
 
 
 	// picshop 리스트 조회용	
-	public Photo(int photoId, String photoName, int photoPrice, String photoSrc) {
+	public Photo(int photoId, String photoName, int photoPrice, String photoSrc, String userNickname) {
 		super();
 		this.photoId = photoId;
 		this.photoName = photoName;
 		this.photoPrice = photoPrice;
 		this.photoSrc = photoSrc;
+		this.userNickname = userNickname;
 	}
 
+	
+	
+	
 
 	public int getPhotoId() {
 		return photoId;
@@ -141,12 +146,24 @@ public class Photo {
 	}
 
 
+	
+	
+	public String getUserNickname() {
+		return userNickname;
+	}
+
+
+	public void setUserNickname(String userNickname) {
+		this.userNickname = userNickname;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Photo [photoId=" + photoId + ", photoName=" + photoName + ", photoSale=" + photoSale + ", photoPrice="
 				+ photoPrice + ", photoCreatedAt=" + photoCreatedAt + ", photoState=" + photoState + ", photoSrc="
 				+ photoSrc + ", photoInfo=" + photoInfo + ", photoUpdateAt=" + photoUpdateAt + ", userNo=" + userNo
-				+ ", categoryId=" + categoryId + "]";
+				+ ", categoryId=" + categoryId + ", userNickname=" + userNickname + "]";
 	}
 	
 

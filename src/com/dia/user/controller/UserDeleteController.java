@@ -31,12 +31,13 @@ public class UserDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		request.setCharacterEncoding("utf-8");
 		
-		String user_id = request.getParameter("user_id");
-		String user_password = request.getParameter("user_password");
+		String userId = request.getParameter("userId");
+		String userPwd = request.getParameter("userPwd");
 		
 		
-		int result = new UserService().deleteUsers(user_id, user_password);
+		int result = new UserService().deleteUser(userId, userPwd);
 		
 		
 		if(result > 0) {

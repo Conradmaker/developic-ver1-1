@@ -31,6 +31,22 @@ public class User {
 			this.email = email;
 		}
 
+	
+		public User(String userId, String userPwd, String userName, String userNickname, String phone, String email,
+				String address, String sns, String userInfo, String userAvatarSrc) {
+			super();
+			this.userId = userId;
+			this.userPwd = userPwd;
+			this.userName = userName;
+			this.userNickname = userNickname;
+			this.phone = phone;
+			this.email = email;
+			this.address = address;
+			this.sns = sns;
+			this.userInfo = userInfo;
+			this.userAvatarSrc = userAvatarSrc;
+		}
+
 
 		public User(int userNo, String userId, String userPwd, String userName, String userNickname, String phone,
 				String email, String address, String sns, String userInfo, String userAvatarSrc, Date userLastLogin,

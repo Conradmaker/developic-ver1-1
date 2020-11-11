@@ -7,6 +7,10 @@ import java.sql.Connection;
 import com.dia.user.model.dao.UserDao;
 import com.dia.user.model.vo.User;
 
+/**
+ * @author letth
+ *
+ */
 public class UserService {
 	
 	
@@ -114,6 +118,18 @@ public class UserService {
 		close(conn);
 		
 		return result;
+	}
+
+
+	public int idCheck(String checkId) {
+	
+		Connection conn = getConnection();
+		
+		int count = new UserDao().idCheck(conn, checkId);
+		
+		close(conn);
+		
+		return count;
 	}
 
 

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,48 +11,33 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../assets/css/index.css" />
-    <link rel="stylesheet" href="../../../assets/css/common.css" />
-    <link rel="stylesheet" href="../../../assets/css/mypage/common.css" />
-    <link rel="stylesheet" href="../../../assets/css/mypage/userinfo.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/index.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/userinfo.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">
-      <header class="header--container">
-        <div class="header--box">
-          <a href="#">
-            <img src="../../../assets/images/logo.png" width="250px" alt="" />
-          </a>
-          <div class="header--right">
-            <a href="">LOGIN</a>
-            <a href="">SIGNUP</a>
-            <i @click="setSearchOpen"
-              ><i class="fas fa-search" @click=""></i
-            ></i>
-          </div>
-        </div>
-      </header>
-      <div class="search--container" :class="{searchActive:searchOpen}">
-        <form class="search--box" method="POST" action="">
-          <label><input type="checkbox" name="saleCheck" />판매여부</label>
-          <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i
-          ><i class="fas fa-times" @click="setSearchOpen"></i>
-        </form>
-      </div>
-      <main class="main--container">
-        <ul class="navigation--main">
-          <a href="">
-            <li>PICFEED</li>
-          </a>
-          <a href="">
-            <li>PICSHOP</li>
-          </a>
-          <a href="">
-            <li>ABOUT</li>
-          </a>
-        </ul>
+  
+     
+ <%@ include file="../../common/menubar.jsp" %>
+    
+  	<%
+		String userId = loginUser.getUserId();
+		String userName = loginUser.getUserName();
+		
+		String email = (loginUser.getEmail() == null) ? "" : loginUser.getEmail();
+		String userNickname = (loginUser.getUserNickname() == null) ? "" : loginUser.getUserNickname();		
+		String phone = (loginUser.getPhone() == null) ? "" : loginUser.getPhone();
+		String sns = (loginUser.getSns() == null) ? "" : loginUser.getSns();		
+		String address = (loginUser.getAddress() == null) ? "" : loginUser.getAddress();
+		String userInfo = (loginUser.getUserInfo() == null) ? "" : loginUser.getUserInfo();
+		String userAvatarSrc = (loginUser.getUserAvatarSrc() == null) ? "" : loginUser.getUserAvatarSrc();
+
+	%>
+	
+	
+	
         <div class="mypage-container">
           <div class="mypage-left">
             <div class="title">
@@ -61,47 +49,59 @@
               <em></em>
             </div>
             <div class="gapper"></div>
-            <form action="">
+             <form action="/dia/update.us" method="POST" class="form" id="myPageForm">
               <h2 class="sub--label">아바타</h2>
               <div class="avatar--wrapper">
                 <img
                   id="title-img"
                   class="avatar-img"
-                  src="../../../assets/images/pengha.jpg"
+                  src="${pageContext.request.contextPath}/assets/images/<%= userAvatarSrc %>"
                   alt=""
                 />
               </div>
               <div id="image-input-value"></div>
-              <input
+           <!-- <input
                 id="image-input"
                 type="file"
                 hidden
                 name="avatar"
                 onchange="loadImg(this)"
-              />
+              />-->
               <button id="img-select" type="button" class="btn">
                 사진선택
               </button>
               <div class="gapper"></div>
               <div class="input--box">
+                <label>아이디</label>
+				<input type="text" name="userId" class="input" maxlength="12" required value="<%= userId %>" readonly/>
+              </div>
+              <div class="input--box">
+                <label>이름</label>
+                <input type="text" name="userName" class="input" required value="<%= userName %>"/> 
+              </div>
+                <div class="input--box">
+                <label>이메일</label>
+                <input type="email" name="email" required value="<%= email %>"/>
+              </div>
+              <div class="input--box">
                 <label>닉네임</label>
-                <input type="text" />
+                <input type="text" name="userNickname" value="<%= userNickname %>"/>
               </div>
               <div class="input--box">
                 <label>연락처</label>
-                <input type="text" />
+                <input type="text" name="phone" value="<%= phone %>"/>
               </div>
               <div class="input--box">
                 <label>SNS</label>
-                <input type="text" />
+                <input type="text" name="sns" value="<%= sns %>"/>
               </div>
               <div class="input--box input--long">
                 <label>주소</label>
-                <input type="text" />
+                <input type="text" name="address" value="<%= address %>"/>
               </div>
               <div class="gapper"></div>
               <h2 class="sub--label">작가소개</h2>
-              <textarea class="artist-info--inut" name="info"></textarea>
+              <textarea class="artist-info--inut" name="userInfo"><%= userInfo %></textarea>
               <div class="btn-wrapper">
                 <button class="btn" type="button" @click="setLeaveModal">
                   회원탈퇴

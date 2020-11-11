@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 
 import com.dia.user.model.service.UserService;
-import com.dia.user.model.vo.Users;
+import com.dia.user.model.vo.User;
 
 /**
  * Servlet implementation class MemberUpdateController
@@ -35,21 +35,41 @@ public class UserUpdateController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		
+	
 		request.setCharacterEncoding("utf-8");
 		
 		
-		String user_id = request.getParameter("user_id");
-		String user_name = request.getParameter("user_name");
-		String user_phone = request.getParameter("user_phone");
-		String user_email = request.getParameter("user_email");
-		String user_address = request.getParameter("user_address");
+		System.out.println(request.getParameter("userName"));
 		
 		
-		Users u = new Users(user_id, user_name, user_phone, user_email, user_address);
+		String userId = request.getParameter("userId");	
+		String userName = request.getParameter("userName");
+//		String userPwd = request.getParameter("userPwd");
+		String email = request.getParameter("email");
+		String userNickname = request.getParameter("userNickname");
+		String phone = request.getParameter("phone");
+		String address = request.getParameter("address");
+		String sns = request.getParameter("sns");
+		String userInfo = request.getParameter("userInfo"); 
+		String userAvatarSrc = request.getParameter("userAvatarSrc");
+		
+		User u = new User();
+		
+		u.setUserId(userId);
+		u.setUserName(userName);
+//		u.setUserPwd(userPwd);
+		u.setEmail(email);
+		u.setUserNickname(userNickname);
+		u.setPhone(phone);
+		u.setAddress(address);
+		u.setSns(sns);
+		u.setUserInfo(userInfo);
+//		u.setUserAvatarSrc(userAvatarSrc);
 		
 		
-		Users updateUser = new UserService().updateUsers(u);
+		
+		
+		User updateUser = new UserService().updateUser(u);
 		
 		if(updateUser == null) {
 			
@@ -64,7 +84,7 @@ public class UserUpdateController extends HttpServlet {
 			session.setAttribute("loginUser", updateUser); 
 			session.setAttribute("alertMsg", "성공적으로 회원정보를 수정했습니다");
 			
-			response.sendRedirect(request.getContextPath() + "/myPage.me");
+			response.sendRedirect(request.getContextPath() + "/myPage.us");
 		}
 		
 	}

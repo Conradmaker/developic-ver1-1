@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
-
+	
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -22,7 +22,8 @@
      
  <%@ include file="../../common/menubar.jsp" %>
     
-  	<%
+
+<%
 		String userId = loginUser.getUserId();
 		String userName = loginUser.getUserName();
 		
@@ -34,8 +35,7 @@
 		String userInfo = (loginUser.getUserInfo() == null) ? "" : loginUser.getUserInfo();
 		String userAvatarSrc = (loginUser.getUserAvatarSrc() == null) ? "" : loginUser.getUserAvatarSrc();
 
-	%>
-	
+%>  	
 	
 	
         <div class="mypage-container">
@@ -147,17 +147,22 @@
       <div class="modal--container" :class="{modalActive:leaveModal}">
         <div class="modal--box">
           <h1>탈퇴 하시겠습니까?</h1>
-          <div class="gap"></div>
-          <div class="gap"></div>
-          <div class="gap"></div>
-          <div class="modal--btn-box">
-            <button class="btn" @click="setLeaveModal">닫기</button>
-            <button class="btn btn-yellow">확인</button>
+             <div class="gap"></div>      
+             <form action="/dia/delete.us" method="get">
+                 <input type="hidden" name="useId" value="<%=userId %>">
+                 <input type="password" name="userPwd" class="modal--input" placeholder="PASSWORD" required>
+		          <div class="gap"></div>
+		          <div class="gap"></div>
+		          <div class="modal--btn-box">
+		          
+	            <button class="btn" @click="setLeaveModal">닫기</button>
+	            <button type="submit" class="btn btn-yellow">확인</button>
+	          </form>  
           </div>
         </div>
       </div>
 
-      <script src="../../../assets/js/mypage/index.js" defer></script>
-    </div>
+      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
+
   </body>
 </html>

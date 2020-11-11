@@ -12,7 +12,7 @@
 	// > 서비스 요청전 : null
 	// > 서비스 성공후 : alert로 띄워줄 메세지문구
 	
-
+	String contextPath = request.getContextPath(); // "/dia" 
 %>      
 
 <!DOCTYPE html>
@@ -67,10 +67,10 @@
       </div>
       <main class="main--container">
         <ul class="navigation--main">
-          <a href="/dia/loadFeed?currentPage=1&category=0">
+          <a href="<%= contextPath %>/loadFeed?currentPage=1&category=0">
             <li>PICFEED</li>
           </a>
-          <a href="">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=0">
             <li>PICSHOP</li>
           </a>
           <a href="">

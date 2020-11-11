@@ -39,4 +39,13 @@ SELECT *
 </entry>
 
 
+<entry key="deleteUser">
+	UPDATE
+	        USERS
+	    SET USER_ROLE = 5
+	  WHERE USER_ID=?
+	    AND USER_PWD=?
+</entry>
+
+
 </properties>

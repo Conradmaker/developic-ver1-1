@@ -34,7 +34,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             href="#"
             id="pro--allBtn"
             class="pro--tab-select"
-            onclick="location.href='${pageContext.request.contextPath}/allpost.pr';"
+            <!-- onclick="location.href='${pageContext.request.contextPath}/allpost.pr';" -->
             >ALL POST</a
           >
         </li>

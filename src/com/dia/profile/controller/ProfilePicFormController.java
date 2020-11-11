@@ -27,6 +27,8 @@ public class ProfilePicFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+//		int result
+		
 		request.getRequestDispatcher("views/profile/picstoryList.jsp").forward(request, response);
 		
 	}

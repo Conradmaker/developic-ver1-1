@@ -27,7 +27,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             href="#"
             id="pro--picBtn"
             class="pro--tab-select"
-            onclick="location.href='${pageContext.request.contextPath}/piclist.pr';"
+            <!-- onclick="location.href='${pageContext.request.contextPath}/piclist.pr';" -->
             >PICSTORY</a
           >
         </li>

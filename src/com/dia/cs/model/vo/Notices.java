@@ -25,13 +25,14 @@ public class Notices {
 	}
 	
 	
-	public Notices(int noticeId, String noticeTitle, int userNo, Date noticeCreatedAt) {
+	
+	public Notices(String noticeTitle, String noticeContent) {
 		super();
-		this.noticeId = noticeId;
 		this.noticeTitle = noticeTitle;
-		this.userNo = userNo;
-		this.noticeCreatedAt = noticeCreatedAt;
+		this.noticeContent = noticeContent;
 	}
+
+
 
 	public int getNoticeId() {
 		return noticeId;

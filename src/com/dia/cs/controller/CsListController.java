@@ -11,19 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dia.cs.model.service.CsService;
+import com.dia.cs.model.vo.Faqs;
 import com.dia.cs.model.vo.Notices;
 
 /**
  * Servlet implementation class NoticeListController
  */
-@WebServlet("/list.no")
-public class NoticeListController extends HttpServlet {
+@WebServlet("/about.cs")
+public class CsListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public NoticeListController() {
+    public CsListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,10 +34,12 @@ public class NoticeListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Notices> list = new CsService().selectNoticeList();
+		ArrayList<Notices> noticeList = new CsService().selectNoticeList();
+		ArrayList<Faqs> faqsList = new CsService().selectFaqsList();
 		
+		request.setAttribute("noticeList", noticeList);
+		request.setAttribute("faqsList", faqsList);
 		
-		request.setAttribute("list", list);
 		
 		RequestDispatcher view = request.getRequestDispatcher("views/cs/cs.jsp");
 		view.forward(request, response);

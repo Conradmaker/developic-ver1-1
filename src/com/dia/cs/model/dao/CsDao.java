@@ -49,10 +49,8 @@ public class CsDao {
 				rset = stmt.executeQuery(sql);
 				
 				while(rset.next()) {
-						list.add(new Notices(rset.getInt("notice_id"),
-								rset.getString("notice_title"),
-								rset.getInt("user_no"),
-								rset.getDate("notice_createdat")));
+						list.add(new Notices(rset.getString("notice_title"),
+											 rset.getString("notice_content")));
 					}
 				
 			} catch (SQLException e) {
@@ -109,10 +107,8 @@ public class CsDao {
 				rset = stmt.executeQuery(sql);
 				
 				while(rset.next()) {
-					list.add(new Faqs(rset.getInt("faq_id"),
-									  rset.getString("faq_title"),
-									  rset.getInt("user_no"),
-									  rset.getDate("faq_createdat")));
+					list.add(new Faqs(rset.getString("faq_title")
+									 ,rset.getString("faq_content")));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

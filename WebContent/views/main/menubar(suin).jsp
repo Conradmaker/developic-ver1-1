@@ -70,7 +70,7 @@
           <a href="/dia/shoplist.ph?currentPage=1">
             <li>PICSHOP</li>
           </a>
-          <a href="">
+          <a href="/dia/about.cs">
             <li>ABOUT</li>
           </a>
         </ul>

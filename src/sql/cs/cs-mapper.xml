@@ -2,19 +2,14 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 	
-	<entry key="selectNoticelist">
-		SELECT
-		       NOTICE_ID
-		     , NOTICE_TITLE
-		     , NOTICE_CREATEDAT
-		  FROM NOTICES N
-		  JOIN USER ON(N.USER_NO = USERS.USER_NO)
-		 WHERE N.UPDATEDAT='Y'
+	<entry key="selectNoticeslist">
+		SELECT *
+		  FROM NOTICES
 		 ORDER
-		    BY NOTICE_ID DESC
+		    BY NOTICE_CREATEDAT DESC
 	</entry>
 	
-	<entry key="insertNotice">
+	<entry key="insertNotices">
 		INSERT
 		  INTO NOTICES
 		  (
@@ -32,7 +27,20 @@
 		  )
 	</entry>
 	
-	<entry key="selectFaqList">
-		
+	<entry key="selectFaqsList">
+		SELECT *
+		  FROM FAQS
+		 ORDER
+		    BY FAQ_CREATEDAT DESC
 	</entry>
+	
+	<entry key="insertFaqs">
+	
+	</entry>
+	
+	<entry key="selectQnasList">
+	
+	</entry>
+
+	<entry key="insertQnas"></entry>	
 </properties>

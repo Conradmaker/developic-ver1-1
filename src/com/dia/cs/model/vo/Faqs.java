@@ -23,12 +23,12 @@ public class Faqs {
 
 	
 
-	public Faqs(int faqId, String faqTitle, int userNo, Date faqCreateDat) {
+	
+
+	public Faqs(String faqTitle, String faqContent) {
 		super();
-		this.faqId = faqId;
 		this.faqTitle = faqTitle;
-		this.userNo = userNo;
-		this.faqCreateDat = faqCreateDat;
+		this.faqContent = faqContent;
 	}
 
 	public int getFaqId() {

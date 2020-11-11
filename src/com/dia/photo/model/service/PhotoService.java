@@ -1,14 +1,17 @@
 package com.dia.photo.model.service;
-import static com.dia.common.JDBCTemplate.getConnection;
 import static com.dia.common.JDBCTemplate.close;
-import static com.dia.common.JDBCTemplate.rollback;
+import static com.dia.common.JDBCTemplate.getConnection;
 import static com.dia.common.JDBCTemplate.commit;
+import static com.dia.common.JDBCTemplate.rollback;
+
 import java.sql.Connection;
 import java.util.ArrayList;
+
 import com.dia.photo.model.dao.PhotoDao;
 import com.dia.shop.model.vo.PageInfo;
 import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
+import com.dia.photo.model.vo.PhotoInsert;
 
 public class PhotoService {
 
@@ -35,13 +38,13 @@ public class PhotoService {
 		
 	}
 
-		public int insertPhoto(Photo p) {
+	public int insertPhoto(PhotoInsert p) {
 		
 		Connection conn = getConnection();
 		
 		int result = new PhotoDao().insertPhoto(conn, p);
 		
-		System.out.println("22222222222");
+		System.out.println("55555555555");
 		
 		if(result > 0) {
 			commit(conn);

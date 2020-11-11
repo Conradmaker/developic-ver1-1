@@ -33,7 +33,7 @@
       <!-- 여기에 컨텐츠 작성 -->
 
       <div class="buy--container">
-        <form action="/dia/insert.ph" method="get" name="editEnroll">
+        <form action="/dia/insert.ph" method="post" enctype="multipart/form-data" name="editEnroll"  >
           <div class="buy--body">
             <div class="buy--title">
               <!-- detail 로고랑 오른쪽에 >next 들어가는 영역 -->
@@ -55,7 +55,7 @@
               <!-- 파일 선택하는 부분 -->
               <div class="buy--fileWrapper">
                 <label for="fileBtn" id="fileLabel" ></label>
-                <input type="file" id="hiddenFileBtn" hidden required>
+                <input type="file" id="hiddenFileBtn" name="imageFile" hidden required>
                 <button type="button" id="fileBtn" class="btn btn-green">SELECT A FILE</button>
 				        <input type="text" id="hiddenFileSrc" name="photoSrc" hidden> 
               </div>
@@ -98,7 +98,7 @@
                     </div>
                   </td>
                   <td>
-                    <input type="number" name="photoPrice" class="buy--photoPrice" placeholder="₩" hidden>
+                    <input type="number" name="photoPrice" class="buy--photoPrice" value="0" placeholder="₩" hidden>
                   </td>
                 </tr>
                 <tr>

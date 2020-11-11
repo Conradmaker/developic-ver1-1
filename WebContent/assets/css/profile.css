@@ -79,6 +79,12 @@ li {
 .profile-L #pro--sns-fa {
   background: #ffca3e;
 }
+#pro--sns-in i,
+#pro--sns-fa i,
+#pro--sns-tw i {
+  font-size: 25px;
+  color: white;
+}
 
 /* ----- .pro--profile (R) ----- */
 
@@ -136,8 +142,9 @@ li {
 }
 .pro--tab li {
   font-size: 25px;
+  font-weight: bold;
 }
-.pro--tab #pro--picBtn::after {
+.pro--tab .pro--tab-select::after {
   content: "";
   display: block;
   width: 70px;

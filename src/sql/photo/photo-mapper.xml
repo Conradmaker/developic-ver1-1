@@ -129,5 +129,14 @@ SELECT COMMENT_ID
 FROM PCOMMENTS C
          LEFT JOIN USERS U on C.USER_NO = U.USER_NO
 WHERE PHOTO_ID = ?
-	</entry>
+</entry>
+<entry key="declarePhoto">
+INSERT INTO DIA.PDECLARE (USER_NO, PHOTO_ID, PDECLARE_REASON, PDECLARE_CREATEDAT)
+VALUES (?, ?, ?, SYSDATE)
+</entry>
+<entry key="deletePhoto">
+DELETE
+FROM DIA.PCOMMENTS
+WHERE COMMENT_ID = ? 
+</entry>
 </properties>

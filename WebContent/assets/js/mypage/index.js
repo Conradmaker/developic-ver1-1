@@ -10,6 +10,8 @@ const vm = new Vue({
       findIdModal: false,
       fixCommentModal:false,
       declareCommentModal:false,
+      
+      declarePhotoModal:false,
     };
   },
   methods: {
@@ -36,6 +38,12 @@ const vm = new Vue({
     },
     setDeclareCommentOpen() {
       this.declareCommentModal = !this.declareCommentModal;
+    },
+
+
+
+    setDeclarePhotoOpen() {
+      this.declarePhotoModal = !this.declarePhotoModal;
     },
   },
 });

@@ -236,4 +236,30 @@ public class PhotoDao {
 			
 		}
 		
+//		작품신고
+		public int declarePhoto(Connection conn,String content, int pid, int uid) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("declarePhoto");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				
+				pstmt.setInt(1, uid);
+				pstmt.setInt(2, pid);
+				pstmt.setString(3, content);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		
 }

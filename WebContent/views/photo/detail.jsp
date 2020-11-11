@@ -34,8 +34,6 @@
               <div class="title">
                 <h5>DETAIL</h5>
               </div>
-              <a href="#">NEXT ＞</a>
-              <!-- <a href="#">＜ BACK</a> -->
             </div>
 
             <div class="detail--1">
@@ -45,7 +43,7 @@
                 </div>
                 <div class="detail--label">
                   <label>♡ 304</label>
-                  <label>⚠ 신고</label>
+                  <label @click='setDeclarePhotoOpen'>⚠ 신고</label>
                 </div>
               </div>
               <div class="detail--1R">
@@ -78,7 +76,6 @@
               <h2>ABOUT THIS PHOTO</h2>
               <% if(loginUser != null&& loginUser.getUserNo() == p.getUserNo()){ %>          
               <span>
-                <label>✐ 수정</label>
                 <label class="detail--delLabel">🚫 삭제</label>
               </span>
               <% }else{ } %>
@@ -183,7 +180,7 @@
      <!-- 댓글신고 -->
      <div class="modal--container" :class='{modalActive:declareCommentModal}'>
       <div class="modal--box">
-        <h1>🚔 신고하시겠습니까?</h1>
+        <h1>🚔 댓글을신고하시겠습니까?</h1>
         <div class="gap"></div>
         <input type="text" class="modal--input"  id='declare-content' placeholder="사유를 입력해주세요"/>
         <div class="gap"></div>
@@ -193,6 +190,19 @@
         </div>
       </div>
     </div>
+         <!-- 작품신고 -->
+         <div class="modal--container" :class='{modalActive:declarePhotoModal}'>
+          <div class="modal--box">
+            <h1>🚔 작품을 신고하시겠습니까?</h1>
+            <div class="gap"></div>
+            <input type="text" class="modal--input"  id='declare-photo' placeholder="사유를 입력해주세요"/>
+            <div class="gap"></div>
+            <div class="modal--btn-box">
+              <button class="btn" @click='setDeclarePhotoOpen'>취소</button>
+              <button class="btn btn-yellow" onClick='declarePhoto()'>신고</button>
+            </div>
+          </div>
+        </div>
 
    </div>
   </body>
@@ -239,6 +249,18 @@
         alert(response.data);
       }
     }
+
+    const declarePhoto = async()=>{
+      console.log('/dia/declare.ph?pid='+photoId+'&content='+document.querySelector('#declare-photo').value + '&uid='+userNo)
+      const response = await axios.get('/dia/declare.ph?pid='+photoId+'&content='+document.querySelector('#declare-photo').value + '&uid='+userNo);
+      if(response.data==="신고가 접수되었습니다."){
+        alert(response.data);
+        location.reload();
+      }else{
+        alert(response.data);
+      }
+    }
+
     const setIndex = (i)=>{
       commentIndex=i;
       document.querySelector('#fix-content').value = document.querySelectorAll('.comment-value')[commentIndex].innerText;

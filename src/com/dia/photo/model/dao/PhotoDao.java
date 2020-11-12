@@ -65,6 +65,7 @@ public class PhotoDao {
 		return listFeedCount;
 	}
 	
+	// feed 조회
 	public ArrayList<Photo> selectFeedList(Connection conn, PageInfo pi,int category){
 		ArrayList<Photo> list = new ArrayList<>();
 		
@@ -96,6 +97,58 @@ public class PhotoDao {
 				pstmt.setInt(3, endRow);
 			}
 
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				list.add(new Photo(rset.getInt("photo_id"),
+						 		   rset.getString("photo_name"),
+						 		   rset.getInt("photo_sale"),
+						 		   rset.getInt("photo_price"),
+						 		   rset.getDate("photo_createdat"),
+						 		   rset.getString("photo_src"),
+						 		   rset.getString("photo_info"),
+						 		   rset.getDate("photo_updateAt"),
+						 		   rset.getInt("category_id"),
+						 		   rset.getInt("user_no"),
+						 		   rset.getString("user_name"),
+						 		   rset.getString("user_nickname")));
+			}
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		return list;
+		
+	}
+	
+	// 판매여부 상관없이 검색한거 조회해오기
+	public ArrayList<Photo> selectSearchFeedList(Connection conn, String text, PageInfo pi){
+		ArrayList<Photo> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("loadSearchFeed");
+	
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+			int endRow = startRow + pi.getBoardLimit() - 1;
+			
+			System.out.println(startRow);
+			System.out.println(endRow);
+			
+			pstmt.setString(1, "%"+text+"%");
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			
 			
 			rset = pstmt.executeQuery();
 			

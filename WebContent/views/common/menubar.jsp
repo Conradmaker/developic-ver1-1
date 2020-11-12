@@ -115,8 +115,8 @@ const onSearch = ()=>{
   console.log(document.querySelector('#searchInput').value)
   console.log(document.querySelector('#saleCheck').checked)
   document.querySelector('#saleCheck').checked?
-  location.href = '/dia/searchShop.sr?text='+document.querySelector('#searchInput').value :
-  location.href = '/dia/searchFeed.sr?text='+document.querySelector('#searchInput').value
+  location.href = '/dia/searchShop.sr?text='+ document.querySelector('#searchInput').value + '&currentPage=1&category=0' :
+  location.href = '/dia/searchFeed.sr?text='+ document.querySelector('#searchInput').value + '&currentPage=1&category=0'
 }
 
 </script>

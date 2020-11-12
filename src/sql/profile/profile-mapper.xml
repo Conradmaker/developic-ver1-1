@@ -41,6 +41,15 @@
 	    BY PHOTO_UPDATEAT DESC
 </entry>
 
+<entry key="selectPicPhoto">
+	SELECT *
+	  FROM PHOTOS
+	  JOIN PICPHOTOS USING(PHOTO_ID)
+	 WHERE USER_NO = ?
+	   AND PICSTORY_ID = ?
+	   AND PHOTO_STATE = 0
+</entry>
+
 <entry key="selectPhotos">
 	SELECT *
 	  FROM PHOTOS

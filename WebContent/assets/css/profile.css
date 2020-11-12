@@ -166,6 +166,9 @@ li {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
   display: flex;
 }
+.pro--picstory .pro--item img:hover {
+  cursor: pointer;
+}
 .pro--picstory p {
   font-size: 20px;
   color: gray;
@@ -175,7 +178,7 @@ li {
   flex-grow: 1;
   word-break: break-all;
   text-align: right;
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 600;
 }
 
@@ -205,4 +208,13 @@ li {
   writing-mode: lr-tb;
   width: 100%;
   height: 25px;
+}
+
+/* profile picPhoto 페이지쪽 css */
+#pro-picphoto-name {
+  width: 1220px;
+  margin: 0 auto;
+  display: block;
+  font-size: 25px;
+  font-weight: bold;
 }

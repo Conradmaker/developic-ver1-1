@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
+pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             href="#"
             id="pro--allBtn"
             class=""
-            onclick="location.href='${pageContext.request.contextPath}/allpost.pr?userNo=<%= 1 %>';"
+            onclick="location.href='${pageContext.request.contextPath}/allpost.pr?userNo=<%= u.getUserNo() %>';"
             >ALL POST</a
           >
         </li>
@@ -45,6 +45,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
 	      <div class="pro--item">
 	        <img
 	          src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>"
+	          onclick="location.href='${pageContext.request.contextPath}/picphoto.pr?userNo=<%= 1 %>&picId=<%= p.getPicstoryId() %>&picName=<%= p.getPicstoryName() %>'"
 	        />
 	        <p><%= p.getPicstoryCreatedAt() %></p>
 	        <span><%= p.getPicstoryName() %></span>

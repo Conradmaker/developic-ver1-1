@@ -181,5 +181,49 @@ public class ProfileDao {
 		return p;
 		
 	}
+	
+	public ArrayList<PhotoInsert> selectPicPhoto(Connection conn, int userNo, int picId){
+		
+		ArrayList<PhotoInsert> picPhoto = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectPicPhoto");
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, userNo);
+			pstmt.setInt(2, picId);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				PhotoInsert p = new PhotoInsert(  rset.getInt("PHOTO_ID")
+						                        , rset.getString("PHOTO_NAME")
+						                        , rset.getInt("PHOTO_SALE")
+						                        , rset.getInt("PHOTO_PRICE")
+						                        , rset.getDate("PHOTO_CREATEDAT")
+						                        , rset.getInt("PHOTO_STATE")
+						                        , rset.getString("PHOTO_SRC")
+						                        , rset.getString("PHOTO_INFO")
+						                        , rset.getDate("PHOTO_UPDATEAT")
+						                        , rset.getInt("USER_NO")
+						                        , rset.getInt("CATEGORY_ID")
+						                       );
+				picPhoto.add(p);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return picPhoto;
+		
+	}
 
 }

@@ -82,6 +82,54 @@ document.addEventListener(
         //document.querySelector(".buy--photoPrice").setAttribute("disabled", true);
     }
 });
+document.querySelector('#resetPic').addEventListener('click',()=>{
+    document.querySelector('#picValue').value='0';
+    console.log('123123123')
+    console.log(document.querySelector('#picValue').value)
+})
 
-
+const makeList = (v)=>{
+    const li = document.createElement('li');
+    const label = document.createElement('label');
+    const checkBox = document.createElement('input');
+    checkBox.type = 'radio'
+    checkBox.name = 'picstory';
+    checkBox.value = v.PicstoryId;
+    checkBox.classList.add('radioPic');
+    label.innerText = v.PicstoryName;
+    label.prepend(checkBox);
+    li.appendChild(label);
+    document.querySelector('.modal--picstory').appendChild(li);
+    checkBox.addEventListener('change',(e)=>{
+       document.querySelector('#picValue').value=e.target.value;
+       console.log(document.querySelector('#picValue').value)
+    })
+}
+document.querySelector('#picsBtn').addEventListener('click',async()=>{
+    const response = await axios.get('/dia/loadpicstory.ph?uno='+document.querySelector('#editUserNo').value);
+    if(response.data){
+        response.data.forEach(v=> makeList(v));
+    }
+    
+  });
+document.querySelector('#picstoryBtn').addEventListener('click',async()=>{
+    const response = await axios.get('/dia/makepicstory.ph?picName='+document.querySelector('#picstoryInput').value+"&userNo="+document.querySelector('#editUserNo').value);
+    if(response.data==='success'){
+        document.querySelector('.modal--picstory').innerText = "";
+        document.querySelector('#picstoryInput').value = '';
+        const response = await axios.get('/dia/loadpicstory.ph?uno='+document.querySelector('#editUserNo').value);
+        if(response.data){
+            response.data.forEach(v=> makeList(v));
+        }else{
+            alert('실패')
+        }
+    }
+});
+document.querySelectorAll('.radioPic').forEach(v=>{
+    v.addEventListener('change',()=>{
+        
+console.log(document.querySelectorAll('.radioPic'))
+    })
+})
+console.log(document.querySelectorAll('.radioPic'))
 watcher();

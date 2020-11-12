@@ -11,11 +11,11 @@ const vm = new Vue({
       fixCommentModal:false,
       declareCommentModal:false,
       changePwdModal:false,
-      
       declarePhotoModal:false,
       deletePhotoModal:false,
       applyModalOpen: false,
       qnaModalOpen: false,
+      picModal:false,
     };
   },
   methods: {
@@ -46,9 +46,9 @@ const vm = new Vue({
     setChangePwdModal(){
     	this.changePwdModal = !this.changePwdModal;
     },
-
-
-
+    setPicModal(){
+      this.picModal = !this.picModal;
+    },
     setDeclarePhotoOpen() {
       this.declarePhotoModal = !this.declarePhotoModal;
     },
@@ -57,10 +57,10 @@ const vm = new Vue({
     },
     setApplyModal() {
         this.applyModalOpen = !this.applyModalOpen;
-      },
-      setQnaModal() {
+    },
+    setQnaModal() {
         this.qnaModalOpen = !this.qnaModalOpen;
-      },
+    },
   },
 });
 

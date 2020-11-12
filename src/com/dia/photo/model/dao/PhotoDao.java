@@ -19,6 +19,7 @@ import com.dia.comment.model.dao.CommentDao;
 import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
 import com.dia.photo.model.vo.PhotoInsert;
+import com.dia.photo.model.vo.Picstory;
 import com.dia.user.model.dao.UserDao;
 
 
@@ -353,6 +354,119 @@ public class PhotoDao {
 				
 				pstmt.setInt(1, uno);
 				pstmt.setInt(2, pid);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		//픽스토리
+		public ArrayList<Picstory> selectPicstory(Connection conn, int uno) {
+			ArrayList<Picstory> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("selectPicstory");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, uno);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Picstory(rset.getInt("picstory_id"),
+							 		   rset.getString("picstory_name"),
+							 		   rset.getDate("picstory_createdAt"),
+							 		   rset.getInt("user_no")));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+			
+			
+		}
+//		픽스토리생성
+		public int makePicstory(Connection conn,String pName, int uno) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("makePicstory");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, pName);
+				pstmt.setInt(2, uno);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		
+		public int selectMakedPhoto(Connection conn, PhotoInsert p) {
+			int pid = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+
+			String sql = prop.getProperty("selectMakedPhoto");  
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, p.getPhotoName());
+				pstmt.setString(2, p.getPhotoSrc());
+				pstmt.setInt(3, p.getUserNo());
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					pid =rset.getInt("photo_id");
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return pid;
+			
+			
+		}
+//		픽스토리 등록
+		public int insertPicstory(Connection conn, int pid, int picNo) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("insertPicstory");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				
+				pstmt.setInt(1, pid);
+				pstmt.setInt(2, picNo);
 				
 				result = pstmt.executeUpdate();
 				

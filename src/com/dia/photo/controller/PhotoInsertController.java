@@ -54,6 +54,7 @@ public class PhotoInsertController extends HttpServlet {
 			String photoInfo = multiRequest.getParameter("photoInfo");
 			String userNo = multiRequest.getParameter("userNo");
 			String categoryId = multiRequest.getParameter("categoryId");
+			int picNo = Integer.parseInt(multiRequest.getParameter("picNo"));
 			
 			PhotoInsert p = new PhotoInsert();
 			p.setPhotoName(photoName);
@@ -67,8 +68,12 @@ public class PhotoInsertController extends HttpServlet {
 			System.out.println(p);
 			
 			int result = new PhotoService().insertPhoto(p);
+			//생성된 작품 아이디 불러오기
+			int pid =  new PhotoService().selectMakedPhoto(p);
+			//작품이랑 그거 넣기
+			int resultPic = new PhotoService().insertPicstory(pid,picNo);
 			
-			if(result > 0) { // 성공 => profile 페이지 요청
+			if(resultPic > 0) { // 성공 => profile 페이지 요청
 				
 				request.getSession().setAttribute("alertMsg", "작품이 성공적으로 등록되었습니다!!!");
 				response.sendRedirect(request.getContextPath());

@@ -29,6 +29,32 @@
 						     
 </entry>
 
+<entry key="selectSearchPhotoList">
+	SELECT *
+		  FROM (
+		        SELECT
+		               ROWNUM RNUM
+		             , A.*
+		          FROM (
+						SELECT
+						        PHOTO_ID
+						      , PHOTO_NAME
+						      , PHOTO_PRICE
+						      , PHOTO_SRC
+						      , CATEGORY_ID
+						      , USER_NICKNAME
+ 						   FROM PHOTOS P
+		                   JOIN USERS ON(P.USER_NO = USERS.USER_NO)
+						  WHERE PHOTO_STATE = 0
+						    AND PHOTO_SALE = 1
+                   		    AND PHOTO_NAME LIKE ?
+						  ORDER
+						     BY PHOTO_ID DESC
+						 ) A
+		        )
+		 WHERE RNUM BETWEEN ? AND ?
+						     
+</entry>
 
 <entry key="selectListCount">
 SELECT 

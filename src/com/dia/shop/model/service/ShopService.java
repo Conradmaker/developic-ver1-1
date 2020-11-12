@@ -39,7 +39,19 @@ public class ShopService {
 		
 		return list;
 	}
+	
 
+	public ArrayList<Photo> selectSearchPhotoList(String text, PageInfo pi) {
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Photo> list = new ShopDao().selectSearchPhotoList(conn, text, pi);
+		
+		close(conn);
+		
+		return list;
+	}
+	
 	
 	public ArrayList<Photo> selectShopCateList(PageInfo pi,int category){
 		

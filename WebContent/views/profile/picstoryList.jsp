@@ -45,7 +45,7 @@ pageEncoding="UTF-8"%>
 	      <div class="pro--item">
 	        <img
 	          src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>"
-	          onclick="location.href='${pageContext.request.contextPath}/picphoto.pr?userNo=<%= 1 %>&picId=<%= p.getPicstoryId() %>&picName=<%= p.getPicstoryName() %>'"
+	          onclick="location.href='${pageContext.request.contextPath}/picphoto.pr?userNo=<%= userNo %>&picId=<%= p.getPicstoryId() %>&picName=<%= p.getPicstoryName() %>'"
 	        />
 	        <p><%= p.getPicstoryCreatedAt() %></p>
 	        <span><%= p.getPicstoryName() %></span>

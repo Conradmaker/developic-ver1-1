@@ -14,16 +14,16 @@ import com.dia.shop.model.vo.PageInfo;
 import com.dia.shop.model.vo.Photo;
 
 /**
- * Servlet implementation class ShopListController
+ * Servlet implementation class SearchShopController
  */
-@WebServlet("/shoplist.ph")
-public class ShopListController extends HttpServlet {
+@WebServlet("/searchShop.sr")
+public class SearchShopController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ShopListController() {
+    public SearchShopController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,7 @@ public class ShopListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		// ----------------------- 페이징 처리 ----------------------
 		int listCount;			// PICSHOP 게시판 게시글 총 갯수
 		int currentPage;		// 사용자가 요청한 페이지 (=현재 페이지)
@@ -74,16 +74,17 @@ public class ShopListController extends HttpServlet {
 	
 		// 페이징바를 만들때 필요한 정보들이 담겨있는 PageInfo 객체
 		PageInfo pi = new PageInfo(listCount, currentPage, pageLimit, boardLimit, maxPage, startPage, endPage);
+		
+		String text = request.getParameter("text");
 			
-		// PICSHOP 게시판 리스트 조회 
-		ArrayList<Photo> list = new ShopService().selectPhotoList(pi);
+		// 검색한 text에 대한 -- PICSHOP 게시판 리스트 조회 
+		ArrayList<Photo> list = new ShopService().selectSearchPhotoList(text, pi);
 		
 		request.setAttribute("pi", pi);
 		request.setAttribute("list", list);
 		
 		request.getRequestDispatcher("views/main/picshop.jsp").forward(request, response);
-	
-	
+		
 	}
 
 	/**

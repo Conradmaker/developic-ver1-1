@@ -38,6 +38,18 @@ public class PhotoService {
 		return list;
 		
 	}
+	
+	public ArrayList<Photo> selectSearchFeedList(String text, PageInfo pi){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Photo> list = new PhotoDao().selectSearchFeedList(conn, text, pi);
+		
+		close(conn);
+		
+		return list;
+		
+	}
 
 	public int insertPhoto(PhotoInsert p) {
 		

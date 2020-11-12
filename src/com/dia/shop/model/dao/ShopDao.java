@@ -109,6 +109,51 @@ public class ShopDao {
 
 	}
 
+	// 검색한 text에 대한 picshop 조회용
+	public ArrayList<Photo> selectSearchPhotoList(Connection conn, String text, PageInfo pi) {
+		
+		ArrayList<Photo> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectSearchPhotoList");
+	
+		try {
+				pstmt = conn.prepareStatement(sql);
+				
+				int startRow = (pi.getCurrentPage() - 1) * pi.getBoardLimit() + 1;
+				int endRow = startRow + pi.getBoardLimit() - 1;
+				
+				pstmt.setString(1, "%"+text+"%");
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+								
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					Photo p = new Photo();
+					p.setPhotoId(rset.getInt("PHOTO_ID"));
+					p.setPhotoName(rset.getString("PHOTO_NAME"));
+					p.setPhotoPrice(rset.getInt("PHOTO_PRICE"));
+					p.setPhotoSrc(rset.getString("PHOTO_SRC"));
+					p.setCategoryId(rset.getInt("CATEGORY_ID"));
+					p.setUserNickname(rset.getString("USER_NICKNAME"));
+					
+					list.add(p);
+				}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
+
+	}
 
 
 	public ArrayList<Photo> selectShopCateList(Connection conn, PageInfo pi, int category) {

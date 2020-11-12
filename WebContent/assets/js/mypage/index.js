@@ -11,6 +11,9 @@ const vm = new Vue({
       fixCommentModal:false,
       declareCommentModal:false,
       changePwdModal:false,
+      
+      declarePhotoModal:false,
+      deletePhotoModal:false,
     };
   },
   methods: {
@@ -40,7 +43,16 @@ const vm = new Vue({
     },
     setChangePwdModal(){
     	this.changePwdModal = !this.changePwdModal;
-    }
+    },
+
+
+
+    setDeclarePhotoOpen() {
+      this.declarePhotoModal = !this.declarePhotoModal;
+    },
+    setDeletePhotoOpen() {
+      this.deletePhotoModal = !this.deletePhotoModal;
+    },
   },
 });
 
@@ -64,4 +76,3 @@ function loadImg(inputFile) {
     document.querySelector("#title-img").src = null;
   }
 }
-

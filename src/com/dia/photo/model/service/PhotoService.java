@@ -7,6 +7,7 @@ import static com.dia.common.JDBCTemplate.rollback;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.dia.comment.model.dao.CommentDao;
 import com.dia.photo.model.dao.PhotoDao;
 import com.dia.shop.model.vo.PageInfo;
 import com.dia.photo.model.vo.Comment;
@@ -73,4 +74,56 @@ public class PhotoService {
 			close(conn);
 			return cm;
 		}
+//		작품신고
+		public int declarePhoto(String content,int pid,int uid) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().declarePhoto(conn,content, pid,uid);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
+//		작품삭제
+		public int deletePhoto(int pid) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().deletePhoto(conn, pid);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
+//		좋아요
+		public int likePhoto(int pid,int uno) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().likePhoto(conn, pid,uno);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
+		
 }

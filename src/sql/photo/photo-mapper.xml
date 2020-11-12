@@ -129,5 +129,18 @@ SELECT COMMENT_ID
 FROM PCOMMENTS C
          LEFT JOIN USERS U on C.USER_NO = U.USER_NO
 WHERE PHOTO_ID = ?
-	</entry>
+</entry>
+<entry key="declarePhoto">
+INSERT INTO DIA.PDECLARE (USER_NO, PHOTO_ID, PDECLARE_REASON, PDECLARE_CREATEDAT)
+VALUES (?, ?, ?, SYSDATE)
+</entry>
+<entry key="deletePhoto">
+UPDATE DIA.PHOTOS t
+SET t.PHOTO_STATE = 5
+WHERE t.PHOTO_ID = ?
+</entry>
+<entry key="likePhoto">
+INSERT INTO DIA.LIKES (USER_NO, PHOTO_ID, LIKE_CREATEDAT)
+VALUES (?, ?, DEFAULT);
+</entry>
 </properties>

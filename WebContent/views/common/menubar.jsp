@@ -89,7 +89,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
       </header>
       <div class="search--container" :class="{searchActive:searchOpen}">
         <form class="search--box" method="POST" action="">
-          <label><input type="checkbox" name="saleCheck" />판매여부</label>
+          <label><input type="checkbox" id='saleCheck' name="saleCheck" />판매여부</label>
           <input type="text" placeholder="SEARCH" />
           <i class="fas fa-search"></i
           ><i class="fas fa-times" @click="setSearchOpen"></i>
@@ -107,19 +107,17 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             <li>ABOUT</li>
           </a>
         </ul>
-        <script>
-          window.addEventListener("scroll", () => {
-            if (window.pageYOffset > 40) {
-              document
-                .querySelector(".header--box")
-                .classList.add("header--down");
-            } else {
-              document
-                .querySelector(".header--box")
-                .classList.remove("header--down");
-            }
-          });
-          
-          
-        </script>
+<script>
+    window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 40) {
+    document
+      .querySelector(".header--box")
+      .classList.add("header--down");
+  } else {
+    document
+      .querySelector(".header--box")
+      .classList.remove("header--down");
+  }
+});
+</script>
  

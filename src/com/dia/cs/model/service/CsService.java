@@ -1,6 +1,6 @@
 package com.dia.cs.model.service;
 
-import static com.dia.common.JDBCTemplate.*;
+import static com.dia.common.JDBCTemplate.close;
 import static com.dia.common.JDBCTemplate.getConnection;
 
 import java.sql.Connection;
@@ -27,24 +27,7 @@ public class CsService {
 			return list;		
 		
 		}
-		
-		public int insertNotice(Notices n) {
-		
-			Connection conn = getConnection();
-			
-			int result = new CsDao().insertNotice(conn, n);
-			
-			if(result > 0) {
-				commit(conn);
-			}else {
-				rollback(conn);
-			}
-			
-			close(conn);
-			
-			return result;
-			
-		}
+		 
 		
 		 public ArrayList<Faqs> selectFaqsList(){
 			
@@ -57,24 +40,6 @@ public class CsService {
 			return list;
 		}
 		 
-		 public int insertFaqs(Faqs f) {
-				
-				Connection conn = getConnection();
-				
-				int result = new CsDao().insertFaqs(conn, f);
-				
-				if(result > 0) {
-					commit(conn);
-				}else {
-					rollback(conn);
-				}
-				
-				close(conn);
-				
-				return result;
-				
-			}
-	
 
 		public ArrayList<Qnas> selectQnasList(){
 			
@@ -86,24 +51,8 @@ public class CsService {
 			
 			return list;
 		}
+
 		
-		public int insertQnas(Qnas q) {
-			
-			Connection conn = getConnection();
-			
-			int result = new CsDao().insertQnas(conn, q);
-			
-			if(result > 0) {
-				commit(conn);
-			}else {
-				rollback(conn);
-			}
-			
-			close(conn);
-			
-			return result;
-			
-		}
 	}
 
 

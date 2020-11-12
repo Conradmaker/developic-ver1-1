@@ -9,23 +9,7 @@
 		    BY NOTICE_CREATEDAT DESC
 	</entry>
 	
-	<entry key="insertNotices">
-		INSERT
-		  INTO NOTICES
-		  (
-		    NOTICE_ID
-		  , NOTICE_TITLE
-		  , NOTICE_CONTENT
-		  , USER_NO
-		  )
-		  VALUES
-		  (
-		    SEQ_NID.NEXTVAL
-		  , ?
-		  , ?
-		  , ?
-		  )
-	</entry>
+	
 	
 	<entry key="selectFaqsList">
 		SELECT *
@@ -34,13 +18,8 @@
 		    BY FAQ_CREATEDAT DESC
 	</entry>
 	
-	<entry key="insertFaqs">
-	
-	</entry>
 	
 	<entry key="selectQnasList">
 	
-	</entry>
-
-	<entry key="insertQnas"></entry>	
+	</entry>	
 </properties>

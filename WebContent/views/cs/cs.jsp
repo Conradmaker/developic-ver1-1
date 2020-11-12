@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.dia.cs.model.vo.Notices"
-	import="java.util.ArrayList, com.dia.cs.model.vo.Faqs"%>
+	import="com.dia.cs.model.vo.Faqs"%>
 <% 
-	ArrayList<Notices> noticeList = (ArrayList<Notices>)request.getAttribute("noticeList");
+	ArrayList<Notices> noticesList = (ArrayList<Notices>)request.getAttribute("noticesList");
 	ArrayList<Faqs> faqsList = (ArrayList<Faqs>)request.getAttribute("faqsList");
 %>
 <!DOCTYPE html>
@@ -18,30 +18,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">
-      <header class="header--container">
-        <div class="header--box">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
-          </a>
-          <div class="header--right">
-            <a href="">LOGIN</a>
-            <a href="">SIGNUP</a>
-          </div>
-        </div>
-      </header>
-      <main class="main--container">
-        <ul class="navigation--main">
-          <a href="">
-            <li>PICFEED</li>
-          </a>
-          <a href="">
-            <li>PICSHOP</li>
-          </a>
-          <a href="">
-            <li>ABOUT</li>
-          </a>
-        </ul>
+  
+	<%@ include file="../common/menubar.jsp" %>
+	
         <section class="about--container">
           <div class="title">
             <h5>ABOUT</h5>
@@ -63,42 +42,36 @@
               </div>
               <div class="gapper" id="about-service"></div>
               <div class="label">NOTICE<em></em></div>
+              <% for(Notices n : noticesList){ %>
               <!-- 공지글시작 -->
               <div class="about-list-title">
-                <h1>첫번째 공지입니다.</h1>
+                <h1><%= n.getNoticeTitle() %></h1>
                 ▼
               </div>
               <div class="about-list-detail">
                 <p>
-                  five centuries, but also the leap into electronic typesetting,
-                  remaining essentially unchanged. It was popularised in the
-                  1960s with the release of Letraset sheets containing Lorem
-                  Ipsum passages, and more recently with desktop publishing
-                  software like Aldus PageMaker including versions of Lorem
-                  Ipsum.
+                  <%= n.getNoticeContent() %>
                 </p>
                 
               </div>
+              <% } %>
               <!-- 끝 -->
               <div class="gapper"></div>
               <div class="gapper" id="about-faq"></div>
               <div class="faq-and-qna">
                 <div class="faq-box">
                   <div class="label">FAQ<em></em></div>
-                  <div class="about-list-title">
-                    <h1>첫번째 질답입니다.</h1>
-                    ▼
-                  </div>
-                  <div class="about-list-detail">
-                    <p>
-                      five centuries, but also the leap into electronic
-                      typesetting, remaining essentially unchanged. It was
-                      popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently
-                      with desktop publishing software like Aldus PageMaker
-                      including versions of Lorem Ipsum.
-                    </p>
-                  </div>
+                  <% for(Faqs f : faqsList){ %>
+	                  <div class="about-list-title">
+	                    <h1><%=f.getFaqTitle() %></h1>
+	                    ▼
+	                  </div>
+	                  <div class="about-list-detail">
+	                    <p>
+	                      <%= f.getFaqContent() %>
+	                    </p>
+	                  </div>
+                  <% } %>
                 </div>
                 <div class="qna-box">
                   <div class="label">1:1문의<em></em></div>

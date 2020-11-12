@@ -78,4 +78,15 @@ public class CommentService {
 		return result;
 		
 	}
+	
+	public ArrayList<Comment> selectCommentList(){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<Comment> list = new CommentDao().selectCommentList(conn);
+		
+		close(conn);
+		
+		return list;
+	}
 }

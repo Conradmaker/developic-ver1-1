@@ -1,4 +1,4 @@
-package com.dia.cs.controller;
+package com.dia.comment.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dia.cs.model.service.CsService;
-import com.dia.cs.model.vo.Faqs;
-import com.dia.cs.model.vo.Notices;
+import com.dia.comment.model.service.CommentService;
+import com.dia.photo.model.vo.Comment;
 
 /**
- * Servlet implementation class NoticeListController
+ * Servlet implementation class CommentListController
  */
-@WebServlet("/about.cs")
-public class CsListController extends HttpServlet {
+@WebServlet("/list.cm")
+public class CommentListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CsListController() {
+    public CommentListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +32,14 @@ public class CsListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+		ArrayList<Comment> list = new CommentService().selectCommentList();
 		
-		ArrayList<Notices> noticesList = new CsService().selectNoticesList();
+		request.setAttribute("list", list);
 		
-		ArrayList<Faqs> faqsList = new CsService().selectFaqsList();
-		
-		request.setAttribute("noticesList", noticesList);
-		request.setAttribute("faqsList", faqsList);		
-		
-		RequestDispatcher view = request.getRequestDispatcher("/views/cs/cs.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("views/user/mypage/commentList.jsp");
 		view.forward(request, response);
-		
+	
 	}
 
 	/**

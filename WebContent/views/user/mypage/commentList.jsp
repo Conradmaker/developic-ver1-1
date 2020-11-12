@@ -1,3 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
+<%@ page import="java.util.ArrayList, com.dia.photo.model.vo.Comment"%>
+<%
+ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,10 +15,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../assets/css/index.css" />
-    <link rel="stylesheet" href="../../../assets/css/common.css" />
-    <link rel="stylesheet" href="../../../assets/css/mypage/common.css" />
-    <link rel="stylesheet" href="../../../assets//css//mypage/comment.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/index.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets//css//mypage/comment.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
@@ -19,7 +26,7 @@
       <header class="header--container">
         <div class="header--box">
           <a href="#">
-            <img src="../../../assets/images/logo.png" width="250px" alt="" />
+            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
           </a>
           <div class="header--right">
             <a href="">LOGIN</a>
@@ -65,8 +72,9 @@
               <!-- 아이템 -->
               <div class="comment--box">
                 <div class="comment--img-box">
-                  <img src="../../../assets/images/오로라.jpg" alt="" />
+                  <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
                 </div>
+                 
                 <div class="common--summary comment--summary">
                   <h2>STEELHEAD AND SPINES IN ALASKA</h2>
                   <p>첫번째 댓글입니다.</p>
@@ -78,14 +86,17 @@
                   ></i>
                 </div>
               </div>
+              
               <div class="comment--box">
                 <div class="comment--img-box">
-                  <img src="../../../assets/images/오로라.jpg" alt="" />
+                  <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
                 </div>
+                
                 <div class="common--summary comment--summary">
                   <h2>STEELHEAD AND SPINES IN ALASKA</h2>
                   <p>첫번째 댓글입니다.</p>
                 </div>
+                
                 <div class="comment--remove">
                   <i
                     class="far fa-trash-alt"
@@ -95,7 +106,7 @@
               </div>
               <div class="comment--box">
                 <div class="comment--img-box">
-                  <img src="../../../assets/images/오로라.jpg" alt="" />
+                  <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
                 </div>
                 <div class="common--summary comment--summary">
                   <h2>STEELHEAD AND SPINES IN ALASKA</h2>

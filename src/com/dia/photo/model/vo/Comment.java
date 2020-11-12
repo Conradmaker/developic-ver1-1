@@ -11,13 +11,15 @@ public class Comment {
     private String userName;
     private String userNickname;
     private int PhotoId;
+    private String photoSrc;
+    private String photoName;
     
     public Comment() {
     	
     }
     
 	public Comment(int commentId, String commentContent, Date commentCreatedAt, Date commentUpdatedAt, int userNo,
-			String userName, String userNickname, int photoId) {
+			String userName, String userNickname, int photoId, String photoSrc, String photoName) {
 		super();
 		this.commentId = commentId;
 		this.commentContent = commentContent;
@@ -26,10 +28,25 @@ public class Comment {
 		this.userNo = userNo;
 		this.userName = userName;
 		this.userNickname = userNickname;
-		PhotoId = photoId;
+		this.PhotoId = photoId;
+		this.photoSrc = photoSrc;
+		this.photoName = photoName;
 	}
 
 	
+	
+	public Comment(int commentId, String commentContent, Date commentCreatedAt, Date commentUpdatedAt, int photoId,
+			String photoSrc, String photoName) {
+		super();
+		this.commentId = commentId;
+		this.commentContent = commentContent;
+		this.commentCreatedAt = commentCreatedAt;
+		this.commentUpdatedAt = commentUpdatedAt;
+		PhotoId = photoId;
+		this.photoSrc = photoSrc;
+		this.photoName = photoName;
+	}
+
 	public Comment(String commentContent) {
 		super();
 		this.commentContent = commentContent;
@@ -99,11 +116,29 @@ public class Comment {
 		PhotoId = photoId;
 	}
 
+	public String getPhotoSrc() {
+		return photoSrc;
+	}
+	
+	public void setPhotoSrc(String photoSrc) {
+		this.photoSrc = photoSrc;
+	}
+
+	public String getPhotoName() {
+		return photoName;
+	}
+	
+	public void setPhotoName(String photoName) {
+		this.photoName = photoName;
+	}
+
 	@Override
 	public String toString() {
 		return "Comment [commentId=" + commentId + ", commentContent=" + commentContent + ", commentCreatedAt="
 				+ commentCreatedAt + ", commentUpdatedAt=" + commentUpdatedAt + ", userNo=" + userNo + ", userName="
 				+ userName + ", userNickname=" + userNickname + ", PhotoId=" + PhotoId + "]";
 	}
+
+
 	
 }

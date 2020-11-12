@@ -79,14 +79,16 @@ public class CommentService {
 		
 	}
 	
-	public ArrayList<Comment> selectCommentList(){
+	public ArrayList<Comment> selectCommentList(int userNo){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<Comment> list = new CommentDao().selectCommentList(conn);
+		ArrayList<Comment> list = new CommentDao().selectCommentList(conn, userNo);
 		
 		close(conn);
 		
 		return list;
 	}
+	
+	
 }

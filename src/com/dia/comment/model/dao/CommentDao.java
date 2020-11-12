@@ -118,7 +118,7 @@ public class CommentDao {
 		return result;
 	}
 	
-	public ArrayList<Comment> selectCommentList(Connection conn){
+	public ArrayList<Comment> selectCommentList(Connection conn, int userNo){
 		
 		ArrayList<Comment> list = new ArrayList<>();
 		
@@ -130,10 +130,18 @@ public class CommentDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setInt(1, userNo);
+			
 			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-					list.add(new Comment("comment_content"));
+					list.add(new Comment(rset.getInt("comment_id"),
+										 rset.getString("comment_content"),
+										 rset.getDate("comment_createdat"),
+										 rset.getDate("comment_updatedat"),
+										 rset.getInt("photo_id"),
+										 rset.getString("photo_src"),
+										 rset.getString("photo_name")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -142,6 +150,8 @@ public class CommentDao {
 			close(pstmt);
 		}
 		
+		
 		return list;
 	}
+	
 }

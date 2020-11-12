@@ -14,7 +14,20 @@ public class Comment {
     private String photoSrc;
     private String photoName;
     
-    public Comment() {
+    public Comment(int commentId, String commentContent, Date commentCreatedAt, Date commentUpdatedAt, int userNo,
+			String userName, String userNickname, int photoId) {
+		super();
+		this.commentId = commentId;
+		this.commentContent = commentContent;
+		this.commentCreatedAt = commentCreatedAt;
+		this.commentUpdatedAt = commentUpdatedAt;
+		this.userNo = userNo;
+		this.userName = userName;
+		this.userNickname = userNickname;
+		PhotoId = photoId;
+	}
+
+	public Comment() {
     	
     }
     

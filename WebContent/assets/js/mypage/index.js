@@ -14,6 +14,8 @@ const vm = new Vue({
       
       declarePhotoModal:false,
       deletePhotoModal:false,
+      applyModalOpen: false,
+      qnaModalOpen: false,
     };
   },
   methods: {
@@ -53,6 +55,12 @@ const vm = new Vue({
     setDeletePhotoOpen() {
       this.deletePhotoModal = !this.deletePhotoModal;
     },
+    setApplyModal() {
+        this.applyModalOpen = !this.applyModalOpen;
+      },
+      setQnaModal() {
+        this.qnaModalOpen = !this.qnaModalOpen;
+      },
   },
 });
 

@@ -9,14 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
 import com.dia.cs.model.vo.Faqs;
 import com.dia.cs.model.vo.Notices;
-import com.dia.cs.model.vo.Qnas;
-
+import com.dia.cs.model.vo.Qna;
 	
 public class CsDao {
 
@@ -96,42 +94,41 @@ public class CsDao {
 		}
 		
 		
-		
-		public ArrayList<Qnas> selectQnasList(Connection conn) {
+	
+		public int insertQna(Connection conn, Qna q) {
+			// insert문 => 처리된 행수
 			
-			ArrayList<Qnas> list = new ArrayList<>();
+			int result = 0;
 			
-			Statement stmt = null;
-			ResultSet rset = null;
-			
-			String sql = prop.getProperty("selectQnasList");
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("insertQna");
 			
 			try {
-				stmt = conn.createStatement();
-
-				rset = stmt.executeQuery(sql);
+				pstmt = conn.prepareStatement(sql); 
 				
-				while(rset.next()) {
-					list.add(new Qnas(rset.getInt("que_id"),
-							          rset.getString("que_title"),
-							          rset.getDate("que_createDat"),
-							          rset.getDate("aus_createdat"),
-							          rset.getInt("quser_no"),
-							          rset.getInt("auser_no")));
-				}
+				pstmt.setString(1, q.getQueTitle());
+				pstmt.setString(2, q.getQueContent());
+				pstmt.setInt(3, q.getQuserNo());
+	
+				result = pstmt.executeUpdate();
+				
+				System.out.println("hi");
+				
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} finally {
-				close(rset);
-				close(stmt);
+				close(pstmt);
 			}
 			
-			return null;
+			return result;
+			
+			
 		}
+	}
 
 		
 		
-}
+
 
 
 

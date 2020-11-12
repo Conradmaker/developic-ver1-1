@@ -19,7 +19,22 @@
 	</entry>
 	
 	
-	<entry key="selectQnasList">
+	<entry key="insertQna">
+		INSERT
+		  INTO QNAS
+		  (
+		     QUE_ID
+		   , QUE_TITLE
+		   , QUE_CONTENT
+		   , QUSER_NO
+		  )
+		  VALUES
+		  (
+		     QUE_ID_SEQ.NEXTVAL
+		   , ?
+		   , ?
+		   , ?
+		  )
 	
 	</entry>	
 </properties>

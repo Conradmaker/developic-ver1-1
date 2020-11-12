@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList, com.dia.cs.model.vo.Notices"
-	import="com.dia.cs.model.vo.Faqs"%>
+	import="com.dia.cs.model.vo.Faqs" %>
 <% 
 	ArrayList<Notices> noticesList = (ArrayList<Notices>)request.getAttribute("noticesList");
 	ArrayList<Faqs> faqsList = (ArrayList<Faqs>)request.getAttribute("faqsList");
@@ -115,10 +115,10 @@
                   </li>
                 </a>
                 <a href="#about-faq">
-                  <li>
+       <!--     <li>
                     <GoTriangleRight />
                     자주하는질문
-                  </li>
+                </li> -->  
                 </a>
               </div>
             </div>
@@ -174,40 +174,29 @@
             <em></em>
           </div>
           <div class="gap"></div>
+       <% if(loginUser!=null){ %>
           <h1>제목</h1>
-          <input type="text" class="modal--input" />
+          <form action="<%= contextPath %>/insert.qn" method="post">
+          <input type="hidden" name="userNo" value="<%= loginUser.getUserNo() %>">
+          <input type="text" name="queTitle" class="modal--input" />
           <div class="gap"></div>
           <h1>내용</h1>
-          <textarea name="content"></textarea>
+          <textarea name="queContent"></textarea>
           <div class="modal--info">
             운영시간: AM 10:00 ~ PM 12:00 / PM 1:00 ~ PM 5:00
           </div>
           <div class="gap"></div>
           <div class="modal--btn-box">
-            <button class="btn" @click="setQnaModal">취소</button>
-            <button class="btn btn-yellow">등록</button>
+            <button type="button" class="btn" @click="setQnaModal">취소</button>
+            <button type="submit" class="btn btn-yellow">등록</button>
           </div>
+          </form>  
+         <% }else{ %>
+         <h1>로그인이 필요한 서비스입니다.</h1>
+         <% } %>
         </div>
       </div>
-    </div>
-    <script defer>
-      const vm = new Vue({
-        el: "#app",
-        data() {
-          return {
-            applyModalOpen: false,
-            qnaModalOpen: false,
-          };
-        },
-        methods: {
-          setApplyModal() {
-            this.applyModalOpen = !this.applyModalOpen;
-          },
-          setQnaModal() {
-            this.qnaModalOpen = !this.qnaModalOpen;
-          },
-        },
-      });
-    </script>
+  
+        <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script> 
   </body>
 </html>

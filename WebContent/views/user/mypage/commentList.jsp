@@ -22,41 +22,9 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">
-      <header class="header--container">
-        <div class="header--box">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
-          </a>
-          <div class="header--right">
-            <a href="">LOGIN</a>
-            <a href="">SIGNUP</a>
-            <i @click="setSearchOpen"
-              ><i class="fas fa-search" @click=""></i
-            ></i>
-          </div>
-        </div>
-      </header>
-      <div class="search--container" :class="{searchActive:searchOpen}">
-        <form class="search--box" method="POST" action="">
-          <label><input type="checkbox" name="saleCheck" />판매여부</label>
-          <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i
-          ><i class="fas fa-times" @click="setSearchOpen"></i>
-        </form>
-      </div>
-      <main class="main--container">
-        <ul class="navigation--main">
-          <a href="">
-            <li>PICFEED</li>
-          </a>
-          <a href="">
-            <li>PICSHOP</li>
-          </a>
-          <a href="">
-            <li>ABOUT</li>
-          </a>
-        </ul>
+    
+    	<%@ include file="../../common/menubar.jsp" %>
+    
         <!-- 여기에 컨텐츠 작성 -->
         <div class="mypage-container">
           <div class="mypage-left">
@@ -70,23 +38,27 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
             </div>
             <div class="mypage--item-container">
               <!-- 아이템 -->
-              <div class="comment--box">
-                <div class="comment--img-box">
-                  <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
-                </div>
-                 
-                <div class="common--summary comment--summary">
-                  <h2>STEELHEAD AND SPINES IN ALASKA</h2>
-                  <p>첫번째 댓글입니다.</p>
-                </div>
-                <div class="comment--remove">
-                  <i
-                    class="far fa-trash-alt"
-                    @click="setDeleteCommentModal"
-                  ></i>
-                </div>
-              </div>
               
+              <%for(Comment c : list){ %>
+	              <div class="comment--box">
+	              	
+	                <div class="comment--img-box">
+	                  <img src="${pageContext.request.contextPath}/assets/uploads/<%= c.getPhotoSrc() %>" alt="" />
+	                </div>
+	                <div class="common--summary comment--summary">
+	                  <h2><%= c.getPhotoName() %></h2>
+	                  <p><%= c.getCommentContent() %></p>
+	                </div>
+	                <div class="comment--remove">
+	                  <i
+	                    class="far fa-trash-alt"
+	                    @click="setDeleteCommentModal"
+	                  ></i>
+	                </div>
+	              </div>
+                <%} %>
+              
+              <!-- 
               <div class="comment--box">
                 <div class="comment--img-box">
                   <img src="${pageContext.request.contextPath}/assets/images/오로라.jpg" alt="" />
@@ -94,7 +66,7 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
                 
                 <div class="common--summary comment--summary">
                   <h2>STEELHEAD AND SPINES IN ALASKA</h2>
-                  <p>첫번째 댓글입니다.</p>
+                  <p></p>
                 </div>
                 
                 <div class="comment--remove">
@@ -118,7 +90,7 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
                     @click="setDeleteCommentModal"
                   ></i>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="mypage-right">
@@ -127,6 +99,7 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
               <li>
                 <a href="myinfo.html">▷개인정보수정</a>
               </li>
+              <!--  
               <li>
                 <a href="likelist.html">▷좋아요목록</a>
               </li>
@@ -142,8 +115,9 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
               <li>
                 <a href="selllist.html">▷판매내역</a>
               </li>
+              -->
               <li>
-                <a href="#" class="nav--active">▷나의 댓글 목록</a>
+                <a href="/dia/list.cm?userNo=<%= loginUser.getUserNo() %>" class="nav--active">▷나의 댓글 목록</a>
               </li>
               <li>
                 <a href="qnaList.html">▷1:1문의내역</a>
@@ -167,7 +141,7 @@ ArrayList<Comment> list = (ArrayList<Comment>)request.getAttribute("list");
         </div>
       </div>
 
-      <script src="../../../assets/js/mypage/index.js" defer></script>
+      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
     </div>
   </body>
 </html>

@@ -32,8 +32,9 @@ public class CommentListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		ArrayList<Comment> list = new CommentService().selectCommentList();
+		int userNo = Integer.parseInt(request.getParameter("userNo"));
+		
+		ArrayList<Comment> list = new CommentService().selectCommentList(userNo);
 		
 		request.setAttribute("list", list);
 		

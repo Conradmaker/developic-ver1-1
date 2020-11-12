@@ -82,17 +82,28 @@ document.addEventListener(
         //document.querySelector(".buy--photoPrice").setAttribute("disabled", true);
     }
 });
+document.querySelector('#resetPic').addEventListener('click',()=>{
+    document.querySelector('#picValue').value='0';
+    console.log('123123123')
+    console.log(document.querySelector('#picValue').value)
+})
+
 const makeList = (v)=>{
     const li = document.createElement('li');
     const label = document.createElement('label');
     const checkBox = document.createElement('input');
-    checkBox.type = 'checkbox'
+    checkBox.type = 'radio'
     checkBox.name = 'picstory';
     checkBox.value = v.PicstoryId;
+    checkBox.classList.add('radioPic');
     label.innerText = v.PicstoryName;
     label.prepend(checkBox);
     li.appendChild(label);
     document.querySelector('.modal--picstory').appendChild(li);
+    checkBox.addEventListener('change',(e)=>{
+       document.querySelector('#picValue').value=e.target.value;
+       console.log(document.querySelector('#picValue').value)
+    })
 }
 document.querySelector('#picsBtn').addEventListener('click',async()=>{
     const response = await axios.get('/dia/loadpicstory.ph?uno='+document.querySelector('#editUserNo').value);
@@ -114,4 +125,11 @@ document.querySelector('#picstoryBtn').addEventListener('click',async()=>{
         }
     }
 });
+document.querySelectorAll('.radioPic').forEach(v=>{
+    v.addEventListener('change',()=>{
+        
+console.log(document.querySelectorAll('.radioPic'))
+    })
+})
+console.log(document.querySelectorAll('.radioPic'))
 watcher();

@@ -368,4 +368,62 @@ public class PhotoDao {
 			return result;
 		}
 		
+		public int selectMakedPhoto(Connection conn, PhotoInsert p) {
+			int pid = 0;
+			
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+
+			String sql = prop.getProperty("selectMakedPhoto");  
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setString(1, p.getPhotoName());
+				pstmt.setString(2, p.getPhotoSrc());
+				pstmt.setInt(3, p.getUserNo());
+				
+				rset = pstmt.executeQuery();
+				
+				if(rset.next()) {
+					pid =rset.getInt("photo_id");
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return pid;
+			
+			
+		}
+//		픽스토리 등록
+		public int insertPicstory(Connection conn, int pid, int picNo) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("insertPicstory");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				
+				pstmt.setInt(1, pid);
+				pstmt.setInt(2, picNo);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+		
 }

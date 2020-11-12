@@ -130,7 +130,7 @@
                   </td>
                 </tr>
               </table>
-              <input type="text" id='picValue'>
+              <input type="text" id='picValue' name='picNo' value='0' hidden>
               <div class="buy-gap"></div>
               <div class="buy-gap"></div>
               <div class="buy--btnWrapper">
@@ -149,9 +149,6 @@
           <em></em>
         </div>
         <div class="modal--picstory">
-          <li>
-            <label><input type="checkbox" name="picstory" />1번</label>
-          </li>
         </div>
         <div class="gap"></div>
         <div class="gap"></div>
@@ -163,8 +160,8 @@
           </div>
           <div class="gap"></div>
           <div class="modal--btn-box" style="margin-left: 111px">
-            <button class="btn" @click='setPicModal'>뒤로</button>
-            <button class="btn btn-yellow">확인</button>
+            <button class="btn" @click='setPicModal' id='resetPic'>뒤로</button>
+            <button class="btn btn-yellow" @click='setPicModal'>확인</button>
           </div>
         </div>
       </div>

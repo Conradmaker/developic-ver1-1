@@ -150,5 +150,29 @@ public class PhotoService {
 			return result;
 			
 		}
+		//생성된 작품 조회
+		public int selectMakedPhoto(PhotoInsert p) {
+			Connection conn = getConnection();
+			int pid = new PhotoDao().selectMakedPhoto(conn, p);
+			close(conn);
+			return pid;
+		}
+		//픽스토리에 작품
+		public int insertPicstory(int pid,int picNo) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().insertPicstory(conn,pid, picNo);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
 		
 }

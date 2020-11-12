@@ -86,6 +86,7 @@
       let current = 1;
       const urlSearch = new URLSearchParams(location.search);
       const category = parseInt(urlSearch.getAll('category')[0]);
+      const searchText = urlSearch.getAll('text')[0];
       const container = document.querySelector('#feedList');
       const feedItem = document.querySelectorAll('.feed--item');
       const photoId = document.querySelectorAll('.feed-item-id');
@@ -135,7 +136,9 @@
       			fetchData()
       		};
       	};
-        window.addEventListener('scroll',onScroll);
+      	if(!searchText){
+      		window.addEventListener('scroll',onScroll);
+      	}
         setInterval(() => {
           document.querySelectorAll('.feed--item').forEach((v,i)=>{
           v.addEventListener('click',()=>{

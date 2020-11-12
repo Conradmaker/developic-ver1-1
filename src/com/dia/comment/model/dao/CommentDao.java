@@ -4,14 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import com.dia.photo.model.vo.Comment;
-import static com.dia.common.JDBCTemplate.getConnection;
-import static com.dia.common.JDBCTemplate.close;
-import static com.dia.common.JDBCTemplate.rollback;
-import static com.dia.common.JDBCTemplate.commit;
+
+import static com.dia.common.JDBCTemplate.*;
 
 public class CommentDao {
 	private Properties prop = new Properties();
@@ -116,5 +116,32 @@ public class CommentDao {
 		}
 		
 		return result;
+	}
+	
+	public ArrayList<Comment> selectCommentList(Connection conn){
+		
+		ArrayList<Comment> list = new ArrayList<>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectCommentList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+					list.add(new Comment("comment_content"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return list;
 	}
 }

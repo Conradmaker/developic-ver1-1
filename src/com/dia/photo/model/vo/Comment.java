@@ -29,6 +29,12 @@ public class Comment {
 		PhotoId = photoId;
 	}
 
+	
+	public Comment(String commentContent) {
+		super();
+		this.commentContent = commentContent;
+	}
+
 	public int getCommentId() {
 		return commentId;
 	}

@@ -46,10 +46,15 @@ public class ProfileAllFormController extends HttpServlet {
 		// 해당 작가의 모든 픽스토리 리스트 조회해오기 (픽스토리 총 개수 세주기 위해 얘도 가져옴)
 		ArrayList<Picstorys> picList = new ProfileService().selectPicList(userNo);
 		
+		request.setAttribute("userNo", userNo);
 		request.setAttribute("user", u);
 		request.setAttribute("photoList", photoList);
 		request.setAttribute("picList", picList);
 		
+		System.out.println(userNo);
+		System.out.println(u);
+		System.out.println(photoList);
+		System.out.println(picList);
 		request.getRequestDispatcher("views/profile/allpost.jsp").forward(request, response);
 		
 	}

@@ -36,7 +36,6 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
     <title>DEVELOPIC</title>
   </head>
   <body>
@@ -83,8 +82,8 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
       <div class="search--container" :class="{searchActive:searchOpen}">
         <form class="search--box" method="POST" action="">
           <label><input type="checkbox" id='saleCheck' name="saleCheck" />판매여부</label>
-          <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i
+          <input type="text" placeholder="SEARCH" id='searchInput'/>
+          <i class="fas fa-search" onClick='onSearch()'></i
           ><i class="fas fa-times" @click="setSearchOpen"></i>
         </form>
       </div>
@@ -112,5 +111,13 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
       .classList.remove("header--down");
   }
 });
+const onSearch = ()=>{
+  console.log(document.querySelector('#searchInput').value)
+  console.log(document.querySelector('#saleCheck').checked)
+  document.querySelector('#saleCheck').checked?
+  location.href = '/dia/searchShop.sr?text='+document.querySelector('#searchInput').value :
+  location.href = '/dia/searchFeed.sr?text='+document.querySelector('#searchInput').value
+}
+
 </script>
  

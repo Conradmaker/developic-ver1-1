@@ -59,6 +59,7 @@ public class ProfilePicFormController extends HttpServlet {
 		
 		System.out.println(picList);
 		
+		request.setAttribute("userNo", userNo);
 		request.setAttribute("user", u);
 		request.setAttribute("photoList", photoList);
 		request.setAttribute("picList", picList);

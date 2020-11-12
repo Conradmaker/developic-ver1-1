@@ -53,7 +53,7 @@ public class ProfilePicPhotoController extends HttpServlet {
 		// 넘어온 picId에  들어있는 사진리스트만 조회해오기
 		ArrayList<PhotoInsert> picPhoto = new ProfileService().selectPicPhoto(userNo, picId);
 		
-		
+		request.setAttribute("userNo", userNo);
 		request.setAttribute("picName", picName);
 		request.setAttribute("user", u);
 		request.setAttribute("photoList", photoList);
@@ -61,11 +61,6 @@ public class ProfilePicPhotoController extends HttpServlet {
 		request.setAttribute("picPhoto", picPhoto);
 		
 		request.getRequestDispatcher("views/profile/picPhoto.jsp").forward(request, response);
-		
-		
-		
-		
-		
 		
 	}
 

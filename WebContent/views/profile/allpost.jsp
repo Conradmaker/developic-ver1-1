@@ -42,7 +42,7 @@ pageEncoding="UTF-8"%>
             href="#"
             id="pro--picBtn"
             class=""
-            onclick="location.href='${pageContext.request.contextPath}/piclist.pr?userNo=<%= u.getUserNo() %>';"
+            onclick="location.href='${pageContext.request.contextPath}/piclist.pr?userNo=<%= 1 %>';"
             >PICSTORY</a
           >
         </li>

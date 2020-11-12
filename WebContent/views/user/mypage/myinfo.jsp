@@ -49,24 +49,30 @@
               <em></em>
             </div>
             <div class="gapper"></div>
-             <form action="/dia/update.us" method="POST" class="form" id="myPageForm">
+             <form action="/dia/update.us" method="POST" class="form" id="myPageForm" enctype="multipart/form-data">
               <h2 class="sub--label">아바타</h2>
               <div class="avatar--wrapper">
                 <img
                   id="title-img"
                   class="avatar-img"
-                  src="${pageContext.request.contextPath}/assets/images/<%= userAvatarSrc %>"
+                  src="${pageContext.request.contextPath}/assets/uploads/<%= userAvatarSrc %>"
                   alt=""
                 />
               </div>
               <div id="image-input-value"></div>
-           <!-- <input
+          	 <input
                 id="image-input"
                 type="file"
                 hidden
                 name="avatar"
                 onchange="loadImg(this)"
-              />-->
+              >
+              <input
+                type="text"
+                hidden
+                id="userAvatarSrc"
+                name="userAvatarSrc"
+              >
               <button id="img-select" type="button" class="btn">
                 사진선택
               </button>
@@ -121,33 +127,33 @@
                 <a href="#" class="nav--active">▷개인정보수정</a>
               </li>
               <li>
-                <a href="likelist.html">▷좋아요목록</a>
-              </li>
-              <li>
+         <!-- <a href="likelist.html">▷좋아요목록</a>
+              </li>  
+          	  <li>
                 <a href="buylist.html">▷구매내역</a>
               </li>
               <li>
                 <a href="cart.html">▷장바구니</a>
-              </li>
+              </li> 
               <li>
                 <a href="applyresult.html">▷작가신청결과 OR</a>
               </li>
               <li>
                 <a href="selllist.html">▷판매내역</a>
-              </li>
+              </li>   -->
               <li>
                 <a href="commentList.html">▷나의 댓글 목록</a>
               </li>
               <li>
                 <a href="qnaList.html">▷1:1문의내역</a>
-              </li>
+              </li> 
             </ul>
           </div>
         </div>
         <!-- 여기까지 -->
       </main>
       
-            <!-- 모달 -->
+      <!-- 모달 -->
       <div class="modal--container" :class="{modalActive:leaveModal}">
         <div class="modal--box">
           <h1>탈퇴 하시겠습니까?</h1>
@@ -194,7 +200,7 @@
       
       </div>
       
-
+	<script src="${pageContext.request.contextPath}/assets/js/myinfo.js" defer></script>
       <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
 
   </body>

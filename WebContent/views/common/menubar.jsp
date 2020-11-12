@@ -5,12 +5,12 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
 
 <%
 	User loginUser = (User)session.getAttribute("loginUser");
-	// > 로그인 요청전 : null
-	// > 로그인 성공후 : 로그인 성공한 회원정보가 담겨있는 User객체
+	// 로그인 요청전 : null
+	// 로그인 성공후 : 로그인 성공한 회원정보가 담겨있는 User객체
 	
 	String alertMsg = (String)session.getAttribute("alertMsg");
-	// > 서비스 요청전 : null
-	// > 서비스 성공후 : alert로 띄워줄 메세지문구
+	// 요청전 : null
+	// 성공후 : alert로 띄워줄 메세지 문구
 	
 	String contextPath = request.getContextPath(); // "/dia" 
 %>      
@@ -37,9 +37,26 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>DEVELOPIC</title>
   </head>
   <body>
+  
+          <% if(alertMsg != null){ %>
+          	<script>
+          		alert("<%= alertMsg %>");
+          	</script>
+          	
+          	<%
+          		// 알람창 띄워준 후 session에 담긴 메세지 지우기 	
+          		session.removeAttribute("alertMsg");
+          	%>
+          <% } %>
+          }
+          
+  
     <div id="app">
       <header class="header--container">
         <div class="header--box">
@@ -102,5 +119,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
                 .classList.remove("header--down");
             }
           });
+          
+          
         </script>
  

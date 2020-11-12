@@ -106,6 +106,10 @@
                 <button class="btn" type="button" @click="setLeaveModal">
                   회원탈퇴
                 </button>
+                <button class="btn" type="button" @click="setChangePwdModal">
+                  비밀번호 변경
+                </button>
+                
                 <button class="btn btn-yellow" type="submit">수정</button>
               </div>
             </form>
@@ -142,25 +146,54 @@
         </div>
         <!-- 여기까지 -->
       </main>
-
-      <!-- 모달 -->
+      
+            <!-- 모달 -->
       <div class="modal--container" :class="{modalActive:leaveModal}">
         <div class="modal--box">
           <h1>탈퇴 하시겠습니까?</h1>
              <div class="gap"></div>      
-             <form action="/dia/delete.us" method="get">
-                 <input type="hidden" name="useId" value="<%=userId %>">
+             <form action="/dia/delete.us" method="post">
+                 <input type="hidden" name="userId" value="<%=userId %>">
                  <input type="password" name="userPwd" class="modal--input" placeholder="PASSWORD" required>
 		          <div class="gap"></div>
 		          <div class="gap"></div>
 		          <div class="modal--btn-box">
 		          
 	            <button class="btn" @click="setLeaveModal">닫기</button>
-	            <button type="submit" class="btn btn-yellow">확인</button>
+              <button type="submit" class="btn btn-yellow">확인</button>
+            </div>
 	          </form>  
           </div>
         </div>
+        
+        
+        <!-- 모달 -->
+      <div class="modal--container" :class="{modalActive:changePwdModal}">
+        <div class="modal--box">
+          <h1>비밀번호를 변경하시겠습니까?</h1>
+             <div class="gap"></div>      
+             <form action="/dia/updatePwd.us" method="post">
+                 <input type="hidden" name="userId" value="<%=userId %>">
+                 <div class="input--wrapper" style='display: flex;flex-direction: column;align-items: center;gap: 15px;'>
+                    <input type="password" name="userPwd" class="modal--input" placeholder="기존 비밀번호" required>
+                    <input type="password" name="updatePwd" class="modal--input" placeholder="변경할 비밀번호" required>
+                    <input type="password" name="checkPwd" class="modal--input" placeholder="변경할 비밀번호 확인" required>
+                 </div>
+		         
+		          <div class="gap"></div>
+		          <div class="gap"></div>
+		          <div class="modal--btn-box">
+		          
+	            <button class="btn" @click="setChangePwdModal">닫기</button>
+              <button type="submit" class="btn btn-yellow">확인</button>
+              </div>
+	          </form>  
+          </div>
+        </div>
+      
+      
       </div>
+      
 
       <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js" defer></script>
 

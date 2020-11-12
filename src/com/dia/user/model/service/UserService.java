@@ -7,6 +7,10 @@ import java.sql.Connection;
 import com.dia.user.model.dao.UserDao;
 import com.dia.user.model.vo.User;
 
+/**
+ * @author letth
+ *
+ */
 public class UserService {
 	
 	
@@ -74,6 +78,30 @@ public class UserService {
 
 	}
 
+	
+	public User updatePwdUser(String userId, String userPwd, String updatePwd) {
+	
+		Connection conn = getConnection();
+		
+		int result = new UserDao().updatePwdUser(conn, userId, userPwd, updatePwd);
+		
+		User updateUs = null;
+		if(result > 0) { // 비밀번호변경 성공 시 
+			commit(conn);
+			
+			// 갱신된 회원 재조회
+			updateUs = new UserDao().selectUser(conn, userId);
+			
+		}else { // 변경 실패 시 
+			rollback(conn);
+		}
+		
+		close(conn);
+		
+		return updateUs;
+				
+	}
+	
 
 	public int deleteUser(String userId, String userPwd) {
 		
@@ -91,7 +119,21 @@ public class UserService {
 		
 		return result;
 	}
+
+
+	public int idCheck(String checkId) {
 	
+		Connection conn = getConnection();
+		
+		int count = new UserDao().idCheck(conn, checkId);
+		
+		close(conn);
+		
+		return count;
+	}
+
+
+
 }
 
 

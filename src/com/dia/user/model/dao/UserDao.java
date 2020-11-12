@@ -190,6 +190,33 @@ public class UserDao {
 
 	
 	
+
+	public int updatePwdUser(Connection conn, String userId, String userPwd, String updatePwd) {
+		
+		int result = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = prop.getProperty("updatePwdUser");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, updatePwd);
+			pstmt.setString(2, userId);
+			pstmt.setString(3, userPwd);
+			
+			result = pstmt.executeUpdate();
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
 	
 	public int deleteUser(Connection conn, String userId, String userPwd) {
 		
@@ -216,6 +243,37 @@ public class UserDao {
 		return result;
 		
 	}
+
+	public int idCheck(Connection conn, String checkId) {
+		
+		int count = 0;
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("idCheck");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, checkId);
+			
+			rset = pstmt.executeQuery();
+	
+			if(rset.next()) {
+				count = rset.getInt(1); 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		return count;
+		
+	}
+
 }
 
 

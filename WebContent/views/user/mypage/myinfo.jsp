@@ -142,10 +142,10 @@
                 <a href="selllist.html">▷판매내역</a>
               </li>   -->
               <li>
-                <a href="commentList.html">▷나의 댓글 목록</a>
+                <a href="<%= contextPath %>/list.cm">▷나의 댓글 목록</a>
               </li>
               <li>
-                <a href="qnaList.html">▷1:1문의내역</a>
+                <a href="<%= contextPath %>/qnaView.us">▷1:1문의내역</a>
               </li> 
             </ul>
           </div>

@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
+
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -8,48 +12,20 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="../../../assets/css/index.css" />
-    <link rel="stylesheet" href="../../../assets/css/common.css" />
-    <link rel="stylesheet" href="../../../assets/css/mypage/common.css" />
-    <link rel="stylesheet" href="../../../assets/css/about.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/index.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/common.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/userinfo.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  </head>
+   </head>
   <body>
-    <div id="app">
-      <header class="header--container">
-        <div class="header--box">
-          <a href="#">
-            <img src="../../../assets/images/logo.png" width="250px" alt="" />
-          </a>
-          <div class="header--right">
-            <a href="">LOGIN</a>
-            <a href="">SIGNUP</a>
-            <i @click="setSearchOpen"
-              ><i class="fas fa-search" @click=""></i
-            ></i>
-          </div>
-        </div>
-      </header>
-      <div class="search--container" :class="{searchActive:searchOpen}">
-        <form class="search--box" method="POST" action="">
-          <label><input type="checkbox" name="saleCheck" />판매여부</label>
-          <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i
-          ><i class="fas fa-times" @click="setSearchOpen"></i>
-        </form>
-      </div>
-      <main class="main--container">
-        <ul class="navigation--main">
-          <a href="">
-            <li>PICFEED</li>
-          </a>
-          <a href="">
-            <li>PICSHOP</li>
-          </a>
-          <a href="">
-            <li>ABOUT</li>
-          </a>
-        </ul>
+      
+ <%@ include file="../../common/menubar.jsp" %>
+ <%
+		String userId = loginUser.getUserId();
+		String userName = loginUser.getUserName();
+ %>  	
+ 
         <!-- 여기에 컨텐츠 작성 -->
         <div class="mypage-container">
           <div class="mypage-left">
@@ -116,40 +92,9 @@
                     </div>
                   </li>
                 </ul>
+                
                 <span class="small-title last-small-title">미답변 목록</span>
                 <ul class="qna-list">
-                  <li>
-                    <div class="about-list-title">
-                      <h1>첫번째 질답입니다.</h1>
-                      ▼
-                    </div>
-                    <div class="about-list-detail">
-                      <p>
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="about-list-title">
-                      <h1>첫번째 질답입니다.</h1>
-                      ▼
-                    </div>
-                    <div class="about-list-detail">
-                      <p>
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div>
-                  </li>
                   <li>
                     <div class="about-list-title">
                       <h1>첫번째 질답입니다.</h1>
@@ -193,10 +138,10 @@
             <!-- 네비게이션바 -->
             <ul class="right-nav">
               <li>
-                <a href="myinfo.html">▷개인정보수정</a>
+                <a href="<%= contextPath %>/myPage.us">▷개인정보수정</a>
               </li>
               <li>
-                <a href="likelist.html">▷좋아요목록</a>
+      <!--   <a href="likelist.html">▷좋아요목록</a>
               </li>
               <li>
                 <a href="buylist.html">▷구매내역</a>
@@ -209,7 +154,7 @@
               </li>
               <li>
                 <a href="selllist.html">▷판매내역</a>
-              </li>
+              </li>   -->
               <li>
                 <a href="commentList.html">▷나의 댓글 목록</a>
               </li>

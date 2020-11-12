@@ -3,7 +3,9 @@ package com.dia.user.model.service;
 import static com.dia.common.JDBCTemplate.*;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
+import com.dia.cs.model.vo.Qna;
 import com.dia.user.model.dao.UserDao;
 import com.dia.user.model.vo.User;
 
@@ -151,6 +153,18 @@ public class UserService {
 		close(conn);
 		
 		return count;
+	}
+
+
+	public ArrayList<Qna> selectQnaList() {
+	
+		Connection conn = getConnection();
+		
+		ArrayList<Qna> list = new UserDao().selectQnaList(conn);
+		
+		close(conn);
+		
+		return list;
 	}
 
 

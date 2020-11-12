@@ -28,36 +28,34 @@
   
   
  	<%@ include file="/../views/common/menubar.jsp" %>
-  
-  	
+      <div class="shop--banner">
         <!-- 로그인 시 보여지는 버튼 -->
          <% if(loginUser != null){ %>
-        <div class="shop--banner">
+       
          <div class="btn--wrapper">
           <!--  <button class="btn btn-outline-green">PROFILE</button> -->
-          <button class="btn btn-green" onclick="location.href='/dia/edit.ph'">Upload</button> 
-        </div> 
-        </div>
+          <button class="btn btn-green" onclick="location.href='<%= contextPath %>/edit.ph'">Upload</button> 
+        </div>   
 		<% } %>
-		
+		</div>
         <h2 class="main--title">PICSHOP</h2>
         <ul class="feed--category">
-          <a href="/dia/shopCateList.ph?currentPage=1&category=0">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=0">
             <li>ALL</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=1&category=10">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=10">
             <li>ANIMALS</li>
           </a> 
-          <a href="/dia/shopCateList.ph?currentPage=1&category=20">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=20">
             <li>PEOPLE</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=1&category=30">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=30">
             <li>URBAN</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=1&category=40">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=40">
             <li>NATURE</li>
           </a>
-          <a href="/dia/shopCateList.ph?currentPage=1&category=50">
+          <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=50">
             <li>ETC</li>
           </a>
         </ul>
@@ -87,13 +85,13 @@
         <div class="page_nation">
           <!-- <a class="arrow pprev" href="#"></a> -->
 	<% if(pi.getCurrentPage() != 1){ %>	
-          <a class="arrow prev" href="/dia/shoplist.ph?currentPage=<%=pi.getCurrentPage()-1%>"></a>
+          <a class="arrow prev" href="<%= contextPath %>/shoplist.ph?currentPage=<%=pi.getCurrentPage()-1%>"></a>
       <% } %>
       <% for(int p=pi.getStartPage(); p<=pi.getEndPage(); p++){ %>
-          <a class="pageSlide" href="/dia/shoplist.ph?currentPage=<%= p %>"><%= p %></a>
+          <a class="pageSlide" href="<%= contextPath %>/shoplist.ph?currentPage=<%= p %>"><%= p %></a>
       <% } %>  
           <% if(pi.getCurrentPage() != pi.getMaxPage()){ %>
-          <a class="arrow next" href="/dia/shoplist.ph?currentPage=<%=pi.getCurrentPage()+1%>"></a>
+          <a class="arrow next" href="<%= contextPath %>/shoplist.ph?currentPage=<%=pi.getCurrentPage()+1%>"></a>
           	<% } %>
           <!-- <a class="arrow nnext" href="#"></a> -->
         </div>

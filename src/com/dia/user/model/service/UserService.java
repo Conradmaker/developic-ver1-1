@@ -13,11 +13,10 @@ import com.dia.user.model.vo.User;
  */
 public class UserService {
 	
-	
 	/** 
 	 * 1. 로그인용 서비스 
-	 * @param userId 
-	 * @param userPwd
+	 * @param userId 사용자가 입력한 아이디
+	 * @param userPwd 사용자가 입력한 비밀번호
 	 * @return	해당 아이디/비밀번호 일치해 조회된 회원객체 / null
 	 */
 	public User loginUser(String userId, String userPwd) {
@@ -35,8 +34,8 @@ public class UserService {
 	
 	/**
 	 * 2. 회원가입용 서비스
-	 * @param u
-	 * @return
+	 * @param u 사용자가 입력한 아이디, 비밀번호, 이름, 이메일 담긴 객체  
+	 * @return 처리된 행 수 
 	 */
 	public int insertUser(User u) {
 		
@@ -57,6 +56,11 @@ public class UserService {
 	}
 
 
+	/**
+	 * 3. 회원정보수정 서비스 
+	 * @param u 변경할정보+변경요청한회원아이디 담긴 객체
+	 * @return 갱신된 회원 객체/null
+	 */
 	public User updateUser(User u) {
 	
 		Connection conn = getConnection();
@@ -77,8 +81,14 @@ public class UserService {
 		return updateUs;
 
 	}
-
 	
+	/**
+	 * 4. 비밀번호 변경 서비스 
+	 * @param userId 변경요청한 아이디
+	 * @param userPwd 현재비밀번호
+	 * @param updatePwd 변경할비밀번호
+	 * @return 갱신된 회원 객체/null
+	 */
 	public User updatePwdUser(String userId, String userPwd, String updatePwd) {
 	
 		Connection conn = getConnection();
@@ -103,6 +113,12 @@ public class UserService {
 	}
 	
 
+	/**
+	 * 5. 회원탈퇴 서비스 
+	 * @param userId 탈퇴요청 회원 아이디
+	 * @param userPwd 탈퇴요청 회원 비밀번호 
+	 * @return 처리된 행 수 
+	 */
 	public int deleteUser(String userId, String userPwd) {
 		
 		Connection conn = getConnection();
@@ -121,6 +137,11 @@ public class UserService {
 	}
 
 
+	/**
+	 * 6. 아이디 중복체크&유효성 검사 서비스 
+	 * @param checkId 
+	 * @return
+	 */
 	public int idCheck(String checkId) {
 	
 		Connection conn = getConnection();

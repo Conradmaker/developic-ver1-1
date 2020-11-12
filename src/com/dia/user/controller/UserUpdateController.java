@@ -3,6 +3,7 @@ package com.dia.user.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +16,7 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import com.dia.user.model.service.UserService;
 import com.dia.user.model.vo.User;
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 /**
  * Servlet implementation class MemberUpdateController
@@ -41,26 +43,27 @@ public class UserUpdateController extends HttpServlet {
 		
 		if(ServletFileUpload.isMultipartContent(request)) {
 		
-		// 1. 전송 파일 용량 제한 : 10Mbyte
-		int maxSize = 10 * 1024 * 1024;
+		// 1. 전송 파일 용량 제한 : 20Mbyte
+		int maxSize = 20 * 1024 * 1024;
 							
 		// 2. 전달되는 파일이 저장되는 폴더 물리적 경로  // 아바타 저장용 폴더 따로 만들지?
-		String savePath = request.getSession().getServletContext().getRealPath("/assets/uploads/"); 
+		ServletContext context = request.getSession().getServletContext();
+		String realPath = context.getRealPath("/assets/uploads");
 		
-		MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+		MultipartRequest multiRequest = new MultipartRequest(request, realPath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
 		
 		//System.out.println(request.getParameter("userName"));
 		
-		String userId = request.getParameter("userId");	
-		String userName = request.getParameter("userName");
+		String userId = multiRequest.getParameter("userId");	
+		String userName = multiRequest.getParameter("userName");
 //		String userPwd = request.getParameter("userPwd");
-		String email = request.getParameter("email");
-		String userNickname = request.getParameter("userNickname");
-		String phone = request.getParameter("phone");
-		String address = request.getParameter("address");
-		String sns = request.getParameter("sns");
-		String userInfo = request.getParameter("userInfo"); 
-		String userAvatarSrc = request.getParameter("userAvatarSrc");
+		String email = multiRequest.getParameter("email");
+		String userNickname = multiRequest.getParameter("userNickname");
+		String phone = multiRequest.getParameter("phone");
+		String address = multiRequest.getParameter("address");
+		String sns = multiRequest.getParameter("sns");
+		String userInfo = multiRequest.getParameter("userInfo"); 
+		String userAvatarSrc = multiRequest.getParameter("userAvatarSrc");
 		
 		User u = new User();
 		
@@ -73,10 +76,10 @@ public class UserUpdateController extends HttpServlet {
 		u.setAddress(address);
 		u.setSns(sns);
 		u.setUserInfo(userInfo);
-//		u.setUserAvatarSrc(userAvatarSrc);
+		u.setUserAvatarSrc(userAvatarSrc);
 		
 		
-		
+		System.out.println(u);
 		
 		User updateUser = new UserService().updateUser(u);
 		
@@ -95,7 +98,7 @@ public class UserUpdateController extends HttpServlet {
 			
 			response.sendRedirect(request.getContextPath() + "/myPage.us");
 		}
-		
+		}	
 	}
 
 	/**

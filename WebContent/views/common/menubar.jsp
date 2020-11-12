@@ -13,8 +13,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
 	// 성공후 : alert로 띄워줄 메세지 문구
 	
 	String contextPath = request.getContextPath(); // "/dia" 
-%>      
-
+%>    
 <!DOCTYPE html>
 <html>
   <head>
@@ -37,26 +36,18 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <title>DEVELOPIC</title>
   </head>
   <body>
-  
-          <% if(alertMsg != null){ %>
-          	<script>
-          		alert("<%= alertMsg %>");
-          	</script>
-          	
-          	<%
-          		// 알람창 띄워준 후 session에 담긴 메세지 지우기 	
-          		session.removeAttribute("alertMsg");
-          	%>
-          <% } %>
-          }
-          
-  
+    <% if(alertMsg != null){ %>
+    <script>
+      alert("<%= alertMsg %>");
+    </script>
+
+    <% // 알람창 띄워준 후 session에 담긴 메세지 지우기
+    session.removeAttribute("alertMsg"); %> <% } %> 
+
     <div id="app">
       <header class="header--container">
         <div class="header--box">
@@ -69,17 +60,19 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
           </a>
           <% if(loginUser == null) { %>
           <div class="header--right">
-            <a href="/dia/loginForm.us">LOGIN</a>
-            <a href="/dia/enrollForm.us">SIGNUP</a
+            <a href="<%= contextPath %>/loginForm.us">LOGIN</a>
+            <a href="<%= contextPath %>/enrollForm.us">SIGNUP</a
             ><i @click="setSearchOpen"
               ><i class="fas fa-search" @click=""></i
             ></i>
           </div>
           <% }else { %>
           <div class="header--right">
-            <a href="/dia/loginForm.us"><%= loginUser.getUserName() %>님</a>
-            <a href="/dia/myPage.us">MYPAGE</a
-            ><a href="/dia/logout.us">LOGOUT</a
+            <a href="<%= contextPath %>/allpost.pr?userNo=<%= loginUser.getUserNo() %>"
+              ><%= loginUser.getUserName() %>님</a
+            >
+            <a href="<%= contextPath %>/myPage.us">MYPAGE</a
+            ><a href="<%= contextPath %>/logout.us">LOGOUT</a
             ><i @click="setSearchOpen"
               ><i class="fas fa-search" @click=""></i
             ></i>
@@ -103,7 +96,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
           <a href="<%= contextPath %>/shopCateList.ph?currentPage=1&category=0">
             <li>PICSHOP</li>
           </a>
-          <a href="">
+          <a href="<%= contextPath %>/about.cs">
             <li>ABOUT</li>
           </a>
         </ul>

@@ -40,7 +40,7 @@ public class UserUpdatePwdController extends HttpServlet {
 		
 		User updateUs = new UserService().updatePwdUser(userId, userPwd, updatePwd);
 		
-		if(updateUs != null) {
+		if(updateUs != null) { // 성공  => 마이페이지 
 	
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", updateUs);
@@ -48,7 +48,7 @@ public class UserUpdatePwdController extends HttpServlet {
 			
 			response.sendRedirect(request.getContextPath() + "/myPage.us");
 			
-		}else {  
+		}else {  // 비밀번호 변경 실패 => 에러페이지
 			
 			request.setAttribute("errorMsg", "비밀번호 변경에 실패했습니다");
 			request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);

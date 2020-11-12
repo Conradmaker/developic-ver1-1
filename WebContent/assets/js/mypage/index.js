@@ -12,6 +12,7 @@ const vm = new Vue({
       declareCommentModal:false,
       
       declarePhotoModal:false,
+      deletePhotoModal:false,
     };
   },
   methods: {
@@ -45,6 +46,9 @@ const vm = new Vue({
     setDeclarePhotoOpen() {
       this.declarePhotoModal = !this.declarePhotoModal;
     },
+    setDeletePhotoOpen() {
+      this.deletePhotoModal = !this.deletePhotoModal;
+    },
   },
 });
 
@@ -68,4 +72,3 @@ function loadImg(inputFile) {
     document.querySelector("#title-img").src = null;
   }
 }
-

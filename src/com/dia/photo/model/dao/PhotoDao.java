@@ -1,5 +1,8 @@
 package com.dia.photo.model.dao;
 import static com.dia.common.JDBCTemplate.close;
+import static com.dia.common.JDBCTemplate.commit;
+import static com.dia.common.JDBCTemplate.getConnection;
+import static com.dia.common.JDBCTemplate.rollback;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 import com.dia.shop.model.vo.PageInfo;
+import com.dia.comment.model.dao.CommentDao;
 import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
 import com.dia.photo.model.vo.PhotoInsert;
@@ -250,6 +254,52 @@ public class PhotoDao {
 				pstmt.setInt(1, uid);
 				pstmt.setInt(2, pid);
 				pstmt.setString(3, content);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+//		작품삭제
+		public int deletePhoto(Connection conn, int pid) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("deletePhoto");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, pid);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
+		}
+//		좋아요
+		public int likePhoto(Connection conn, int pid, int uno) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("likePhoto");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				
+				pstmt.setInt(1, uno);
+				pstmt.setInt(2, pid);
 				
 				result = pstmt.executeUpdate();
 				

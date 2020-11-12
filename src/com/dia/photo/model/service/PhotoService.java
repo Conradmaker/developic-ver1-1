@@ -91,4 +91,39 @@ public class PhotoService {
 			return result;
 			
 		}
+//		작품삭제
+		public int deletePhoto(int pid) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().deletePhoto(conn, pid);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
+//		좋아요
+		public int likePhoto(int pid,int uno) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().likePhoto(conn, pid,uno);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
+		
 }

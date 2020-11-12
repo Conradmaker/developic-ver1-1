@@ -49,7 +49,7 @@
               <em></em>
             </div>
             <div class="gapper"></div>
-             <form action="/dia/update.us" method="POST" class="form" id="myPageForm" enctype="multipart/form-data">
+             <form action="<%= contextPath %>/update.us" method="POST" class="form" id="myPageForm" enctype="multipart/form-data">
               <h2 class="sub--label">아바타</h2>
               <div class="avatar--wrapper">
                 <img
@@ -158,7 +158,7 @@
         <div class="modal--box">
           <h1>탈퇴 하시겠습니까?</h1>
              <div class="gap"></div>      
-             <form action="/dia/delete.us" method="post">
+             <form action="<%= contextPath %>/delete.us" method="post">
                  <input type="hidden" name="userId" value="<%=userId %>">
                  <input type="password" name="userPwd" class="modal--input" placeholder="PASSWORD" required>
 		          <div class="gap"></div>
@@ -178,7 +178,7 @@
         <div class="modal--box">
           <h1>비밀번호를 변경하시겠습니까?</h1>
              <div class="gap"></div>      
-             <form action="/dia/updatePwd.us" method="post">
+             <form action="<%= contextPath %>/updatePwd.us" method="post">
                  <input type="hidden" name="userId" value="<%=userId %>">
                  <div class="input--wrapper" style='display: flex;flex-direction: column;align-items: center;gap: 15px;'>
                     <input type="password" name="userPwd" class="modal--input" placeholder="기존 비밀번호" required>

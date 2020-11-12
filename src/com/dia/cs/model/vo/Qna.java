@@ -2,7 +2,7 @@ package com.dia.cs.model.vo;
 
 import java.sql.Date;
 
-public class Qnas {
+public class Qna {
 
 	private int queId;
 	private String queTitle;
@@ -14,7 +14,9 @@ public class Qnas {
 	private int auserNo;
 	
 	
-	public Qnas(int queId, String queTitle, String queContent, Date queCreatedAt, String ausContent, Date ausCreatedAt,
+	public Qna() {}
+	
+	public Qna(int queId, String queTitle, String queContent, Date queCreatedAt, String ausContent, Date ausCreatedAt,
 			int quserNo, int auserNo) {
 		super();
 		this.queId = queId;
@@ -29,7 +31,7 @@ public class Qnas {
 
 	 
 	
-	public Qnas(int queId, String queTitle, Date queCreatedAt, Date ausCreatedAt, int quserNo, int auserNo) {
+	public Qna(int queId, String queTitle, Date queCreatedAt, Date ausCreatedAt, int quserNo, int auserNo) {
 		super();
 		this.queId = queId;
 		this.queTitle = queTitle;
@@ -37,6 +39,15 @@ public class Qnas {
 		this.ausCreatedAt = ausCreatedAt;
 		this.quserNo = quserNo;
 		this.auserNo = auserNo;
+	}
+
+
+
+	public Qna(String queTitle, String queContent, int quserNo) {
+		super();
+		this.queTitle = queTitle;
+		this.queContent = queContent;
+		this.quserNo = quserNo;
 	}
 
 
@@ -123,7 +134,7 @@ public class Qnas {
 
 	@Override
 	public String toString() {
-		return "Qnas [queId=" + queId + ", queTitle=" + queTitle + ", queContent=" + queContent + ", queCreatedAt="
+		return "Qna [queId=" + queId + ", queTitle=" + queTitle + ", queContent=" + queContent + ", queCreatedAt="
 				+ queCreatedAt + ", ausContent=" + ausContent + ", ausCreatedAt=" + ausCreatedAt + ", quserNo="
 				+ quserNo + ", auserNo=" + auserNo + "]";
 	}

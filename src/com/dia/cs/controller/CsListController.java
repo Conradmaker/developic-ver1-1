@@ -41,6 +41,9 @@ public class CsListController extends HttpServlet {
 		request.setAttribute("noticesList", noticesList);
 		request.setAttribute("faqsList", faqsList);		
 		
+		System.out.println(faqsList);
+		System.out.println(noticesList);
+
 		RequestDispatcher view = request.getRequestDispatcher("/views/cs/cs.jsp");
 		view.forward(request, response);
 		

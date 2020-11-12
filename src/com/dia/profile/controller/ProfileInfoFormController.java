@@ -32,12 +32,7 @@ public class ProfileInfoFormController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int userNo = Integer.parseInt(request.getParameter(""));
-		
-		ArrayList<User> userList = new ProfileService().selectUser(userNo);
-		
-		request.setAttribute("userList", userList);
-		request.getRequestDispatcher("views/profile/profile.jsp").forward(request, response);	
+		// 없어도 되는 서블릿
 		
 	}
 

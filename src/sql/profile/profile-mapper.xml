@@ -2,18 +2,10 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
-<entry key="selectPicList">
-	SELECT
-	       *
-	  FROM PICSTORYS
-	 WHERE USER_NO = ?
-	 ORDER
-	    BY PICSTORY_CREATEDAT DESC
-</entry>
-
 <entry key="selectUser">
 	SELECT
-	       USER_ID
+	       USER_NO
+	     , USER_ID
 	     , USER_NAME
 	     , USER_NICKNAME
 	     , PHONE
@@ -25,6 +17,35 @@
 	  FROM USERS
 	 WHERE USER_NO = ?
 	   AND USER_ROLE IN (0, 1, 4)
+</entry>
+
+<entry key="selectPicList">
+	SELECT
+	       *
+	  FROM PICSTORYS
+	 WHERE USER_NO = ?
+	 ORDER
+	    BY PICSTORY_CREATEDAT DESC
+</entry>
+
+<entry key="selectPicThumbnail">
+	SELECT
+	       PHOTO_ID
+         , PHOTO_SRC
+	  FROM PHOTOS
+	  JOIN PICPHOTOS USING(PHOTO_ID)
+	 WHERE PICSTORY_ID = ?
+	   AND ROWNUM = 1
+	   AND PHOTO_STATE = 0
+	 ORDER
+	    BY PHOTO_UPDATEAT DESC
+</entry>
+
+<entry key="selectPhotos">
+	SELECT *
+	  FROM PHOTOS
+	 WHERE USER_NO = ?
+	   AND PHOTO_STATE = 0
 </entry>
 
 </properties>

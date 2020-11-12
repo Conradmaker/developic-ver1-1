@@ -6,6 +6,7 @@ import static com.dia.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import com.dia.photo.model.vo.PhotoInsert;
 import com.dia.profile.model.dao.ProfileDao;
 import com.dia.profile.model.vo.Picstorys;
 import com.dia.user.model.vo.User;
@@ -17,15 +18,33 @@ public class ProfileService {
 	 * @param userNo
 	 * @return
 	 */
-	public ArrayList<User> selectUser(int userNo){
+	public User selectUser(int userNo){
 		
 		Connection conn = getConnection();
 		
-		ArrayList<User> userList = new ProfileDao().selectUser(conn, userNo);
+		User u = new ProfileDao().selectUser(conn, userNo);
 		
 		close(conn);
 		
-		return userList;
+		return u;
+		
+	}
+	
+	/**
+	 * profile 페이지 하단 allpost에 뿌려줄 해당 user의 사진들을 조회해오는 메소드
+	 * @param userNo
+	 * @return
+	 */
+	public ArrayList<PhotoInsert> selectPhotos(int userNo){
+		
+		Connection conn = getConnection();
+		
+		
+		ArrayList<PhotoInsert> photoList = new ProfileDao().selectPhotos(conn, userNo);
+		
+		close(conn);		
+		
+		return photoList;
 		
 	}
 	
@@ -44,6 +63,21 @@ public class ProfileService {
 		
 		return picList;
 		
+	}
+	
+	/**
+	 * 해당 Picstory_ID 를 가진 픽스토리의 썸네일 조회해오는 메소드
+	 * @param picId
+	 */
+	public Picstorys selectPicThumbnail(int picId) {
+		
+		Connection conn = getConnection();
+		
+		Picstorys p = new ProfileDao().selectPicThumbnail(conn, picId);
+		
+		close(conn);
+		
+		return p;
 	}
 
 }

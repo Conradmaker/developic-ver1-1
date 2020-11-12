@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
+pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -34,7 +34,6 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             href="#"
             id="pro--allBtn"
             class="pro--tab-select"
-            <!-- onclick="location.href='${pageContext.request.contextPath}/allpost.pr';" -->
             >ALL POST</a
           > 
         </li>
@@ -43,7 +42,7 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
             href="#"
             id="pro--picBtn"
             class=""
-            onclick="location.href='${pageContext.request.contextPath}/piclist.pr';"
+            onclick="location.href='${pageContext.request.contextPath}/piclist.pr?userNo=<%= 1 %>';"
             >PICSTORY</aㅣ
           >
         </li>
@@ -54,171 +53,20 @@ pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
     <!-- ALL POST -->
     <div class="pro--allpost">
       <div class="feed--container">
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/city.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/picfeedimg (1).jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/brown.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/picfeedimg (3).jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/picfeedimg (4).jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/picfeedimg (5).png"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/film.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/cat.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/cherry.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/picfeedimg (6).jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/lemon.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/pizza.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/moon.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/mirror.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
-        <div class="feed--item">
-          <img
-            src="${pageContext.request.contextPath}/assets/images/sunset.jpg"
-            alt=""
-          />
-          <div class="feed--summary">
-            <i class="fa fa-fw fa-heart fa-lg"></i>
-            <h1>작품명</h1>
-            <p>- 작가명</p>
-          </div>
-        </div>
+      
+        <% for(PhotoInsert p : photoList) { %>
+	        <div class="feed--item">
+	          <img
+	            src="${pageContext.request.contextPath}/assets/images/<%= p.getPhotoSrc() %>"
+	            alt=""
+	          />
+	          <div class="feed--summary">
+	            <i class="fa fa-fw fa-heart fa-lg"></i>
+	            <h1><%= p.getPhotoName() %></h1>
+	          </div>
+	        </div>
+        <% } %>
+        
       </div>
 
       <a class="top-arrow" href="#">

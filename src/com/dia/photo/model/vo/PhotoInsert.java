@@ -1,6 +1,6 @@
 package com.dia.photo.model.vo;
 
-import oracle.sql.DATE;
+import java.sql.Date;
 
 public class PhotoInsert {
 	
@@ -8,11 +8,11 @@ public class PhotoInsert {
 	private String photoName;
 	private int photoSale;
 	private int photoPrice;
-	private DATE photoCreatedAt;
+	private Date photoCreatedAt;
 	private int photoState;
 	private String photoSrc;
 	private String photoInfo;
-	private DATE photoUpdateAt;
+	private Date photoUpdateAt;
 	private int userNo;
 	private int categoryId;
 	
@@ -20,8 +20,8 @@ public class PhotoInsert {
 		
 	}
 	
-	public PhotoInsert(int photoId, String photoName, int photoSale, int photoPrice, DATE photoCreatedAt,
-			int photoState, String photoSrc, String photoInfo, DATE photoUpdateAt, int userNo, int categoryId) {
+	public PhotoInsert(int photoId, String photoName, int photoSale, int photoPrice, Date photoCreatedAt,
+			int photoState, String photoSrc, String photoInfo, Date photoUpdateAt, int userNo, int categoryId) {
 		super();
 		this.photoId = photoId;
 		this.photoName = photoName;
@@ -60,10 +60,10 @@ public class PhotoInsert {
 	public void setPhotoPrice(int photoPrice) {
 		this.photoPrice = photoPrice;
 	}
-	public DATE getPhotoCreatedAt() {
+	public Date getPhotoCreatedAt() {
 		return photoCreatedAt;
 	}
-	public void setPhotoCreatedAt(DATE photoCreatedAt) {
+	public void setPhotoCreatedAt(Date photoCreatedAt) {
 		this.photoCreatedAt = photoCreatedAt;
 	}
 	public int getPhotoState() {
@@ -84,10 +84,10 @@ public class PhotoInsert {
 	public void setPhotoInfo(String photoInfo) {
 		this.photoInfo = photoInfo;
 	}
-	public DATE getPhotoUpdateAt() {
+	public Date getPhotoUpdateAt() {
 		return photoUpdateAt;
 	}
-	public void setPhotoUpdateAt(DATE photoUpdateAt) {
+	public void setPhotoUpdateAt(Date photoUpdateAt) {
 		this.photoUpdateAt = photoUpdateAt;
 	}
 	public int getUserNo() {

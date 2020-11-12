@@ -2,6 +2,7 @@
 pageEncoding="UTF-8"%>
 <%@ page import = "com.dia.user.model.vo.User, java.util.ArrayList, com.dia.photo.model.vo.PhotoInsert, com.dia.profile.model.vo.Picstorys" %>
 <%
+	int userNo = (int)request.getAttribute("userNo");
 	User u = (User)request.getAttribute("user");
 	ArrayList<Picstorys> picList = (ArrayList<Picstorys>)request.getAttribute("picList");
 	ArrayList<PhotoInsert> photoList = (ArrayList<PhotoInsert>)request.getAttribute("photoList");
@@ -48,7 +49,7 @@ pageEncoding="UTF-8"%>
             <img
               id="pro--userImg"
               class="pro--userImgY"
-              src="${pageContext.request.contextPath}/assets/images/<%= u.getUserAvatarSrc() %>"
+              src="${pageContext.request.contextPath}/assets/uploads/<%= u.getUserAvatarSrc() %>"
             />
           </div>
           <h2><%= u.getUserNickname() %></h2>
@@ -85,15 +86,17 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="pro--btnWrapper">
         <!-- 작가 본인의 프로필일때 : 작품등록버튼 -->
-        <!-- <button class="btn btn-yellow" onclick="location.href='${pageContext.request.contextPath}/views/profile/edit.jsp';">작품등록</button> -->
-        <button
-          class="btn btn-yellow"
-          onclick="location.href='${pageContext.request.contextPath}/edit.ph';"
-        >
-          작품등록
-        </button>
-        <!-- 타유저일때 : 파도타기버튼 -->
-        <!-- <button class="btn btn--wave">🌊</button> -->
+        <% if(u.getUserNo() == loginUser.getUserNo()) { %>
+	        <button
+	          class="btn btn-yellow"
+	          onclick="location.href='${pageContext.request.contextPath}/edit.ph';"
+	        >
+	          작품등록
+	        </button>
+        <% } else { %>
+	        <!-- 타유저일때 : 파도타기버튼 -->
+	        <button class="btn btn--wave">🌊</button>
+        <% } %>
       </div>
       <div class="pro-gap"></div>
       <div class="pro-gap"></div>

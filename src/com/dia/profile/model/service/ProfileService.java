@@ -68,6 +68,7 @@ public class ProfileService {
 	/**
 	 * 해당 Picstory_ID 를 가진 픽스토리의 썸네일 조회해오는 메소드
 	 * @param picId
+	 * @return
 	 */
 	public Picstorys selectPicThumbnail(int picId) {
 		
@@ -78,6 +79,24 @@ public class ProfileService {
 		close(conn);
 		
 		return p;
+	}
+	
+	/**
+	 * 해당 userNo을 가진 작가의, picId를 가진 픽스토리 내에 등록되어있는 사진만을 조회해오는 메소드
+	 * @param userNo
+	 * @param picId
+	 * @return
+	 */
+	public ArrayList<PhotoInsert> selectPicPhoto(int userNo, int picId){
+		
+		Connection conn = getConnection();
+		
+		ArrayList<PhotoInsert> picPhoto = new ProfileDao().selectPicPhoto(conn, userNo, picId);
+		
+		close(conn);
+		
+		return picPhoto;
+		
 	}
 
 }

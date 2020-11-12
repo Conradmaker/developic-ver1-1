@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ page import = "java.util.ArrayList, com.dia.photo.model.vo.PhotoInsert" %>
+<%
+	String picName = (String)request.getAttribute("picName");
+	ArrayList<PhotoInsert> picPhoto = (ArrayList<PhotoInsert>)request.getAttribute("picPhoto");
+%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -33,7 +38,8 @@ pageEncoding="UTF-8"%>
           <a
             href="#"
             id="pro--allBtn"
-            class="pro--tab-select"
+            class=""
+            onclick="location.href='${pageContext.request.contextPath}/allpost.pr?userNo=<%= u.getUserNo() %>';"
             >ALL POST</a
           > 
         </li>
@@ -41,7 +47,7 @@ pageEncoding="UTF-8"%>
           <a
             href="#"
             id="pro--picBtn"
-            class=""
+            class="pro--tab-select"
             onclick="location.href='${pageContext.request.contextPath}/piclist.pr?userNo=<%= u.getUserNo() %>';"
             >PICSTORY</a
           >
@@ -49,20 +55,21 @@ pageEncoding="UTF-8"%>
       </ul>
     </div>
     <div class="pro-gap"></div>
+    <h2 id="pro-picphoto-name"><%= picName %></h2>
+    <div class="pro-gap"></div>
 
     <!-- ALL POST -->
     <div class="pro--allpost">
       <div class="feed--container">
       
-        <% for(PhotoInsert p : photoList) { %>
+        <% for(PhotoInsert p : picPhoto) { %>
 	        <div class="feed--item">
 	          <img
 	            src="${pageContext.request.contextPath}/assets/uploads/<%= p.getPhotoSrc() %>"
 	            alt=""
 	          />
 	          <div class="feed--summary"
-	            onclick="location.href='${pageContext.request.contextPath}/LoadDetailController?pno=<%= p.getPhotoId() %>'"
-	          >
+	            onclick="location.href='${pageContext.request.contextPath}/LoadDetailController?pno=<%= p.getPhotoId() %>'">
 	            <i class="fa fa-fw fa-heart fa-lg"></i>
 	            <h1><%= p.getPhotoName() %></h1>
 	          </div>

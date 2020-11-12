@@ -75,12 +75,6 @@ public class PhotoInsertController extends HttpServlet {
 				
 			}else { // 실패 => 업로드된 파일 찾아 삭제 => 에러문구 담은 후 에러페이지로 포워딩
 				
-				/*
-				for(Attachment at : list) {
-					new File(savePath + at.getChangeName()).delete();
-				}
-				*/
-				
 				request.setAttribute("errorMsg", "작품 등록 실패");
 				request.getRequestDispatcher("views/common/errorPage.jsp").forward(request, response);
 				

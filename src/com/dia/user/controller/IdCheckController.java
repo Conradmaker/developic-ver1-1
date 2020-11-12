@@ -34,10 +34,10 @@ public class IdCheckController extends HttpServlet {
 		
 		String checkId = request.getParameter("checkId");
 		
-		//System.out.println(checkId);
+		System.out.println(checkId);
 		int count = new UserService().idCheck(checkId);
 		
-		if(count > 0) { 
+		if(count > 0) {  
 			response.getWriter().print("fail");
 		}else { 
 			response.getWriter().print("success");

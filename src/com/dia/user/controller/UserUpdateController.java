@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 import com.dia.user.model.service.UserService;
 import com.dia.user.model.vo.User;
+import com.oreilly.servlet.MultipartRequest;
 
 /**
  * Servlet implementation class MemberUpdateController
@@ -38,9 +39,17 @@ public class UserUpdateController extends HttpServlet {
 	
 		request.setCharacterEncoding("utf-8");
 		
+		if(ServletFileUpload.isMultipartContent(request)) {
 		
-		System.out.println(request.getParameter("userName"));
+		// 1. 전송 파일 용량 제한 : 10Mbyte
+		int maxSize = 10 * 1024 * 1024;
+							
+		// 2. 전달되는 파일이 저장되는 폴더 물리적 경로  // 아바타 저장용 폴더 따로 만들지?
+		String savePath = request.getSession().getServletContext().getRealPath("/assets/uploads/"); 
 		
+		MultipartRequest multiRequest = new MultipartRequest(request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
+		
+		//System.out.println(request.getParameter("userName"));
 		
 		String userId = request.getParameter("userId");	
 		String userName = request.getParameter("userName");

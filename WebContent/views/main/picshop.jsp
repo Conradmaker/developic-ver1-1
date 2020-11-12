@@ -35,7 +35,7 @@
         <div class="shop--banner">
          <div class="btn--wrapper">
           <!--  <button class="btn btn-outline-green">PROFILE</button> -->
-          <button class="btn btn-green" onclick="location.href='pEnrollForm.ph'">Upload</button> <!--(임시)-->
+          <button class="btn btn-green" onclick="location.href='/dia/edit.ph'">Upload</button> 
         </div> 
         </div>
 		<% } %>

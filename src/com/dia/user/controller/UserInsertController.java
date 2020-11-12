@@ -48,8 +48,8 @@ public class UserInsertController extends HttpServlet {
 				
 		if(result > 0) { 
 
-//			HttpSession session = request.getSession();
-//			session.setAttribute("alertMsg", "회원가입에 성공했습니다.");			
+			HttpSession session = request.getSession();
+			session.setAttribute("alertMsg", "회원가입에 성공했습니다.");			
 			
 			response.sendRedirect("/dia");
 		

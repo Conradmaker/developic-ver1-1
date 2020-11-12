@@ -86,7 +86,7 @@ pageEncoding="UTF-8"%>
       </div>
       <div class="pro--btnWrapper">
         <!-- 작가 본인의 프로필일때 : 작품등록버튼 -->
-        <% if(u.getUserNo() == loginUser.getUserNo()) { %>
+        <% if(loginUser != null && u.getUserNo() == loginUser.getUserNo()) { %>
 	        <button
 	          class="btn btn-yellow"
 	          onclick="location.href='${pageContext.request.contextPath}/edit.ph';"

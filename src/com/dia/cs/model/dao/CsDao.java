@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -34,17 +35,17 @@ public class CsDao {
 			
 		}
 
-		public ArrayList<Notices> selectNoticeList(Connection conn){
+		public ArrayList<Notices> selectNoticesList(Connection conn){
 			ArrayList<Notices> list = new ArrayList<>();
 			
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
-			String sql = prop.getProperty("selectNoticeList");
+			String sql = prop.getProperty("selectNoticesList");
 			
 			try {
+
 				pstmt = conn.prepareStatement(sql);
-				
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
@@ -73,15 +74,15 @@ public class CsDao {
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
-			String sql = prop.getProperty("selectFaqList");
+			String sql = prop.getProperty("selectFaqsList");
 			try {
-				pstmt = conn.prepareStatement(sql);
 				
+				pstmt = conn.prepareStatement(sql);
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-					list.add(new Faqs(rset.getString("faq_title")
-									 ,rset.getString("faq_content")));
+					list.add(new Faqs(rset.getString("faq_title"),
+									 rset.getString("faq_content")));
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -90,7 +91,7 @@ public class CsDao {
 				close(pstmt);
 			}
 			
-			return null;
+			return list;
 			
 		}
 		
@@ -100,15 +101,15 @@ public class CsDao {
 			
 			ArrayList<Qnas> list = new ArrayList<>();
 			
-			PreparedStatement pstmt = null;
+			Statement stmt = null;
 			ResultSet rset = null;
 			
 			String sql = prop.getProperty("selectQnasList");
 			
 			try {
-				pstmt = conn.prepareStatement(sql);
+				stmt = conn.createStatement();
 
-				rset = pstmt.executeQuery();
+				rset = stmt.executeQuery(sql);
 				
 				while(rset.next()) {
 					list.add(new Qnas(rset.getInt("que_id"),
@@ -122,7 +123,7 @@ public class CsDao {
 				e.printStackTrace();
 			} finally {
 				close(rset);
-				close(pstmt);
+				close(stmt);
 			}
 			
 			return null;

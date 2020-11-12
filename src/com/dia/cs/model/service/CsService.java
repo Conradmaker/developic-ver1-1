@@ -16,11 +16,11 @@ public class CsService {
 
 		
 		
-		public ArrayList<Notices> selectNoticeList(){
+		public ArrayList<Notices> selectNoticesList(){
 			
 			Connection conn = getConnection();
 			
-			ArrayList<Notices> list = new CsDao().selectNoticeList(conn);
+			ArrayList<Notices> list = new CsDao().selectNoticesList(conn);
 			
 			close(conn);
 			

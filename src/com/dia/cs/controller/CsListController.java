@@ -34,14 +34,14 @@ public class CsListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Notices> noticeList = new CsService().selectNoticeList();
+		ArrayList<Notices> noticesList = new CsService().selectNoticesList();
+		
 		ArrayList<Faqs> faqsList = new CsService().selectFaqsList();
 		
-		request.setAttribute("noticeList", noticeList);
-		request.setAttribute("faqsList", faqsList);
+		request.setAttribute("noticesList", noticesList);
+		request.setAttribute("faqsList", faqsList);		
 		
-		
-		RequestDispatcher view = request.getRequestDispatcher("/dia/views/cs/cs.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/views/cs/cs.jsp");
 		view.forward(request, response);
 		
 	}

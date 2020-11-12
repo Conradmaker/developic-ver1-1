@@ -33,8 +33,7 @@ public class UserDao {
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
-		
-		
+
 		String sql = prop.getProperty("loginUser");
 		
 		try {
@@ -61,8 +60,7 @@ public class UserDao {
 						   rset.getDate("user_lastlogin"),
 						   rset.getDate("user_createdat"),
 						   rset.getInt("user_role")
-						  );
-										
+						  );							
 			}
 			
 		} catch (SQLException e) {
@@ -74,7 +72,6 @@ public class UserDao {
 		
 		return u; 
 	}
-	
 	
 	public int insertUser(Connection conn, User u) {
 		
@@ -187,9 +184,6 @@ public class UserDao {
 		
 		return u;
 	}
-
-	
-	
 
 	public int updatePwdUser(Connection conn, String userId, String userPwd, String updatePwd) {
 		

@@ -44,13 +44,25 @@ const vm = new Vue({
   },
 });
 
+
 //개인정보관리
 document.querySelector("#img-select").addEventListener("click", () => {
   document.querySelector("#image-input").click();
 });
 document.querySelector("#image-input").addEventListener("change", (e) => {
-  document.querySelector("#image-input-value").innerText = e.target.value;
+	 var startIndex = (e.target.value.indexOf('\\') >= 0 ? e.target.value.lastIndexOf('\\') : e.target.value.lastIndexOf('/'));
+        var filename = e.target.value.substring(startIndex);
+        if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+            filename = filename.substring(1);
+        }
+        
+    //    console.log(filename);
+      document.querySelector("#userAvatarSrc").value = filename;
+        
+  document.querySelector("#image-input-value").innerText = filename;
 });
+
+
 //개인정보관리 - 미리보기
 function loadImg(inputFile) {
   if (inputFile.files.length == 1) {
@@ -64,4 +76,3 @@ function loadImg(inputFile) {
     document.querySelector("#title-img").src = null;
   }
 }
-

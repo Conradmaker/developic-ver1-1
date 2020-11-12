@@ -26,11 +26,11 @@ public class IdCheckController extends HttpServlet {
     }
 
 	/**
-	 * @param check_id 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response, String check_id) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		request.setCharacterEncoding("utf-8");
 		
 		String checkId = request.getParameter("checkId");
 		
@@ -42,8 +42,6 @@ public class IdCheckController extends HttpServlet {
 		}else { 
 			response.getWriter().print("success");
 		}
-		
-	
 	}
 
 	/**

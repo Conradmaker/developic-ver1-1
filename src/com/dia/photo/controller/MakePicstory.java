@@ -1,8 +1,6 @@
 package com.dia.photo.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,22 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dia.photo.model.service.PhotoService;
-import com.dia.photo.model.vo.Comment;
-import com.dia.photo.model.vo.Photo;
-import com.dia.photo.model.vo.Picstory;
-import com.google.gson.Gson;
 
 /**
- * Servlet implementation class LoadPicstory
+ * Servlet implementation class MakePicstory
  */
-@WebServlet("/loadpicstory.ph")
-public class LoadPicstory extends HttpServlet {
+@WebServlet("/makepicstory.ph")
+public class MakePicstory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoadPicstory() {
+    public MakePicstory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,19 +29,19 @@ public class LoadPicstory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int uno = Integer.parseInt(request.getParameter("uno"));
+		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
+		String pName = request.getParameter("picName");
+		int uno = Integer.parseInt(request.getParameter("userNo"));
 		
-		// 사진 정보 조회 (Photo)
-		ArrayList<Picstory> p = new PhotoService().selectPicstory(uno);
+		int result = new PhotoService().makePicstory(pName,uno);
 		
-		
-		request.setAttribute("p", p);
-		
-		response.setContentType("application/json; charset=utf-8");
-		Gson gson = new Gson();
-		gson.toJson(p, response.getWriter());
-		
-	} 
+		if(result > 0) {
+			response.getWriter().print("success");
+		}else {
+			response.getWriter().print("fail");
+		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

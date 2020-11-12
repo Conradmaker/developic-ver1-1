@@ -328,10 +328,10 @@ public class PhotoDao {
 				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
-					list.add(new Picstory(rset.getInt("comment_id"),
-							 		   rset.getString("comment_content"),
-							 		   rset.getDate("comment_createdAt"),
-							 		   rset.getInt("UserNo")));
+					list.add(new Picstory(rset.getInt("picstory_id"),
+							 		   rset.getString("picstory_name"),
+							 		   rset.getDate("picstory_createdAt"),
+							 		   rset.getInt("user_no")));
 				}
 				
 			} catch (SQLException e) {
@@ -344,6 +344,28 @@ public class PhotoDao {
 			return list;
 			
 			
+		}
+//		픽스토리생성
+		public int makePicstory(Connection conn,String pName, int uno) {
+			int result = 0;
+			
+			PreparedStatement pstmt = null;
+			String sql = prop.getProperty("makePicstory");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, pName);
+				pstmt.setInt(2, uno);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(pstmt);
+			}
+			
+			return result;
 		}
 		
 }

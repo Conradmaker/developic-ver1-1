@@ -134,5 +134,21 @@ public class PhotoService {
 			close(conn);
 			return p;
 		}
+		public int makePicstory(String pName,int uno) {
+			Connection conn = getConnection();
+			
+			int result = new PhotoDao().makePicstory(conn,pName, uno);
+			
+			if(result > 0) {
+				commit(conn);
+			}else {
+				rollback(conn);
+			}
+			
+			close(conn);
+			
+			return result;
+			
+		}
 		
 }

@@ -146,6 +146,10 @@ VALUES (?, ?, DEFAULT);
 <entry key="selectPicstory">
 SELECT *
 FROM PICSTORYS
-WHERE USER_NO = ?
+WHERE USER_NO = ? order by PICSTORY_CREATEDAT
+</entry>
+<entry key="makePicstory">
+INSERT INTO DIA.PICSTORYS (PICSTORY_ID, PICSTORY_NAME, PICSTORY_CREATEDAT, USER_NO)
+VALUES (PICSTORY_ID_SEQ.nextval, ?, DEFAULT, ?)
 </entry>
 </properties>

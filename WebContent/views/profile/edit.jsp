@@ -130,6 +130,7 @@
                   </td>
                 </tr>
               </table>
+              <input type="text" id='picValue'>
               <div class="buy-gap"></div>
               <div class="buy-gap"></div>
               <div class="buy--btnWrapper">
@@ -151,20 +152,14 @@
           <li>
             <label><input type="checkbox" name="picstory" />1번</label>
           </li>
-          <li>
-            <label><input type="checkbox" name="picstory" />2번</label>
-          </li>
-          <li>
-            <label><input type="checkbox" name="picstory" />3번</label>
-          </li>
         </div>
         <div class="gap"></div>
         <div class="gap"></div>
         <div class="modal--picstory-form">
           <div class="modal--picstory-box">
             <div class="modal--sub-title">이름</div>
-            <input type="text" placeholder="픽스토리 이름을 입력해주세요" />
-            <button class="btn btn-green">ADD</button>
+            <input id='picstoryInput' type="text" placeholder="픽스토리 이름을 입력해주세요" />
+            <button id='picstoryBtn' class="btn btn-green">ADD</button>
           </div>
           <div class="gap"></div>
           <div class="modal--btn-box" style="margin-left: 111px">

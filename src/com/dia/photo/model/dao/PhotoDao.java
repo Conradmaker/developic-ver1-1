@@ -19,6 +19,7 @@ import com.dia.comment.model.dao.CommentDao;
 import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
 import com.dia.photo.model.vo.PhotoInsert;
+import com.dia.photo.model.vo.Picstory;
 import com.dia.user.model.dao.UserDao;
 
 
@@ -310,6 +311,39 @@ public class PhotoDao {
 			}
 			
 			return result;
+		}
+		//픽스토리
+		public ArrayList<Picstory> selectPicstory(Connection conn, int uno) {
+			ArrayList<Picstory> list = new ArrayList<>();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			
+			String sql = prop.getProperty("selectPicstory");
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				
+				pstmt.setInt(1, uno);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					list.add(new Picstory(rset.getInt("comment_id"),
+							 		   rset.getString("comment_content"),
+							 		   rset.getDate("comment_createdAt"),
+							 		   rset.getInt("UserNo")));
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close(rset);
+				close(pstmt);
+			}
+			
+			return list;
+			
+			
 		}
 		
 }

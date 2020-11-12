@@ -11,9 +11,9 @@ const vm = new Vue({
       fixCommentModal:false,
       declareCommentModal:false,
       changePwdModal:false,
-      
       declarePhotoModal:false,
       deletePhotoModal:false,
+      picModal:false,
     };
   },
   methods: {
@@ -44,9 +44,9 @@ const vm = new Vue({
     setChangePwdModal(){
     	this.changePwdModal = !this.changePwdModal;
     },
-
-
-
+    setPicModal(){
+      this.picModal = !this.picModal;
+    },
     setDeclarePhotoOpen() {
       this.declarePhotoModal = !this.declarePhotoModal;
     },

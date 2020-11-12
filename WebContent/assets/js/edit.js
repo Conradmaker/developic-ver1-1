@@ -82,6 +82,9 @@ document.addEventListener(
         //document.querySelector(".buy--photoPrice").setAttribute("disabled", true);
     }
 });
-
+document.querySelector('#picsBtn').addEventListener('click',async()=>{
+    const response = await axios.get('/dia/loadpicstory.ph?uno='+document.querySelector('#editUserNo').value);
+    
+  })
 
 watcher();

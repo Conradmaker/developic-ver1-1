@@ -24,6 +24,7 @@
     <!-- Scripts -->
     <script src="https://uicdn.toast.com/tui-editor/latest/tui-editor-Editor-full.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
   
@@ -122,7 +123,7 @@
                     <div class="picsWrapper">
                       <label for="" id="picsLabel"></label>
                       <!-- <input type="text" name="  -->
-                      <button type="button" id="picsBtn" class="btn btn-green btn-small">SELECT</button>
+                      <button type="button" id="picsBtn" class="btn btn-green btn-small" @click='setPicModal'>SELECT</button>
                       <!-- <span></span>
                       <button class="btn btn-green btn-small">SELECT</button> -->
                     </div>
@@ -139,6 +140,40 @@
         </form>
       </div>
     </main>
+
+    <div class="modal--container" :class='{modalActive:picModal}'>
+      <div class="modal--box">
+        <div class="label">
+          PICSTORY
+          <em></em>
+        </div>
+        <div class="modal--picstory">
+          <li>
+            <label><input type="checkbox" name="picstory" />1번</label>
+          </li>
+          <li>
+            <label><input type="checkbox" name="picstory" />2번</label>
+          </li>
+          <li>
+            <label><input type="checkbox" name="picstory" />3번</label>
+          </li>
+        </div>
+        <div class="gap"></div>
+        <div class="gap"></div>
+        <div class="modal--picstory-form">
+          <div class="modal--picstory-box">
+            <div class="modal--sub-title">이름</div>
+            <input type="text" placeholder="픽스토리 이름을 입력해주세요" />
+            <button class="btn btn-green">ADD</button>
+          </div>
+          <div class="gap"></div>
+          <div class="modal--btn-box" style="margin-left: 111px">
+            <button class="btn" @click='setPicModal'>뒤로</button>
+            <button class="btn btn-yellow">확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="${pageContext.request.contextPath}/assets/js/edit.js" defer></script>
     <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>

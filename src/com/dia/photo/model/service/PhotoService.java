@@ -13,6 +13,7 @@ import com.dia.shop.model.vo.PageInfo;
 import com.dia.photo.model.vo.Comment;
 import com.dia.photo.model.vo.Photo;
 import com.dia.photo.model.vo.PhotoInsert;
+import com.dia.photo.model.vo.Picstory;
 
 public class PhotoService {
 
@@ -124,6 +125,14 @@ public class PhotoService {
 			
 			return result;
 			
+		}
+		
+//		픽스토리조회
+		public ArrayList<Picstory> selectPicstory(int uno) {
+			Connection conn = getConnection();
+			ArrayList<Picstory> p = new PhotoDao().selectPicstory(conn, uno);
+			close(conn);
+			return p;
 		}
 		
 }

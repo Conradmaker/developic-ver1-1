@@ -143,4 +143,9 @@ WHERE t.PHOTO_ID = ?
 INSERT INTO DIA.LIKES (USER_NO, PHOTO_ID, LIKE_CREATEDAT)
 VALUES (?, ?, DEFAULT);
 </entry>
+<entry key="selectPicstory">
+SELECT *
+FROM PICSTORYS
+WHERE USER_NO = ?
+</entry>
 </properties>

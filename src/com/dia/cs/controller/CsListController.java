@@ -41,7 +41,7 @@ public class CsListController extends HttpServlet {
 		request.setAttribute("faqsList", faqsList);
 		
 		
-		RequestDispatcher view = request.getRequestDispatcher("views/cs/cs.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("/dia/views/cs/cs.jsp");
 		view.forward(request, response);
 		
 	}

@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 
@@ -38,15 +37,15 @@ public class CsDao {
 		public ArrayList<Notices> selectNoticeList(Connection conn){
 			ArrayList<Notices> list = new ArrayList<>();
 			
-			Statement stmt = null;
+			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
 			String sql = prop.getProperty("selectNoticeList");
 			
 			try {
-				stmt = conn.createStatement();
+				pstmt = conn.prepareStatement(sql);
 				
-				rset = stmt.executeQuery(sql);
+				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
 						list.add(new Notices(rset.getString("notice_title"),
@@ -57,54 +56,28 @@ public class CsDao {
 				e.printStackTrace();
 			} finally {
 				close(rset);
-				close(stmt);
+				close(pstmt);
 			}
 			
 			return list;
 			
 		}
 		
-		public int insertNotice(Connection conn, Notices n) {
-			
-			int result = 0;
-			
-			PreparedStatement pstmt = null;
-			
-			String sql = prop.getProperty("insertNotice");
-			
-			try {
-				pstmt = conn.prepareStatement(sql);
-				
-				pstmt.setString(1, n.getNoticeTitle());
-				pstmt.setString(2, n.getNoticeContent());
-				pstmt.setInt(3,n.getNoticeId());
-				
-				result = pstmt.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close(pstmt);
-			}
-			
-			return result;
-			
-			
-		}
+		
 		
 		
 		public ArrayList<Faqs> selectFaqsList(Connection conn){
 			
 			ArrayList<Faqs> list = new ArrayList<>();
 			
-			Statement stmt = null;
+			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
 			String sql = prop.getProperty("selectFaqList");
 			try {
-				stmt = conn.createStatement();
+				pstmt = conn.prepareStatement(sql);
 				
-				rset = stmt.executeQuery(sql);
+				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
 					list.add(new Faqs(rset.getString("faq_title")
@@ -114,54 +87,28 @@ public class CsDao {
 				e.printStackTrace();
 			} finally {
 				close(rset);
-				close(stmt);
+				close(pstmt);
 			}
 			
 			return null;
 			
 		}
 		
-		public int insertFaqs(Connection conn, Faqs f) {
-			
-			int result = 0;
-			
-			PreparedStatement pstmt = null;
-			
-			String sql = prop.getProperty("insertFaqs");
-			
-			try {
-				pstmt = conn.prepareStatement(sql);
-				
-				pstmt.setString(1, f.getFaqTitle());
-				pstmt.setString(2, f.getFaqContent());
-				pstmt.setInt(3, f.getFaqId());
-				
-				result = pstmt.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close(pstmt);
-			}
-			
-			return result;
-			
-			
-		}
+		
 		
 		public ArrayList<Qnas> selectQnasList(Connection conn) {
 			
 			ArrayList<Qnas> list = new ArrayList<>();
 			
-			Statement stmt = null;
+			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			
 			String sql = prop.getProperty("selectQnasList");
 			
 			try {
-				stmt = conn.createStatement();
+				pstmt = conn.prepareStatement(sql);
 
-				rset = stmt.executeQuery(sql);
+				rset = pstmt.executeQuery();
 				
 				while(rset.next()) {
 					list.add(new Qnas(rset.getInt("que_id"),
@@ -175,40 +122,13 @@ public class CsDao {
 				e.printStackTrace();
 			} finally {
 				close(rset);
-				close(stmt);
+				close(pstmt);
 			}
 			
 			return null;
 		}
 
-		public int insertQnas(Connection conn, Qnas q) {
-			
-			int result = 0;
-			
-			PreparedStatement pstmt = null;
-			
-			String sql = prop.getProperty("insertQnas");
-			
-			try {
-				pstmt = conn.prepareStatement(sql);
-				
-				pstmt.setString(1, q.getQueTitle());
-				pstmt.setString(2, q.getQueContent());
-				pstmt.setString(3, q.getAusContent());
-				pstmt.setInt(4, q.getQueId());
-				
-				result = pstmt.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {
-				close(pstmt);
-			}
-			
-			return result;
-			
-			
-		}
+		
 		
 }
 

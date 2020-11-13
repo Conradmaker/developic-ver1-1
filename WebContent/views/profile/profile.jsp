@@ -95,7 +95,7 @@ pageEncoding="UTF-8"%>
 	        </button>
         <% } else { %>
 	        <!-- 타유저일때 : 파도타기버튼 -->
-	        <button class="btn btn--wave">🌊</button>
+	        <!-- <button class="btn btn--wave">🌊</button> -->
         <% } %>
       </div>
       <div class="pro-gap"></div>

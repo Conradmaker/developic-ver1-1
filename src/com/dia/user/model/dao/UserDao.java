@@ -6,9 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import static com.dia.common.JDBCTemplate.*;
+
+import com.dia.cs.model.vo.Qna;
 import com.dia.user.model.vo.User;
 
 public class UserDao {
@@ -268,7 +272,56 @@ public class UserDao {
 		
 	}
 
+	
+	public ArrayList<Qna> selectQnaList(Connection conn,int uno) {
+		
+		// select문 => 여러행 조회 => ArrayList
+		ArrayList<Qna> list = new ArrayList<>(); 
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		String sql = prop.getProperty("selectAllQnaList");
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, uno);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				
+				Qna q = new Qna(  rset.getInt("QUE_ID")
+						        , rset.getString("QUE_TITLE")
+						        , rset.getString("QUE_CONTENT")
+						        , rset.getDate("QUE_CREATEDAT")
+						        , rset.getString("ANS_CONTENT")
+						        , rset.getDate("ANS_CREATEDAT")
+						        , rset.getInt("QUSER_NO")
+						        , rset.getInt("AUSER_NO"));
+				
+				list.add(q);
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		System.out.println(list);
+		
+		return list;
+		
+	}
+		
 }
+
+
 
 
 

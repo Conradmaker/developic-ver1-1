@@ -59,14 +59,36 @@ UPDATE
 </entry>
 
 
-	<entry key = "idCheck">
+<entry key = "idCheck">
 		
 		SELECT
 		       COUNT(*)
 		  FROM USERS
 		 WHERE USER_ID = ?
 			
-	</entry>
+</entry>
+
+<entry key = "selectQnaList">
+select *
+  from QNAS
+ where ANS_CONTENT is not null and QUSER_NO = ?
+
+</entry>
+
+
+<entry key = "selectQnaNList">
+select *
+  from QNAS
+ where ANS_CONTENT is null and QUSER_NO = ?
+
+</entry>
+
+<entry key = "selectAllQnaList">
+select *
+  from QNAS
+ where QUSER_NO = ?
+
+</entry>	
 	
 
 </properties>

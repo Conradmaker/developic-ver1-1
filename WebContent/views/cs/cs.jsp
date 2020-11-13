@@ -88,7 +88,7 @@
                       <button class="btn" @click="setQnaModal">
                         1:1문의 작성
                       </button>
-                      <button class="btn btn-yellow">작성 목록</button>
+                      <button class="btn btn-yellow" onclick="location.href='<%= contextPath %>/qnaList.us?userId=<%= loginUser.getUserNo()%>'">작성 목록</button>
                     </div>
                   </span>
                 </div>

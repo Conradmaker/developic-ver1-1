@@ -272,36 +272,54 @@ public class UserDao {
 		
 	}
 
-	public ArrayList<Qna> selectQnaList(Connection conn) {
+	
+	public ArrayList<Qna> selectQnaList(Connection conn,int uno) {
 		
 		// select문 => 여러행 조회 => ArrayList
 		ArrayList<Qna> list = new ArrayList<>(); 
 		
-		Statement stmt = null;
+		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = prop.getProperty("selectQnaList");
+		String sql = prop.getProperty("selectAllQnaList");
 		
 		try {
-			stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
 			
-			rset = stmt.executeQuery(sql);
+			pstmt.setInt(1, uno);
+			
+			rset = pstmt.executeQuery();
 			
 			while(rset.next()) {
-			//list.add(new Qna 
+				
+				Qna q = new Qna(  rset.getInt("QUE_ID")
+						        , rset.getString("QUE_TITLE")
+						        , rset.getString("QUE_CONTENT")
+						        , rset.getDate("QUE_CREATEDAT")
+						        , rset.getString("ANS_CONTENT")
+						        , rset.getDate("ANS_CREATEDAT")
+						        , rset.getInt("QUSER_NO")
+						        , rset.getInt("AUSER_NO"));
+				
+				list.add(q);
+				
+			}
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(rset);
-			close(stmt);
+			close(pstmt);
 		}
+		
+		System.out.println(list);
 		
 		return list;
 		
 	}
 		
-	}
+}
 
 
 

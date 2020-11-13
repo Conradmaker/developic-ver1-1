@@ -122,6 +122,7 @@
           </div>
           <div class="mypage-right">
             <!-- 네비게이션바 -->
+            <%if(loginUser!=null){ %>
             <ul class="right-nav">
               <li>
                 <a href="#" class="nav--active">▷개인정보수정</a>
@@ -145,9 +146,10 @@
                 <a href="<%= contextPath %>/list.cm">▷나의 댓글 목록</a>
               </li>
               <li>
-                <a href="<%= contextPath %>/qnaView.us">▷1:1문의내역</a>
+                <a href="<%= contextPath %>/qnaList.us?userId=<%= loginUser.getUserNo()%>">▷1:1문의내역</a>
               </li> 
             </ul>
+            <% } %>
           </div>
         </div>
         <!-- 여기까지 -->

@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.dia.user.model.vo.User"%>
+    pageEncoding="UTF-8" import="com.dia.user.model.vo.User" %>
+
+<%@ page import="com.dia.cs.model.vo.*, java.util.ArrayList" %>
 
 
+<%
+	ArrayList<Qna> list = (ArrayList<Qna>)request.getAttribute("qnaList");
+%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -16,15 +21,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/common.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/common.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage/userinfo.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/about.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
    </head>
   <body>
       
  <%@ include file="../../common/menubar.jsp" %>
- <%
-		String userId = loginUser.getUserId();
-		String userName = loginUser.getUserName();
- %>  	
+ 
+ 
+ <% if(list != null && loginUser !=null){ %>
  
         <!-- 여기에 컨텐츠 작성 -->
         <div class="mypage-container">
@@ -37,81 +42,32 @@
               1:1문의내역
               <em></em>
             </div>
-
+			 
             <div class="faq-and-qna">
               <div class="faq-box">
-                <span class="small-title">답변완료 목록</span>
+                <span class="small-title">1:1문의 목록</span>
                 <!-- 아이템 -->
                 <ul class="qna-list">
+                <% for(Qna q: list){ %> 
                   <li>
                     <div class="about-list-title">
-                      <h1>첫번째 질답입니다.</h1>
+                      <h1><%= q.getQueTitle()%></h1>
                       ▼
                     </div>
                     <div class="about-list-detail">
                       <p>
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
+                      <%= q.getQueContent()%>
+                      </p>
+                      <br>
+                       <p>
+                      <%= q.getAusContent()%>
                       </p>
                     </div>
-                  </li>
-                  <li>
-                    <div class="about-list-title">
-                      <h1>첫번째 질답입니다.</h1>
-                      ▼
-                    </div>
-                    <div class="about-list-detail">
-                      <p>
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="about-list-title">
-                      <h1>첫번째 질답입니다.</h1>
-                      ▼
-                    </div>
-                    <div class="about-list-detail">
-                      <p>
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div>
+                     <% } %>
                   </li>
                 </ul>
-                
-                <span class="small-title last-small-title">미답변 목록</span>
-                <ul class="qna-list">
-                  <li>
-                    <div class="about-list-title">
-                      <h1>첫번째 질답입니다.</h1>
-                      ▼
-                    </div>
-                    <div class="about-list-detail">
-                      <p>
-                        five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was
-                        popularised in the 1960s with the release of Letraset
-                        sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.
-                      </p>
-                    </div>
-                  </li>
-                </ul>
+       	<% } %>        
+
               </div>
 
               <div class="qna-box">
@@ -126,7 +82,7 @@
                     Lunch at PM 12:00 ~ 13:00
                   </p>
                   <div>
-                    <a href="../../cs/index.html#about-faq">
+                    <a href="<%= contextPath %>/about.cs">
                       <button class="btn btn-yellow">고객센터</button>
                     </a>
                   </div>
@@ -166,7 +122,7 @@
         </div>
         <!-- 여기까지 -->
       </main>
-      <script src="../../../assets/js/mypage/index.js"></script>
+      <script src="${pageContext.request.contextPath}/assets/js/mypage/index.js"></script>
     </div>
   </body>
 </html>

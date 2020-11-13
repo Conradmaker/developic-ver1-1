@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dia.cs.model.service.CsService;
-import com.dia.cs.model.vo.Faqs;
-import com.dia.cs.model.vo.Notices;
 import com.dia.cs.model.vo.Qna;
 import com.dia.user.model.service.UserService;
 
@@ -34,10 +31,9 @@ public class QnaListController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Qna> list = new UserService().selectQnaList();
-		
+		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int userNo = Integer.parseInt(request.getParameter("userId"));
+		ArrayList<Qna> list = new UserService().selectQnaList(userNo);
 		
 		request.setAttribute("qnaList", list);		
 		

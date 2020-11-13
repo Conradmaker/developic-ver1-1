@@ -156,11 +156,11 @@ public class UserService {
 	}
 
 
-	public ArrayList<Qna> selectQnaList() {
+	public ArrayList<Qna> selectQnaList(int uno) {
 	
 		Connection conn = getConnection();
 		
-		ArrayList<Qna> list = new UserDao().selectQnaList(conn);
+		ArrayList<Qna> list = new UserDao().selectQnaList(conn,uno);
 		
 		close(conn);
 		

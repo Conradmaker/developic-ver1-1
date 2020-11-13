@@ -102,6 +102,7 @@ const makeList = (v)=>{
     document.querySelector('.modal--picstory').appendChild(li);
     checkBox.addEventListener('change',(e)=>{
        document.querySelector('#picValue').value=e.target.value;
+       document.querySelector('#picsLabel').innerText = v.PicstoryName;
        console.log(document.querySelector('#picValue').value)
     })
 }

@@ -27,9 +27,9 @@
 
         <!-- 여기에 컨텐츠 작성 -->
         <div class="feed--banner">
-          <div class="btn--wrapper">
+          <!-- <div class="btn--wrapper">
             <button class="btn btn-blue btn-big">🌊 SHAKE PIC</button>
-          </div>
+          </div> -->
         </div>
         <h2 class="main--title">PICFEED</h2>
         <ul class="feed--category">

@@ -16,41 +16,8 @@
     <title>DEVELOPIC</title>
   </head>
   <body>
-    <div id="app">
-      <header class="header--container">
-        <div class="header--box">
-          <a href="#">
-            <img src="${pageContext.request.contextPath}/assets/images/logo.png" width="250px" alt="" />
-          </a>
-          <div class="header--right">
-            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">LOGIN</a>
-            <a href="${pageContext.request.contextPath}/views/user/login/login.jsp">SIGNUP</a
-            ><i @click="setSearchOpen"
-              ><i class="fas fa-search" @click=""></i
-            ></i>
-          </div>
-        </div>
-      </header>
-      <div class="search--container" :class="{searchActive:searchOpen}">
-        <form class="search--box" method="POST" action="">
-          <label><input type="checkbox" name="saleCheck" />판매여부</label>
-          <input type="text" placeholder="SEARCH" />
-          <i class="fas fa-search"></i
-          ><i class="fas fa-times" @click="setSearchOpen"></i>
-        </form>
-      </div>
-      <main class="main--container">
-        <ul class="navigation--main">
-          <a href="">
-            <li>PICFEED</li>
-          </a>
-          <a href="">
-            <li>PICSHOP</li>
-          </a>
-          <a href="">
-            <li>ABOUT</li>
-          </a>
-        </ul>
+  
+    <%@ include file="../common/menubar.jsp" %>
 
         <!-- 여기에 컨텐츠 작성 -->
         <div class="main--banner">
@@ -66,8 +33,8 @@
             <img src="${pageContext.request.contextPath}/assets/images/city.jpg" alt="" />
             <div class="feed--summary">
               <i class="fa fa-fw fa-heart fa-lg"></i>
-              <h1>작품명</h1>
-              <p>- 작가명</p>
+              <h1>도시</h1>
+              <p>- 유저사</p>
             </div>
           </div>
           <div class="feed--item">
@@ -185,7 +152,9 @@
         </div>
 
         <div class="more">
-          <a href=""><button class="btn btn-outline-green">MORE</button> </a>
+          <a href="">
+          	<button class="btn btn-outline-green" onclick="location.href='${pageContext.request.contextPath}/loadFeed?currentPage=1&category=0'">MORE</button>
+          </a>
         </div>
 
         <div class="ad--banner">
@@ -212,7 +181,6 @@
                 ><img
                   src="${pageContext.request.contextPath}/assets/images/picfeedimg (1).jpg"
                   alt=""
-                  srcset=""
               /></a>
             </div>
             <div class="item-info">
@@ -298,7 +266,9 @@
         </div>
 
         <div class="more">
-          <a href=""><button class="btn btn-outline-green">MORE</button> </a>
+          <a href="">
+          	<button type="button" class="btn btn-outline-green" onclick="location.href='${pageContext.request.contextPath}/shopCateList.ph?currentPage=1&category=0'">MORE</button> 
+          </a>
         </div>
 
         <a class="top-arrow" href="#">

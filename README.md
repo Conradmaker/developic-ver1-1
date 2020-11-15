@@ -1,9 +1,8 @@
-# developic-web-java
-
 # developic-java
-![enter image description here](https://lh3.googleusercontent.com/u5CxhnLrVnG0q1nteWTNHT7UZGj0LCSI9YKJAMpgjKY8sGXuYfTMgmZ6jLJwVWY1zpb6SN0J65Ek7RDyppCUz0B0OhyWV9feche3A1HRYQMpyhg-IHDjGFbfWAecMKLBM2bA-_2PKFARUXHmYv8usRRV76Ft27HzyTjp-CoyP_X7jhb-N99bGoJui3XmDx3-8gu4aMK6IpOiqybT2eUF2OjBRCaZKwSSkemW3R7EwBh_f-eNk8rR_7mQ3XHTN53Rg1aFrRVEJwxzKpsYcRJbWyUy2BkinsDGnaWgohMaYPg1RjCT2wZff2C7Rn5kZQbrMTnOdsSiSssfoAKzNRnepX3JbevkKN5CPNfrgwFSvmOIUID6zNXzIhqgBd9F7OHwPj4ovGyoaO2kzM1lU17nTPlMf2udptDs8jPdzdgAae3Dg1IL5EsJ_pHY02SkDM8lGBgHlRs_-2vG1spVYJA40ihBVslca8C_vCqeqCewdjpR6dzebxsEPWTa9r96-1kgEhqm8bCAhGYZQcFiSbugyZToh2saff863rgYCZpndPgx8ZxaHtdrY5q8vxka_fdnMDFaw0lOE-MgqIdUlYpSBDMouzsnA31HkGy-pqW1eJe49IjEV_PRRA8-H1wUOQlygo-6lWL5zx6HwxDYxDOLTzvLbBDZPUwO7sMFUMaoT0-YH1RlqKwkeF_zKGe5=w751-h454-no?authuser=0)
+https://thumb1.photo.cloud.naver.com/3472438072930333736?type=m1280_1280_2&nocache=0849011611
+It is a service with a shop function added to SNS such as Instagram for photographers specialized in photo content.
 
-This project is Academy SemiProject. 
+This service was developed by Team DIA
 
 ## Design Prototype
  You can access Adobe XD Design Prototype Result below Link
@@ -15,14 +14,15 @@ https://xd.adobe.com/view/9276072d-d5eb-4510-8569-c69dcb0a19cf-c725/?fullscreen&
 ## Project Stack
 
 ### Client
+- Normal CSS
 - Vanila JS
-- Axios or Ajax
-- JQuery (as needed)
-- ToastUI
-- JSP
+- Axios
+- ToastUI - editor
+- JavaServerPage
 
 ### Server
-- ORACLE DB
+- AWS (RDS)
+- ORACLE DataBase
 - Java
 - Apache Tomcat (WAS)
 
@@ -30,3 +30,15 @@ https://xd.adobe.com/view/9276072d-d5eb-4510-8569-c69dcb0a19cf-c725/?fullscreen&
 
 ## Contributions
 Any kinds of contributions are welecomed. But, pull requests might take a while.
+
+# Team DIA
+
+It is a team of 4 members, and the members are as follows
+
+-suin-d (https://github.com/suin-d)
+
+-EOMJI (https://github.com/bisous1519)
+
+-WonGeun (https://github.com/Conradmaker)
+
+-smwkdiek (https://github.com/smwkdiek)
